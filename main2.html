@@ -439,6 +439,13 @@
                 <amp-pixel src="https://top-fwz1.mail.ru/counter?id=3552907;js=na"></amp-pixel>
                 <!-- /Top.Mail.Ru counter -->
 
+		<!-- AMP State for managing cart -->
+		<amp-state id="cart">
+		  <script type="application/json">
+		    { "items": [] }
+		  </script>
+		</amp-state>
+
 	        <amp-state id="currentTab">
 		    <script type="application/json">
 		      {
@@ -531,7 +538,8 @@
 	    </amp-ad>
           </div>
 	</div>
-
+	
+	<!-- Tab 2: Галерея -->
 	<div class="tab-content" [hidden]="currentTab.tab != 'tab2'">
 	    <h2>Галерея</h2>
 		<div class="gallery">
@@ -666,55 +674,49 @@
 
 	  <div class="transparent-container" style="text-align:center;">
 	    <h3>Мёд гречишный 2024г. (Тёмный: гречиха и разнотравье):</h3>
-	    <div class="product">
-	      <amp-img src="images/3g.jpg" alt="Мёд гречишный 3 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-	     </a>
-	      <p>3л - 1800р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
-	    <div class="product">
-	      <amp-img src="images/2g.jpg" alt="Мёд гречишный 2 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-	     </a>
-	      <p>2л - 1200р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
-	    <div class="product">
-	      <amp-img src="images/1g.jpg" alt="Мёд гречишный 1 литр" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-	      <p>1л - 600р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
-	    <div class="product">
-	      <amp-img src="images/0.75g.jpg" alt="Мёд гречишный 0.75 литра" width="200" height="200" layout="responsive"lightbox role="button"></amp-img>
-	      <p>0.75л - 450р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
-	    <div class="product">
-	      <amp-img src="images/0.5g.jpg" alt="Мёд гречишный 0.5 литра" width="200" height="200" layout="responsive"lightbox role="button"></amp-img>
-	      <p>0.5л - 300р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
 
-	    <h3>Мёд цветочный 2024г. (Светлый: липа и разнотравье):</h3>
 	    <div class="product">
-	      <amp-img src="images/3c.jpg" alt="Мёд цветочный 3 литра" width="200" height="200" layout="responsive"lightbox role="button"></amp-img>
-	      <p>3л - 1800р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
-	    <div class="product">
-	      <amp-img src="images/2c.jpg" alt="Мёд цветочный 2 литра" width="200" height="200" layout="responsive"lightbox role="button"></amp-img>
-	      <p>2л - 1200р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
-	    <div class="product">
-	      <amp-img src="images/1c.jpg" alt="Мёд цветочный 1 литр" width="200" height="200" layout="responsive"lightbox role="button"></amp-img>
-	      <p>1л - 600р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
-	    <div class="product">
-	      <amp-img src="images/0.75c.jpg" alt="Мёд цветочный 0.75 литра" width="200" height="200" layout="responsive"lightbox role="button"></amp-img>
-	      <p>0.75л - 450р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
-	    <div class="product">
-	      <amp-img src="images/0.5с.jpg" alt="Мёд цветочный 0.5 литра" width="200" height="200" layout="responsive"lightbox role="button"></amp-img>
-	      <p>0.5л - 300р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
+	    <p>Мёд гречишный 1л - 600 р.</p>
+	    <button on="tap:AMP.setState({
+	      cart: {
+	        items: cart.items.concat({name: 'Мёд гречишный 1л', price: 600, quantity: 1})
+	      }
+	    })">Добавить в корзину</button>
+	  </div>
 
-	    <h3>Мёд 2023г. :</h3>
-	    <div class="product">
-	      <p>3л - 1500р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-	    </div>
+	  <div class="product">
+	    <p>Мёд цветочный 1л - 500 р.</p>
+	    <button on="tap:AMP.setState({
+	      cart: {
+	        items: cart.items.concat({name: 'Мёд цветочный 1л', price: 500, quantity: 1})
+	      }
+	    })">Добавить в корзину</button>
+	  </div>
+
+	  <h3>Корзина</h3>
+	  <amp-list width="auto" height="100" layout="fixed-height" [src]="cart.items" single-item>
+	    <template type="amp-mustache">
+	      <div>
+	        {{name}} - {{price}} р. ({{quantity}})
+	        <button on="tap:AMP.setState({
+	          cart: {
+	            items: cart.items.filter(item => item.name !== '{{name}}')
+	          }
+	        })">Удалить</button>
+	      </div>
+	    </template>
+	  </amp-list>
+
+	  <p>
+	    Общая сумма: 
+	    <span [text]="cart.items.reduce((total, item) => total + (item.price * item.quantity), 0)"></span> р.
+	  </p>
+
+	  <form method="post" action-xhr="/submit-order">
+	    <input type="hidden" name="cart" [value]="cart.items | json">
+	    <button type="submit">Оформить заказ</button>
+	  </form>
+	</div>
 	
 	  </div>
 
