@@ -11,7 +11,6 @@
 	    <meta name="keywords" content="VRNHoney, натуральный мёд, органический мёд, медовые продукты, пчелиный мёд, цветочный мёд, липовый мёд, гречишный мёд, магазин, полезные свойства мёда, медовые рецепты, медовый десерт, медовая косметика, медовый чай">
 	    <link rel="canonical" href="https://www.vrnhoney.ru">
 	    <link rel="icon" href="images/VRNHoney.ico" type="image/x-icon">
-	    <link rel="stylesheet" href="styles/styles.css">
 	    <script async src="https://cdn.ampproject.org/v0.js"></script>
 	    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 	    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
@@ -358,6 +357,15 @@
 		  background-color: #ff9900;
 		}
 
+		#cart-items {
+		  margin-top: 10px;
+		}
+
+		#total {
+		  font-size: 18px;
+		  font-weight: bold;
+		}
+
 		.footer {
 		  background-color: #f9f9f9;
 		  padding: 5px;
@@ -439,13 +447,6 @@
                 <amp-pixel src="https://top-fwz1.mail.ru/counter?id=3552907;js=na"></amp-pixel>
                 <!-- /Top.Mail.Ru counter -->
 
-		<!-- AMP State for managing cart -->
-		<amp-state id="cart">
-		  <script type="application/json">
-		    { "items": [] }
-		  </script>
-		</amp-state>
-
 	        <amp-state id="currentTab">
 		    <script type="application/json">
 		      {
@@ -463,6 +464,7 @@
 		      <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab1'}})">Мёд в Воронеже</a>
 		      <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab2'}})">Галерея</a>
 		      <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab3'}})">В магазин</a>
+		      <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab4'}})">Корзина</a>
 		      <button class="social-button" on="tap:AMP.navigateTo(url='https://vk.com/vrnhoney_ru')">Следите за нами</button>
 		    </div>
 		  </nav>
@@ -538,8 +540,7 @@
 	    </amp-ad>
           </div>
 	</div>
-	
-	<!-- Tab 2: Галерея -->
+
 	<div class="tab-content" [hidden]="currentTab.tab != 'tab2'">
 	    <h2>Галерея</h2>
 		<div class="gallery">
@@ -651,6 +652,7 @@
                       }
                     </script>
                   </amp-state>
+
 	<div class="ad-container" [class]="adState2.visible ? 'ad-container' : 'ad-container hidden'">
             <amp-ad
 		    width="auto"
@@ -663,6 +665,7 @@
           </div>
 	</div>
 
+	<!-- Вкладка в магазин -->
 	<div class="tab-content" [hidden]="currentTab.tab != 'tab3'">
 	  <h2>Наши товары</h2>
 		<div class="transparent-container">
@@ -673,52 +676,100 @@
                 </div>
 
 	  <div class="transparent-container" style="text-align:center;">
-	    <h3>Мёд гречишный 2024г. (Тёмный: гречиха и разнотравье):</h3>
-
-	    <div class="product">
-	    <p>Мёд гречишный 1л - 600 р.</p>
-	    <button on="tap:AMP.setState({
-	      cart: {
-	        items: cart.items.concat({name: 'Мёд гречишный 1л', price: 600, quantity: 1})
-	      }
-	    })">Добавить в корзину</button>
-	  </div>
-
+	  <h3>Мёд гречишный 2024г. (Тёмный: гречиха и разнотравье):</h3>
 	  <div class="product">
-	    <p>Мёд цветочный 1л - 500 р.</p>
-	    <button on="tap:AMP.setState({
-	      cart: {
-	        items: cart.items.concat({name: 'Мёд цветочный 1л', price: 500, quantity: 1})
-	      }
-	    })">Добавить в корзину</button>
+	    <amp-img src="images/3g.jpg" alt="Мёд гречишный 3 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>3л - 1800р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд гречишный 3л', price: 1800 }]), total: cartData.total + 1800}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
+	  <div class="product">
+	    <amp-img src="images/2g.jpg" alt="Мёд гречишный 2 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>2л - 1200р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд гречишный 2л', price: 1200 }]), total: cartData.total + 1200}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
+	  <div class="product">
+	    <amp-img src="images/1g.jpg" alt="Мёд гречишный 1 литр" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>1л - 600р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд гречишный 1л', price: 600 }]), total: cartData.total + 600}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
+	  <div class="product">
+	    <amp-img src="images/0.75g.jpg" alt="Мёд гречишный 0.75 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>0.75л - 450р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд гречишный 0.75л', price: 450 }]), total: cartData.total + 450}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
+	  <div class="product">
+	    <amp-img src="images/0.5g.jpg" alt="Мёд гречишный 0.5 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>0.5л - 300р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд гречишный 0.5л', price: 300 }]), total: cartData.total + 300}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
 	  </div>
 
-	  <h3>Корзина</h3>
-	  <amp-list width="auto" height="100" layout="fixed-height" [src]="cart.items" single-item>
-	    <template type="amp-mustache">
-	      <div>
-	        {{name}} - {{price}} р. ({{quantity}})
-	        <button on="tap:AMP.setState({
-	          cart: {
-	            items: cart.items.filter(item => item.name !== '{{name}}')
-	          }
-	        })">Удалить</button>
-	      </div>
-	    </template>
-	  </amp-list>
+	  <h3>Мёд цветочный 2024г. (Светлый: липа и разнотравье):</h3>
+	  <div class="product">
+	    <amp-img src="images/3c.jpg" alt="Мёд цветочный 3 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>3л - 1800р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд цветочный 3л', price: 1800 }]), total: cartData.total + 1800}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
+	  <div class="product">
+	    <amp-img src="images/2c.jpg" alt="Мёд цветочный 2 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>2л - 1200р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд цветочный 2л', price: 1200 }]), total: cartData.total + 1200}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
+	  <div class="product">
+	    <amp-img src="images/1c.jpg" alt="Мёд цветочный 1 литр" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>1л - 600р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд цветочный 1л', price: 600 }]), total: cartData.total + 600}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
+	  <div class="product">
+	    <amp-img src="images/0.75c.jpg" alt="Мёд цветочный 0.75 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>0.75л - 450р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд цветочный 0.75л', price: 450 }]), total: cartData.total + 450}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
+	  <div class="product">
+	    <amp-img src="images/0.5с.jpg" alt="Мёд цветочный 0.5 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
+	    <p>0.5л - 300р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд цветочный 0.5л', price: 300 }]), total: cartData.total + 300}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
 
-	  <p>
-	    Общая сумма: 
-	    <span [text]="cart.items.reduce((total, item) => total + (item.price * item.quantity), 0)"></span> р.
-	  </p>
-
-	  <form method="post" action-xhr="/submit-order">
-	    <input type="hidden" name="cart" [value]="cart.items | json">
-	    <button type="submit">Оформить заказ</button>
-	  </form>
+	  <h3>Мёд 2023г. :</h3>
+	  <div class="product">
+	    <p>3л - 1500р 
+	      <button on="tap:AMP.setState({cartData: {items: cartData.items.concat([{ item: 'Мёд 3л', price: 1500 }]), total: cartData.total + 1500}})">
+	        Добавить в корзину
+	      </button>
+	    </p>
+	  </div>
 	</div>
-	
-	  </div>
+
 
 	<amp-state id="adState3">
                     <script type="application/json">
@@ -739,6 +790,39 @@
 	     </amp-ad>
           </div>
 	  
+	</div>
+
+	<!-- Инициализация состояния корзины -->
+            <amp-state id="cartData">
+              <script type="application/json">
+                {
+                  "items": [],
+                  "total": 0
+                }
+              </script>
+            </amp-state>
+
+	<!-- Корзина -->
+        <div class="tab-content" [hidden]="currentTab.tab != 'tab4'">
+	  <div class="transparent-container">
+	    <h1>Корзина</h1>
+
+	    <!-- Если корзина пуста -->
+	    <p [hidden]="cartData.items.length > 0">Ваша корзина пуста.</p>
+
+	    <!-- Если в корзине есть товары -->
+	    <ul [hidden]="cartData.items.length == 0">
+	      <template type="amp-mustache">
+	        <li>{{item}} - {{price}}р</li>
+	      </template>
+	    </ul>
+
+	    <!-- Общая сумма -->
+	    <p>Общая сумма: <span [text]="cartData.total"></span>р</p>
+
+	    <!-- Кнопка очистки корзины -->
+	    <button on="tap:AMP.setState({cartData: {items: [], total: 0}})">Очистить корзину</button>
+	  </div>
 	</div>
 
 	<footer class="footer">
