@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <!-- Главная страница -->
+    <url>
+        <loc>https://www.vrnhoney.ru/</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/"/>
+    </url>
+    
+    <!-- Основные разделы -->
+    <url>
+        <loc>https://www.vrnhoney.ru/#tab1</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/#tab1"/>
+    </url>
+    
+    <url>
+        <loc>https://www.vrnhoney.ru/#tab2</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/#tab2"/>
+    </url>
+    
+    <url>
+        <loc>https://www.vrnhoney.ru/#tab3</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/#tab3"/>
+    </url>
+    
+    <!-- Продукты -->
+    <url>
+        <loc>https://www.vrnhoney.ru/products/grechishny-med</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/products/grechishny-med"/>
+    </url>
+    
+    <url>
+        <loc>https://www.vrnhoney.ru/products/tsvetochny-med</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/products/tsvetochny-med"/>
+    </url>
+    
+    <!-- Информационные страницы -->
+    <url>
+        <loc>https://www.vrnhoney.ru/about</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/about"/>
+    </url>
+    
+    <url>
+        <loc>https://www.vrnhoney.ru/contact</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/contact"/>
+    </url>
+    
+    <!-- Социальные сети -->
+    <url>
+        <loc>https://vk.com/vrnhoney_ru</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset>

@@ -1,0 +1,483 @@
+/* VRNHoney - Основные стили */
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основные стили страницы */
+body {
+    display: flex;
+    background-image: url('images/Background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Заголовки */
+h1 {
+    font-size: clamp(24px, 4vw, 32px);
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 
+        0px 0px 8px rgba(255, 255, 255, 1),
+        0px 0px 20px rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(20px, 3.5vw, 26px);
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 
+        0px 0px 8px rgba(255, 255, 255, 1),
+        0px 0px 20px rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: clamp(18px, 3vw, 20px);
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 25px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+nav a {
+    display: flex;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 16px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    margin: 0 5px;
+}
+
+nav a:hover {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Мобильное меню */
+.menu-icon {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    font-size: 28px;
+    user-select: none;
+    z-index: 9999;
+    color: #2c3e50;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-header {
+    display: none;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    border-radius: 15px 15px 0 0;
+}
+
+.menu-header img {
+    display: none;
+    width: 35px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.menu-header p {
+    display: none;
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.menu-items {
+    display: flex;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    animation: fadeIn 0.5s ease;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Контейнеры */
+.transparent-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1200px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Вкладки */
+.tab-content {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+/* Галерея */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.gallery amp-img {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery amp-img:hover {
+    transform: scale(1.05);
+}
+
+/* Товары */
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product amp-img {
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product p {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Кнопки */
+button {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.social-button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    margin: 10px;
+}
+
+.social-button:hover {
+    background: linear-gradient(135deg, #2980b9, #1f5f8b);
+    transform: translateY(-2px);
+}
+
+/* Ссылки */
+.contact-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Списки */
+ul {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+li {
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+/* Параграфы */
+p {
+    margin: 15px 0;
+    color: #2c3e50;
+    line-height: 1.8;
+}
+
+/* Футер */
+.footer {
+    background: rgba(44, 62, 80, 0.9);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    backdrop-filter: blur(10px);
+}
+
+.footer a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #2980b9;
+}
+
+.footer-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    nav {
+        width: 95%;
+        height: 45px;
+    }
+    
+    nav a {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .transparent-container {
+        padding: 20px;
+        margin: 15px auto;
+        width: 95%;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    
+    .product {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        width: 98%;
+        height: 40px;
+    }
+    
+    nav a {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .transparent-container {
+        padding: 15px;
+        margin: 10px auto;
+        width: 98%;
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .product {
+        margin: 5px;
+        padding: 10px;
+    }
+    
+    .menu-icon {
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+}
+
+/* Состояния навигации */
+nav.active {
+    display: flex;
+    border: 2px solid #3498db;
+    width: 80%;
+    margin-left: 10%;
+    height: auto;
+    flex-direction: column;
+    padding: 20px;
+}
+
+nav.active .menu-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+nav.active .menu-header {
+    display: flex;
+    width: 100%;
+}
+
+nav.active .menu-header img {
+    display: block;
+}
+
+nav.active .menu-header p {
+    display: block;
+}
+
+/* Оверлей */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+nav.active + .overlay {
+    display: block;
+}
+
+/* Улучшения для AMP */
+amp-img {
+    transition: opacity 0.3s ease;
+}
+
+amp-img[layout="responsive"] {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Скрытие навигации на мобильных */
+@media (max-width: 600px) {
+    nav {
+        display: none;
+    }
+    
+    .menu-icon {
+        display: flex;
+    }
+    
+    .menu-items {
+        display: none;
+    }
+    
+    .menu-header {
+        display: flex;
+    }
+    
+    .menu-header img {
+        display: block;
+    }
+    
+    .menu-header p {
+        display: block;
+    }
+}
