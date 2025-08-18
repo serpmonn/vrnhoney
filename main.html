@@ -11,6 +11,10 @@
 	    <meta name="keywords" content="VRNHoney, натуральный мёд, органический мёд, медовые продукты, пчелиный мёд, цветочный мёд, липовый мёд, гречишный мёд, магазин, полезные свойства мёда, медовые рецепты, медовый десерт, медовая косметика, медовый чай">
 	    <link rel="canonical" href="https://www.vrnhoney.ru">
 	    <link rel="icon" href="images/VRNHoney.ico" type="image/x-icon">
+		<!-- Скрипты -->
+		<!-- Yandex.RTB -->
+		<script>window.yaContextCb=window.yaContextCb||[]</script>
+		<script src="https://yandex.ru/ads/system/context.js" async></script>
 	    <script async src="https://cdn.ampproject.org/v0.js"></script>
 	    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 	    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
@@ -108,7 +112,7 @@
 	            display: none;                      /* Скрывает элемент */
 	            align-items: center;                /* Выравнивает дочерние элементы по вертикали по центру внутри flex-контейнера */
 	            padding: 10px;                      /* Добавляет внутренние отступы в 10 пикселей со всех сторон элемента */
-	            background-color: #333;             /* Устанавливает фоновый цвет элемента на темно-серый (#333) */
+	            background-color: #333;           /* Устанавливает фоновый цвет элемента на темно-серый (#333) */
 	        }
 
 	        .menu-header img {                      /* Стиль логотипа мобильного меню */
@@ -120,7 +124,7 @@
 
 	        .menu-header p {                        /* Стиль параграфов внутри элемента .menu-header */
 	            display: none;                      /* Изначально элемент скрыт (открывается только на экранах больше 600 пикселей) */
-	            color: white;                       /* Устанавливает цвет текста на белый */
+	            color: white;                     /* Устанавливает цвет текста на белый */
 	            margin: 0;                          /* Убирает все внешние отступы */
 	            font-size: 26px;                    /* Устанавливает размер текста на 18 пикселей */
 	            margin-left: 10px;                  /* Добавляет отступ слева в 40 пикселей */
@@ -128,21 +132,21 @@
 
 	        .menu-items {                           /* Cтиль для элемента с классом menu-items */
 	            display: flex;                      /* Изначально показывает элемент (в мобильной версии скрыт) */
-	            background-color: #333;             /* Устанавливает фоновый цвет элемента на темно-серый (#333) */
+	            background-color: #333;           /* Устанавливает фоновый цвет элемента на темно-серый (#333) */
 	            animation: fadeIn 0.5s ease;        /* Применяет анимацию fadeIn к элементу с продолжительностью 0.5 секунды и плавным эффектом (ease) */
 	            justify-content: flex-start;        /* Выравнивает элементы контейнера по левому краю */
 	        }
 
 	        .menu-items a:hover {                   /* Cтили, описанные внутри фигурных скобок {}, будут применяться к элементам <a> (ссылкам) внутри элементов с классом menu-items, когда на них наводят курсор мыши.*/
-	            background-color: black;            /* Фон чёрный */
-	            color: turquoise;                   /* Цвет текста бирюзовый при наведении на него мышью */
+	            background-color: black;          /* Фон чёрный */
+	            color: turquoise;                 /* Цвет текста бирюзовый при наведении на него мышью */
 	        }
 
 	        /* Кнопка социальных сетей*/
 
 	        .social-button {
-	            background-color: #3a6f9e;          /* Фон кнопки:  Голубой */
-	            color: #ffffff;                     /* Цвет текста кнопки: Белый */
+	            background-color: #3a6f9e;        /* Фон кнопки:  Голубой */
+	            color: #ffffff;                   /* Цвет текста кнопки: Белый */
 	            padding: 6px 12px;                  /* Отступы кнопки */
 	            border-radius: 8px;                 /* Скругление углов кнопки */
 	            cursor: pointer;                    /* Изменение стиля курсора при наведении на кнопку */
@@ -151,7 +155,7 @@
 	        }
 
 	        .social-button:hover {                  /* CSS-селектор, который применяется к элементам с классом social-button, когда на них наводят курсор мыши. Стили, описанные внутри фигурных скобок {}, будут применяться только в момент наведения курсора.*/
-	            background-color: #335a8e;          /* Измененный цвет фона при наведении */
+	            background-color: #335a8e;        /* Измененный цвет фона при наведении */
 	        }
 
 	        /* Стиль страницы */
@@ -368,7 +372,7 @@
 		.footer-icon {
 		  vertical-align: middle;
 		  margin-right: 5px;
-		  border-radius: 50%;
+		  border-radius: 50%;			/* Скругляет углы значка */
 		}
 
 	        footer {                                /* Стиль для футера (подвала) */
@@ -422,6 +426,7 @@
 
 	        .menu-header img {                  	/* Стиль логотипа мобильного меню */
 	                display: flex;                  /* Отображает элемент логотипа в меню */
+			border-radius: 50%;		/* Скругляет углы значка */
 	        }
 
 	        .menu-header p {
@@ -451,7 +456,7 @@
 		      </div>
 		      <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab1'}})">Мёд в Воронеже</a>
 		      <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab2'}})">Галерея</a>
-		      <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab3'}})">В магазин</a>
+		      <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab3'}})">Купить мёд</a>
 		      <button class="social-button" on="tap:AMP.navigateTo(url='https://vk.com/vrnhoney_ru')">Следите за нами</button>
 		    </div>
 		  </nav>
@@ -513,7 +518,7 @@
 			    width="300" 
 			    height="250"
 			    type="mytarget"
-			    data-ad-slot="1755631">
+			    data-ad-slot="1844437">
 		    </amp-ad>
 	</div>
 
@@ -615,7 +620,7 @@
 			    width="300" 
 			    height="250"
 			    type="mytarget"
-			    data-ad-slot="1755633">
+			    data-ad-slot="1844439">
 		    </amp-ad>
 	</div>
 
@@ -685,7 +690,7 @@
 		    width="300" 
 		    height="250"
 		    type="mytarget"
-		    data-ad-slot="1755635">
+		    data-ad-slot="1844447">
 		  </amp-ad>
 	</div>
 
@@ -695,57 +700,7 @@
 	  <a href="https://www.adventure36.ru" target="_blank"><img src="/images/Adventure36.ico" alt="Adventure36 Logo" class="footer-icon" width="15" height="15"><span style="color: green;">Adventure36</span></a> 
 	  <a href="https://www.onehouseboat.ru" target="_blank"><img src="images/OneHouseBoat.ico" class="footer-icon" width="15" height="15"><span style="color: #008080;">OneHouseBoat</span></a>
 	</footer>
+	
 
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
