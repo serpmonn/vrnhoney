@@ -84,6 +84,21 @@ for img in images/*.jpg; do
     fi
 done
 
+# Оптимизируем изображения продуктов
+echo "📦 Оптимизация изображений продуктов..."
+for img in images/*g.jpg images/*c.jpg; do
+    if [ -f "$img" ]; then
+        filename=$(basename "$img")
+        echo "Обрабатываю продукт: $filename"
+        
+        convert "$img" -quality 90 -resize 400x400^ "images/optimized/${filename%.*}-400w.jpg"
+        convert "$img" -quality 90 -resize 200x200^ "images/optimized/${filename%.*}-200w.jpg"
+        
+        jpegoptim --strip-all --max=85 "images/optimized/${filename%.*}-400w.jpg"
+        jpegoptim --strip-all --max=85 "images/optimized/${filename%.*}-200w.jpg"
+    fi
+done
+
 # ========================================
 # СОЗДАНИЕ WEBP ВЕРСИЙ
 # ========================================
@@ -109,31 +124,27 @@ echo "📊 Создание отчета об оптимизации..."
 echo "# Отчет об оптимизации изображений VRNHoney" > "images/optimization-report.md"
 echo "Дата: $(date)" >> "images/optimization-report.md"
 echo "" >> "images/optimization-report.md"
-echo "## 📈 Результаты оптимизации" >> "images/optimization-report.md"
-echo "" >> "images/optimization-report.md"
-echo "### Фоновое изображение" >> "images/optimization-report.md"
-if [ -f "images/Background.jpeg" ] && [ -f "images/optimized/Background-optimized.jpeg" ]; then
-    original_size=$(du -h "images/Background.jpeg" | cut -f1)
-    optimized_size=$(du -h "images/optimized/Background-optimized.jpeg" | cut -f1)
-    echo "- Оригинал: $original_size" >> "images/optimization-report.md"
-    echo "- Оптимизировано: $optimized_size" >> "images/optimization-report.md"
-fi
-echo "" >> "images/optimization-report.md"
-echo "### Галерея изображений" >> "images/optimization-report.md"
-echo "- Создано адаптивных версий: $(ls images/optimized/*-800w.jpg 2>/dev/null | wc -l)" >> "images/optimization-report.md"
-echo "- WebP версий: $(ls images/optimized/*.webp 2>/dev/null | wc -l)" >> "images/optimization-report.md"
-echo "" >> "images/optimization-report.md"
-echo "## 🛠️ Использованные инструменты" >> "images/optimization-report.md"
-echo "- ImageMagick: $(convert --version | head -1)" >> "images/optimization-report.md"
-echo "- jpegoptim: $(jpegoptim --version | head -1)" >> "images/optimization-report.md"
-echo "" >> "images/optimization-report.md"
-echo "## 📱 Рекомендации по использованию" >> "images/optimization-report.md"
-echo "1. Используйте изображения с суффиксом -800w для больших экранов" >> "images/optimization-report.md"
-echo "2. Используйте изображения с суффиксом -400w для планшетов" >> "images/optimization-report.md"
-echo "3. Используйте изображения с суффиксом -200w для мобильных устройств" >> "images/optimization-report.md"
-echo "4. WebP версии для современных браузеров с поддержкой этого формата" >> "images/optimization-report.md"
 
-echo "✅ Отчет сохранен в: images/optimization-report.md"
+echo "## Размеры файлов до оптимизации:" >> "images/optimization-report.md"
+du -h images/*.jpg images/*.jpeg 2>/dev/null | sort -hr >> "images/optimization-report.md"
+
+echo "" >> "images/optimization-report.md"
+echo "## Размеры файлов после оптимизации:" >> "images/optimization-report.md"
+du -h images/optimized/*.jpg images/optimized/*.webp 2>/dev/null | sort -hr >> "images/optimization-report.md"
+
+echo "" >> "images/optimization-report.md"
+echo "## Экономия места:" >> "images/optimization-report.md"
+original_size=$(du -cb images/*.jpg images/*.jpeg 2>/dev/null | tail -1 | cut -f1)
+optimized_size=$(du -cb images/optimized/*.jpg images/optimized/*.webp 2>/dev/null | tail -1 | cut -f1)
+if [ ! -z "$original_size" ] && [ ! -z "$optimized_size" ]; then
+    savings=$((original_size - optimized_size))
+    savings_mb=$((savings / 1024 / 1024))
+    echo "Экономия: ${savings_mb}MB (${savings} байт)" >> "images/optimization-report.md"
+fi
+
+echo "✅ Оптимизация завершена!"
+echo "📁 Оптимизированные изображения сохранены в: images/optimized/"
+echo "📊 Отчет сохранен в: images/optimization-report.md"
 echo "🌐 WebP версии созданы для современных браузеров"
 
 # ========================================
@@ -146,7 +157,3 @@ echo "📈 Статистика оптимизации:"
 echo "Оригинальные изображения: $(ls images/*.jpg images/*.jpeg 2>/dev/null | wc -l)"
 echo "Оптимизированные изображения: $(ls images/optimized/*.jpg 2>/dev/null | wc -l)"
 echo "WebP версии: $(ls images/optimized/*.webp 2>/dev/null | wc -l)"
-
-echo ""
-echo "🎉 Оптимизация изображений завершена!"
-echo "📁 Результаты сохранены в папке: images/optimized/"
