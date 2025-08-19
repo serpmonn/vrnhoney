@@ -501,6 +501,16 @@ amp-img[layout="responsive"] {
     height: auto;
 }
 
+/* Рекламные блоки */
+.ad-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.ad-under-nav {
+    margin-top: 70px; /* ниже фиксированной навигации */
+}
+
 /* Скрытие навигации на мобильных */
 @media (max-width: 600px) {
     nav {
