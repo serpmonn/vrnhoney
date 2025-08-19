@@ -195,8 +195,14 @@ nav a:hover {
     display: none !important;
 }
 
-.tab-content[hidden] {
-    display: none !important;
+/* На случай если AMP-биндинг не успел примениться, скрываем всё,
+   кроме явно видимого блока без атрибута hidden */
+.tab-content {
+    display: none;
+}
+
+.tab-content:not([hidden]) {
+    display: block;
 }
 
 /* Галерея */
