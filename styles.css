@@ -306,23 +306,24 @@ li {
 
 /* Футер */
 .footer {
-    background: rgba(44, 62, 80, 0.9);
-    color: white;
+    background: rgba(255, 255, 255, 0.7);
+    color: #5a4633;
     text-align: center;
-    padding: 20px;
-    margin-top: auto;
-    backdrop-filter: blur(10px);
+    padding: 10px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .footer a {
-    color: #f39c12;
+    color: #5a4633;
     text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s ease;
+    margin: 0 8px;
+    transition: color 0.2s ease;
 }
 
 .footer a:hover {
-    color: #d35400;
+    color: #f39c12;
+    text-decoration: underline;
 }
 
 .footer-icon {
