@@ -195,10 +195,6 @@ nav a:hover {
     display: none !important;
 }
 
-.tab-content[hidden] {
-    display: none !important;
-}
-
 /* Галерея */
 .gallery {
     display: grid;
