@@ -338,6 +338,7 @@ li {
     box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     z-index: 1000;
     white-space: nowrap;
+    box-sizing: border-box;
 }
 
 .footer a {
@@ -450,9 +451,21 @@ li {
         padding: 6px 10px;
         gap: 6px;
         font-size: 12px;
+        max-width: calc(100% - 12px);
     }
 
     .footer a { margin: 0 6px; }
+}
+
+@media (max-width: 360px) {
+    .footer {
+        padding: 4px 8px;
+        gap: 4px;
+        font-size: 10px;
+        max-width: calc(100% - 8px);
+    }
+
+    .footer a { margin: 0 4px; }
 }
 
 /* Состояния навигации */
