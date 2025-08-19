@@ -35,6 +35,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Современные шрифты */
     margin: 0;                          /* Убираем внешние отступы */
     padding: 0;                         /* Убираем внутренние отступы */
+    padding-bottom: 56px;               /* Отступ под фиксированный прозрачный футер */
     flex-direction: column;             /* Элементы располагаются вертикально */
     min-height: 100vh;                  /* Минимальная высота равна высоте экрана */
     line-height: 1.6;                   /* Удобная высота строки для чтения */
@@ -320,12 +321,17 @@ li {
 
 /* Футер */
 .footer {
-    background: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
     color: #5a4633;
     text-align: center;
-    padding: 10px;
-    margin-top: auto;
+    padding: 10px 12px;
     border-top: 1px solid rgba(0,0,0,0.05);
+    z-index: 1000;
 }
 
 .footer a {
