@@ -182,7 +182,7 @@
      * ======================================== -->
     
     <!-- Вкладка 1: Основная информация о мёде -->
-    <div class="tab-content" [hidden]="currentTab.tab != 'tab1'">
+    <div class="tab-content default-open" [hidden]="currentTab.tab != 'tab1'">
         <div class="transparent-container">
             <h1>Мёд</h1>
             <p>
@@ -242,7 +242,7 @@
     </div>
     
     <!-- Вкладка 2: Галерея изображений пасеки и продуктов -->
-    <div class="tab-content" [hidden]="currentTab.tab != 'tab2'">
+    <div class="tab-content" [hidden]="currentTab.tab != 'tab2'" hidden>
         <h2>Галерея</h2>
         
         <div class="gallery">
@@ -344,7 +344,7 @@
     </div>
     
     <!-- Вкладка 3: Каталог товаров и контактная информация -->
-    <div class="tab-content" [hidden]="currentTab.tab != 'tab3'">
+    <div class="tab-content" [hidden]="currentTab.tab != 'tab3'" hidden>
         <h2>Наши товары</h2>
         
         <!-- Контактная информация для заказа -->
