@@ -325,7 +325,9 @@ li {
     bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(8px);
     color: #5a4633;
@@ -335,6 +337,7 @@ li {
     border-radius: 9999px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     z-index: 1000;
+    white-space: nowrap;
 }
 
 .footer a {
@@ -441,6 +444,15 @@ li {
         height: 40px;
         font-size: 24px;
     }
+
+    .footer {
+        bottom: 8px;
+        padding: 6px 10px;
+        gap: 6px;
+        font-size: 12px;
+    }
+
+    .footer a { margin: 0 6px; }
 }
 
 /* Состояния навигации */
@@ -509,6 +521,10 @@ amp-img[layout="responsive"] {
 
 .ad-under-nav {
     margin-top: 70px; /* ниже фиксированной навигации */
+}
+
+@media (min-width: 769px) {
+    .ad-under-nav { display: none; }
 }
 
 /* Скрытие навигации на мобильных */
