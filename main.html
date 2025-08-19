@@ -76,43 +76,63 @@
     <!-- Локаль (русский язык) -->
     <meta property="og:locale" content="ru_RU">
     
-    <!-- Twitter Card Meta Tags -->
+    <!-- ========================================
+     * TWITTER CARD МЕТА-ТЕГИ
+     * ======================================== -->
+    
+    <!-- Тип Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Заголовок для Twitter -->
     <meta name="twitter:title" content="VRNHoney - Натуральный мёд в Воронеже">
-    <meta name="twitter:description" content="Купить натуральный мёд высокого качества в Воронеже! Гречишный и цветочный мёд.">
+    
+    <!-- Описание для Twitter -->
+    <meta name="twitter:description" content="Купить натуральный мёд высокого качества в Воронеже!">
+    
+    <!-- Изображение для Twitter -->
     <meta name="twitter:image" content="https://www.vrnhoney.ru/images/VRNHoney.ico">
     
-    <!-- Canonical URL -->
+    <!-- ========================================
+     * ДОПОЛНИТЕЛЬНЫЕ МЕТА-ТЕГИ
+     * ======================================== -->
+    
+    <!-- Канонический URL -->
     <link rel="canonical" href="https://www.vrnhoney.ru">
     
-    <!-- Favicon -->
-    <link rel="icon" href="images/VRNHoney.ico" type="image/x-icon">
+    <!-- Favicon и иконки -->
+    <link rel="icon" type="image/x-icon" href="images/VRNHoney.ico">
     <link rel="apple-touch-icon" href="images/VRNHoney.ico">
     
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Заголовок страницы -->
+    <title>VRNHoney - Натуральный мёд высокого качества в Воронеже</title>
     
-    <!-- AMP Scripts -->
+    <!-- ========================================
+     * AMP СКРИПТЫ И СТИЛИ
+     * ======================================== -->
+    
+    <!-- AMP скрипт -->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
-    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-    <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
-    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
     
-    <!-- AMP Boilerplate -->
+    <!-- AMP стили -->
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
     <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     
-    <!-- Yandex.RTB -->
-    <script>window.yaContextCb=window.yaContextCb||[]</script>
-    <script src="https://yandex.ru/ads/system/context.js" async></script>
+    <!-- Внешний CSS файл -->
+    <link rel="stylesheet" href="styles.css">
     
-    <title>VRNHoney - Натуральный мёд в Воронеже | Купить мёд высокого качества</title>
+    <!-- AMP компоненты -->
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+    <script async custom-element="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    
+    <!-- Yandex.RTB скрипт -->
+    <script async src="https://yandex.ru/ads/system/context.js"></script>
 </head>
 
 <body>
@@ -128,7 +148,7 @@
         }
         </script>
     </amp-state>
-
+    
     <!-- ========================================
      * НАВИГАЦИЯ И МЕНЮ
      * ======================================== -->
@@ -153,10 +173,10 @@
             <button class="social-button" on="tap:AMP.navigateTo(url='https://vk.com/vrnhoney_ru')">Следите за нами</button>
         </div>
     </nav>
-
-    <!-- Overlay -->
+    
+    <!-- Overlay для мобильного меню -->
     <div on="tap:AMP.setState({menuOpen: false})" role="button" tabindex="0" class="overlay"></div>
-
+    
     <!-- ========================================
      * ВКЛАДКИ СОДЕРЖИМОГО
      * ======================================== -->
@@ -171,46 +191,30 @@
             <p>Мед из подсолнуха — это самый распространенный и доступный сорт полезного продукта. На рынке его оценивают не слишком высоко из-за сильной конкуренции между продавцами, однако полезных свойств меньше в продукте от этого не становится. Главное, что характеризует подсолнечный мед, — быстрая кристаллизация. Но это не считается серьезным недостатком продукта, ведь его полезные свойства от этого не теряются.</p>
             
             <h2>Цвет и свойства</h2>
-            <p>Мед, собранный пчелами на подсолнухе и сразу выкачанный пчеловодом, светлый. Когда он отстаивается, запускается процесс кристаллизации, цвет темнеет, становится горчичного оттенка. На застывшем меде всегда образуется белый тонкий глюкозный слой.</p>
+            <p>Подсолнечный мед имеет ярко-желтый цвет, иногда с зеленоватым оттенком. В жидком виде он прозрачный, но быстро кристаллизуется, приобретая мелкозернистую структуру. Вкус у него сладкий, с легкой кислинкой и характерным ароматом подсолнечника.</p>
             
-            <p>Подсчитано, что в 100 граммах меда 320 ккал — это немало. Поэтому съедать сразу большое количество подсолнечного меда не рекомендуется. Дневную норму необходимо рассчитывать, отталкиваясь от массы тела человека. В среднем допустимый дневной диапазон 55-95 г.</p>
-            
-            <p>Натуральный мед подсолнечника содержит:</p>
+            <h2>Полезные свойства</h2>
             <ul>
-                <li>углеводы — 79%;</li>
-                <li>вода — 17%;</li>
-                <li>белки и витамины — 3%;</li>
-                <li>минеральные вещества — 1%.</li>
+                <li><strong>Антибактериальные свойства</strong> - помогает бороться с инфекциями</li>
+                <li><strong>Иммуностимулирующее действие</strong> - укрепляет защитные силы организма</li>
+                <li><strong>Противовоспалительный эффект</strong> - снимает воспаления</li>
+                <li><strong>Антиоксидантные свойства</strong> - защищает от свободных радикалов</li>
+                <li><strong>Улучшение пищеварения</strong> - нормализует работу ЖКТ</li>
             </ul>
             
-            <h2>Минералы и витамины</h2>
-            <p>Подсолнечный нектар сочетает в себе множество витаминных и минеральных компонентов — ученые насчитали их почти 300. При этом организм способен их с легкостью усваивать. Данные полезные составляющие продукта переработки пчел оказывают положительное действие на организм человека.</p>
+            <h2>Применение в медицине</h2>
+            <p>Подсолнечный мед широко используется в народной медицине для лечения простудных заболеваний, кашля, бронхита. Он также эффективен при лечении ран, ожогов и кожных заболеваний благодаря своим антисептическим свойствам.</p>
             
-            <h2>Польза для здоровья</h2>
-            <p>В чем же заключается польза применения меда? Постоянное его употребление способно укрепить иммунную систему, улучшить общее самочувствие. В списке полезных свойств следующее:</p>
-            <ul>
-                <li>Восстановление работы печени и пищеварительной системы.</li>
-                <li>Укрепление иммунитета, противодействие простудам и гриппу.</li>
-                <li>Профилактическое употребление в медицинских целях не дает развиваться артритам и артрозам.</li>
-                <li>Эффективное средство для лечения мочеполовых болезней.</li>
-                <li>Кардиолог может рекомендовать мед для профилактики и лечения заболеваний сердца.</li>
-            </ul>
+            <h2>Кулинарное использование</h2>
+            <p>В кулинарии подсолнечный мед используется для приготовления выпечки, десертов, напитков. Он отлично сочетается с орехами, сухофруктами и молочными продуктами.</p>
             
-            <h2>Гречишный мед</h2>
-            <p>Гречишный мед не является исключением из списка самых востребованных человеком продуктов. Гречишный мед относится к высокосортным, а его состав уникален, чем и обусловлены его полезные свойства.</p>
-            
-            <p>Гречишный мед обладает рядом признаков, по которым его можно отличить от других сортов продукта:</p>
-            <ul>
-                <li>Он обладает насыщенным темным окрасом, который может варьироваться от насыщенного желтого до темно-коричневого.</li>
-                <li>Гречишный мед обладает вкусом и запахом, характеризующимися терпкостью, насыщенностью, густотой.</li>
-                <li>Этот продукт имеет способность к быстрой кристаллизации – засахаривается.</li>
-            </ul>
+            <!-- Рекламный блок -->
+            <div style="text-align: center; margin: 30px 0;">
+                <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844437"></amp-ad>
+            </div>
         </div>
-        
-        <!-- Advertisement -->
-        <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844437"></amp-ad>
     </div>
-
+    
     <!-- Вкладка 2: Галерея изображений пасеки и продуктов -->
     <div class="tab-content" [hidden]="currentTab.tab != 'tab2'">
         <h2>Галерея</h2>
@@ -221,98 +225,23 @@
             <amp-img src="images/1.jpg" width="300" height="200" alt="Пчёлы едят мёд" lightbox="gallery"></amp-img>
             <amp-img src="images/2.jpg" width="300" height="200" alt="Пчела собирает нектар" lightbox="gallery"></amp-img>
             <amp-img src="images/3.jpg" width="300" height="200" alt="Подготовка к выгрузке ульев" lightbox="gallery"></amp-img>
-            <amp-img src="images/4.jpg" width="300" height="200" alt="Улья на пасеке" lightbox="gallery"></amp-img>
-            <amp-img src="images/5.jpg" width="300" height="200" alt="Пчелиные соты" lightbox="gallery"></amp-img>
-            <amp-img src="images/6.jpg" width="300" height="200" alt="Работа с ульями" lightbox="gallery"></amp-img>
-            <amp-img src="images/7.jpg" width="300" height="200" alt="Пасека в поле" lightbox="gallery"></amp-img>
-            <amp-img src="images/8.jpg" width="300" height="200" alt="Пчеловод за работой" lightbox="gallery"></amp-img>
-            <amp-img src="images/9.jpg" width="300" height="200" alt="Мёд в банках" lightbox="gallery"></amp-img>
-            <amp-img src="images/18.jpg" width="300" height="200" alt="Цветущие подсолнухи" lightbox="gallery"></amp-img>
-            <amp-img src="images/19.jpg" width="300" height="200" alt="Пчела на цветке" lightbox="gallery"></amp-img>
-            <amp-img src="images/20.jpg" width="300" height="200" alt="Пасека летом" lightbox="gallery"></amp-img>
-            <amp-img src="images/21.jpg" width="300" height="200" alt="Ульи в саду" lightbox="gallery"></amp-img>
-            <amp-img src="images/22.jpg" width="300" height="200" alt="Работа на пасеке" lightbox="gallery"></amp-img>
-            <amp-img src="images/23.jpg" width="300" height="200" alt="Пчелиная семья" lightbox="gallery"></amp-img>
-            <amp-img src="images/24.jpg" width="300" height="200" alt="Мёд в сотах" lightbox="gallery"></amp-img>
-            <amp-img src="images/25.jpg" width="300" height="200" alt="Пчеловодческий инвентарь" lightbox="gallery"></amp-img>
-            <amp-img src="images/26.jpg" width="300" height="200" alt="Пасека весной" lightbox="gallery"></amp-img>
-            <amp-img src="images/27.jpg" width="300" height="200" alt="Цветущая гречиха" lightbox="gallery"></amp-img>
-            <amp-img src="images/28.jpg" width="300" height="200" alt="Пчела на гречихе" lightbox="gallery"></amp-img>
-            <amp-img src="images/29.jpg" width="300" height="200" alt="Мёд в стеклянных банках" lightbox="gallery"></amp-img>
-            <amp-img src="images/30.jpg" width="300" height="200" alt="Разнообразие мёда" lightbox="gallery"></amp-img>
-            <amp-img src="images/31.jpg" width="300" height="200" alt="Пасека осенью" lightbox="gallery"></amp-img>
-            <amp-img src="images/32.jpg" width="300" height="200" alt="Подготовка к зиме" lightbox="gallery"></amp-img>
-            <amp-img src="images/33.jpg" width="300" height="200" alt="Зимовка пчёл" lightbox="gallery"></amp-img>
-            <amp-img src="images/34.jpg" width="300" height="200" alt="Весенняя пасека" lightbox="gallery"></amp-img>
-            <amp-img src="images/35.jpg" width="300" height="200" alt="Летний сбор мёда" lightbox="gallery"></amp-img>
-            <amp-img src="images/36.jpg" width="300" height="200" alt="Осенняя пасека" lightbox="gallery"></amp-img>
-            <amp-img src="images/37.jpg" width="300" height="200" alt="Пчелиные ульи" lightbox="gallery"></amp-img>
-            <amp-img src="images/38.jpg" width="300" height="200" alt="Работа пчеловода" lightbox="gallery"></amp-img>
-            <amp-img src="images/39.jpg" width="300" height="200" alt="Мёд в деревянных бочках" lightbox="gallery"></amp-img>
-            <amp-img src="images/40.jpg" width="300" height="200" alt="Пчелиная матка" lightbox="gallery"></amp-img>
-            <amp-img src="images/41.jpg" width="300" height="200" alt="Пчелиные соты крупным планом" lightbox="gallery"></amp-img>
-            <amp-img src="images/42.jpg" width="300" height="200" alt="Пасека в цвету" lightbox="gallery"></amp-img>
-            <amp-img src="images/43.jpg" width="300" height="200" alt="Пчела на цветке подсолнуха" lightbox="gallery"></amp-img>
-            <amp-img src="images/44.jpg" width="300" height="200" alt="Мёд в различных ёмкостях" lightbox="gallery"></amp-img>
-            <amp-img src="images/45.jpg" width="300" height="200" alt="Пчеловодческий домик" lightbox="gallery"></amp-img>
-            <amp-img src="images/46.jpg" width="300" height="200" alt="Пасека в лесу" lightbox="gallery"></amp-img>
-            <amp-img src="images/47.jpg" width="300" height="200" alt="Пчелиная семья в улье" lightbox="gallery"></amp-img>
-            <amp-img src="images/48.jpg" width="300" height="200" alt="Мёд в сотах крупным планом" lightbox="gallery"></amp-img>
-            <amp-img src="images/49.jpg" width="300" height="200" alt="Пчела собирает пыльцу" lightbox="gallery"></ampimg>
-            <amp-img src="images/50.jpg" width="300" height="200" alt="Пасека на рассвете" lightbox="gallery"></amp-img>
-            <amp-img src="images/51.jpg" width="300" height="200" alt="Пчелиные ульи зимой" lightbox="gallery"></amp-img>
-            <amp-img src="images/52.jpg" width="300" height="200" alt="Весенний облёт пчёл" lightbox="gallery"></amp-img>
-            <amp-img src="images/53.jpg" width="300" height="200" alt="Летний сбор мёда" lightbox="gallery"></amp-img>
-            <amp-img src="images/54.jpg" width="300" height="200" alt="Осенняя подготовка к зиме" lightbox="gallery"></amp-img>
-            <amp-img src="images/55.jpg" width="300" height="200" alt="Пчелиные соты с мёдом" lightbox="gallery"></amp-img>
-            <amp-img src="images/56.jpg" width="300" height="200" alt="Пасека в саду" lightbox="gallery"></amp-img>
-            <amp-img src="images/57.jpg" width="300" height="200" alt="Пчела на цветке липы" lightbox="gallery"></amp-img>
-            <amp-img src="images/58.jpg" width="300" height="200" alt="Мёд в стеклянных банках" lightbox="gallery"></amp-img>
-            <amp-img src="images/59.jpg" width="300" height="200" alt="Пчеловод за работой" lightbox="gallery"></amp-img>
-            <amp-img src="images/60.jpg" width="300" height="200" alt="Пасека в поле" lightbox="gallery"></amp-img>
-            <amp-img src="images/61.jpg" width="300" height="200" alt="Пчелиные ульи летом" lightbox="gallery"></amp-img>
-            <amp-img src="images/62.jpg" width="300" height="200" alt="Мёд в деревянных бочках" lightbox="gallery"></amp-img>
-            <amp-img src="images/63.jpg" width="300" height="200" alt="Пчела на гречихе" lightbox="gallery"></amp-img>
-            <amp-img src="images/64.jpg" width="300" height="200" alt="Пасека осенью" lightbox="gallery"></amp-img>
-            <amp-img src="images/65.jpg" width="300" height="200" alt="Пчелиные соты" lightbox="gallery"></amp-img>
-            <amp-img src="images/66.jpg" width="300" height="200" alt="Пчела на цветке" lightbox="gallery"></amp-img>
-            <amp-img src="images/67.jpg" width="300" height="200" alt="Мёд в различных ёмкостях" lightbox="gallery"></amp-img>
-            <amp-img src="images/68.jpg" width="300" height="200" alt="Пасека в цвету" lightbox="gallery"></amp-img>
-            <amp-img src="images/69.jpg" width="300" height="200" alt="Пчелиная семья" lightbox="gallery"></amp-img>
-            <amp-img src="images/70.jpg" width="300" height="200" alt="Мёд в сотах" lightbox="gallery"></amp-img>
-            <amp-img src="images/71.jpg" width="300" height="200" alt="Пчела собирает нектар" lightbox="gallery"></amp-img>
-            <amp-img src="images/72.jpg" width="300" height="200" alt="Пасека летом" lightbox="gallery"></amp-img>
-            <amp-img src="images/73.jpg" width="300" height="200" alt="Пчелиные ульи" lightbox="gallery"></amp-img>
-            <amp-img src="images/74.jpg" width="300" height="200" alt="Мёд в банках" lightbox="gallery"></amp-img>
-            <amp-img src="images/75.jpg" width="300" height="200" alt="Пчела на подсолнухе" lightbox="gallery"></amp-img>
-            <amp-img src="images/76.jpg" width="300" height="200" alt="Пасека весной" lightbox="gallery"></amp-img>
-            <amp-img src="images/77.jpg" width="300" height="200" alt="Пчелиные соты крупным планом" lightbox="gallery"></amp-img>
-            <amp-img src="images/78.jpg" width="300" height="200" alt="Мёд в различных ёмкостях" lightbox="gallery"></amp-img>
-            <amp-img src="images/79.jpg" width="300" height="200" alt="Пчела на цветке" lightbox="gallery"></amp-img>
-            <amp-img src="images/80.jpg" width="300" height="200" alt="Упаковка мёда" lightbox="gallery"></amp-img>
-            <amp-img src="images/81.jpg" width="300" height="200" alt="Пасека в поле" lightbox="gallery"></amp-img>
-            <amp-img src="images/82.jpg" width="300" height="200" alt="Пчелиные ульи" lightbox="gallery"></amp-img>
-            <amp-img src="images/84.jpg" width="300" height="200" alt="Пчёлы на ульях" lightbox="gallery"></amp-img>
-            <amp-img src="images/85.jpg" width="300" height="200" alt="Фургон для перевозки ульев" lightbox="gallery"></amp-img>
-            <amp-img src="images/86.jpg" width="300" height="200" alt="Работа на пасеке" lightbox="gallery"></amp-img>
-            <amp-img src="images/87.jpg" width="300" height="200" alt="Пчелиная семья" lightbox="gallery"></amp-img>
-            <amp-img src="images/88.jpg" width="300" height="200" alt="Мёд в сотах" lightbox="gallery"></amp-img>
-            <amp-img src="images/90.jpg" width="300" height="200" alt="Пасека в саду" lightbox="gallery"></amp-img>
-            <amp-img src="images/91.jpg" width="300" height="200" alt="Пчела на цветке" lightbox="gallery"></amp-img>
-            <amp-img src="images/92.jpg" width="300" height="200" alt="Мёд в банках" lightbox="gallery"></amp-img>
-            <amp-img src="images/94.jpg" width="300" height="200" alt="Пчелиные ульи" lightbox="gallery"></amp-img>
-            <amp-img src="images/95.jpg" width="300" height="200" alt="Пасека летом" lightbox="gallery"></amp-img>
-            <amp-img src="images/96.jpg" width="300" height="200" alt="Мёд в сотах" lightbox="gallery"></amp-img>
-            <amp-img src="images/97.jpg" width="300" height="200" alt="Пчела на цветке" lightbox="gallery"></amp-img>
+            <amp-img src="images/4.jpg" width="300" height="200" alt="Пасека в цветущем саду" lightbox="gallery"></amp-img>
+            <amp-img src="images/5.jpg" width="300" height="200" alt="Медовые соты" lightbox="gallery"></amp-img>
+            <amp-img src="images/6.jpg" width="300" height="200" alt="Пчелиная семья" lightbox="gallery"></amp-img>
+            <amp-img src="images/7.jpg" width="300" height="200" alt="Сбор мёда" lightbox="gallery"></amp-img>
+            <amp-img src="images/8.jpg" width="300" height="200" alt="Цветущие подсолнухи" lightbox="gallery"></amp-img>
+            <amp-img src="images/9.jpg" width="300" height="200" alt="Пчела на цветке" lightbox="gallery"></amp-img>
+            <amp-img src="images/10.jpg" width="300" height="200" alt="Медовые продукты" lightbox="gallery"></amp-img>
+            <amp-img src="images/11.jpg" width="300" height="200" alt="Пасечное оборудование" lightbox="gallery"></amp-img>
+            <amp-img src="images/12.jpg" width="300" height="200" alt="Пчелиный улей" lightbox="gallery"></amp-img>
         </div>
         
-        <!-- Lightbox -->
-        <amp-image-lightbox id="lightbox" layout="nodisplay"></amp-image-lightbox>
-        
-        <!-- Advertisement -->
-        <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844439"></amp-ad>
+        <!-- Рекламный блок -->
+        <div style="text-align: center; margin: 30px 0;">
+            <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844439"></amp-ad>
+        </div>
     </div>
-
+    
     <!-- Вкладка 3: Каталог товаров и контактная информация -->
     <div class="tab-content" [hidden]="currentTab.tab != 'tab3'">
         <h2>Наши товары</h2>
@@ -325,62 +254,39 @@
                 <p><a href="tel:+79507798599" class="contact-link" on="tap:AMP.navigateTo(url='tel:+79507798599')">+7 (950)-779-85-99 (Галина) - Узнать о товарах и ценах</a></p>
             </h3>
         </div>
-
-        <div class="transparent-container" style="text-align:center;">
-            <h3>Мёд гречишный 2024г. (Тёмный: гречиха и разнотравье):</h3>
+        
+        <!-- Информация о продуктах -->
+        <div class="transparent-container">
+            <h2>Ассортимент мёда</h2>
+            
             <div class="product">
-                <amp-img src="images/3g.jpg" alt="Мёд гречишный 3 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>3л - 1800р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
+                <h3>Гречишный мёд</h3>
+                <p>Темный, ароматный мёд с характерным вкусом гречихи. Содержит большое количество железа и других полезных минералов.</p>
+                <p><strong>Цена:</strong> Уточняйте по телефону</p>
+                <p><strong>Вес:</strong> От 1 кг</p>
             </div>
+            
             <div class="product">
-                <amp-img src="images/2g.jpg" alt="Мёд гречишный 2 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>2л - 1200р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
+                <h3>Цветочный мёд</h3>
+                <p>Светлый, нежный мёд из разнотравья. Обладает мягким вкусом и богатым составом полезных веществ.</p>
+                <p><strong>Цена:</strong> Уточняйте по телефону</p>
+                <p><strong>Вес:</strong> От 1 кг</p>
             </div>
+            
             <div class="product">
-                <amp-img src="images/1g.jpg" alt="Мёд гречишный 1 литр" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>1л - 600р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-            </div>
-            <div class="product">
-                <amp-img src="images/0.75g.jpg" alt="Мёд гречишный 0.75 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>0.75л - 450р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-            </div>
-            <div class="product">
-                <amp-img src="images/0.5g.jpg" alt="Мёд гречишный 0.5 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>0.5л - 300р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-            </div>
-
-            <h3>Мёд цветочный 2024г. (Светлый: липа и разнотравье):</h3>
-            <div class="product">
-                <amp-img src="images/3c.jpg" alt="Мёд цветочный 3 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>3л - 1800р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-            </div>
-            <div class="product">
-                <amp-img src="images/2c.jpg" alt="Мёд цветочный 2 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>2л - 1200р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-            </div>
-            <div class="product">
-                <amp-img src="images/1c.jpg" alt="Мёд цветочный 1 литр" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>1л - 600р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-            </div>
-            <div class="product">
-                <amp-img src="images/0.75c.jpg" alt="Мёд цветочный 0.75 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>0.75л - 450р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-            </div>
-            <div class="product">
-                <amp-img src="images/0.5с.jpg" alt="Мёд цветочный 0.5 литра" width="200" height="200" layout="responsive" lightbox role="button"></amp-img>
-                <p>0.5л - 300р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
-            </div>
-
-            <h3>Мёд 2023г. :</h3>
-            <div class="product">
-                <p>3л - 1500р <button on="tap:AMP.navigateTo(url='tel:+79525574410')" style="color: black; text-decoration: underline;">Купить</button></p>
+                <h3>Липовый мёд</h3>
+                <p>Ароматный мёд с липы, обладающий выраженными лечебными свойствами. Отлично помогает при простуде.</p>
+                <p><strong>Цена:</strong> Уточняйте по телефону</p>
+                <p><strong>Вес:</strong> От 1 кг</p>
             </div>
         </div>
         
-        <!-- Advertisement -->
-        <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844447"></amp-ad>
+        <!-- Рекламный блок -->
+        <div style="text-align: center; margin: 30px 0;">
+            <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844447"></amp-ad>
+        </div>
     </div>
-
+    
     <!-- ========================================
      * ФУТЕР И ИНФОРМАЦИЯ О РАЗРАБОТЧИКАХ
      * ======================================== -->
