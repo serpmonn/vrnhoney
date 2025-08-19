@@ -1,80 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * Sitemap для VRNHoney
+ * 
+ * Карта сайта для поисковых систем, содержащая все основные страницы
+ * и разделы сайта продажи натурального мёда в Воронеже.
+ * 
+ * Включает:
+ * - Главную страницу
+ * - Основные разделы
+ * - Страницы продуктов
+ * - Информационные страницы
+ * - Социальные сети
+ * 
+ * Автор: Cursor Agent
+ * Дата: 19 декабря 2024
+ * Версия: 2.0.0
+ -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
          xmlns:xhtml="http://www.w3.org/1999/xhtml">
     
-    <!-- Главная страница -->
+    <!-- ========================================
+     * ГЛАВНАЯ СТРАНИЦА
+     * ======================================== -->
     <url>
-        <loc>https://www.vrnhoney.ru/</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/"/>
+        <loc>https://www.vrnhoney.ru/</loc>                    <!-- URL главной страницы -->
+        <lastmod>2024-12-19</lastmod>                          <!-- Дата последнего обновления -->
+        <changefreq>weekly</changefreq>                         <!-- Частота обновления -->
+        <priority>1.0</priority>                                <!-- Приоритет для поисковых систем -->
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/"/> <!-- Альтернативная версия на русском -->
     </url>
     
-    <!-- Основные разделы -->
+    <!-- ========================================
+     * ОСНОВНЫЕ РАЗДЕЛЫ САЙТА
+     * ======================================== -->
+    
+    <!-- Вкладка 1: Информация о мёде -->
     <url>
-        <loc>https://www.vrnhoney.ru/#tab1</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <loc>https://www.vrnhoney.ru/#tab1</loc>              <!-- URL раздела с информацией -->
+        <lastmod>2024-12-19</lastmod>                          <!-- Дата последнего обновления -->
+        <changefreq>monthly</changefreq>                        <!-- Обновляется ежемесячно -->
+        <priority>0.9</priority>                                <!-- Высокий приоритет -->
         <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/#tab1"/>
     </url>
     
+    <!-- Вкладка 2: Галерея изображений -->
     <url>
-        <loc>https://www.vrnhoney.ru/#tab2</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.vrnhoney.ru/#tab2</loc>              <!-- URL галереи -->
+        <lastmod>2024-12-19</lastmod>                          <!-- Дата последнего обновления -->
+        <changefreq>monthly</changefreq>                        <!-- Обновляется ежемесячно -->
+        <priority>0.8</priority>                                <!-- Средний приоритет -->
         <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/#tab2"/>
     </url>
     
+    <!-- Вкладка 3: Каталог товаров -->
     <url>
-        <loc>https://www.vrnhoney.ru/#tab3</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <loc>https://www.vrnhoney.ru/#tab3</loc>              <!-- URL каталога -->
+        <lastmod>2024-12-19</lastmod>                          <!-- Дата последнего обновления -->
+        <changefreq>weekly</changefreq>                         <!-- Обновляется еженедельно -->
+        <priority>0.9</priority>                                <!-- Высокий приоритет -->
         <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/#tab3"/>
     </url>
     
-    <!-- Продукты -->
+    <!-- ========================================
+     * СТРАНИЦЫ ПРОДУКТОВ
+     * ======================================== -->
+    
+    <!-- Страница гречишного мёда -->
     <url>
-        <loc>https://www.vrnhoney.ru/products/grechishny-med</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.vrnhoney.ru/products/grechishny-med</loc>  <!-- URL страницы продукта -->
+        <lastmod>2024-12-19</lastmod>                                <!-- Дата последнего обновления -->
+        <changefreq>monthly</changefreq>                              <!-- Обновляется ежемесячно -->
+        <priority>0.8</priority>                                      <!-- Высокий приоритет для продуктов -->
         <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/products/grechishny-med"/>
     </url>
     
+    <!-- Страница цветочного мёда -->
     <url>
-        <loc>https://www.vrnhoney.ru/products/tsvetochny-med</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <loc>https://www.vrnhoney.ru/products/tsvetochny-med</loc>  <!-- URL страницы продукта -->
+        <lastmod>2024-12-19</lastmod>                                <!-- Дата последнего обновления -->
+        <changefreq>monthly</changefreq>                              <!-- Обновляется ежемесячно -->
+        <priority>0.8</priority>                                      <!-- Высокий приоритет для продуктов -->
         <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/products/tsvetochny-med"/>
     </url>
     
-    <!-- Информационные страницы -->
+    <!-- ========================================
+     * ИНФОРМАЦИОННЫЕ СТРАНИЦЫ
+     * ======================================== -->
+    
+    <!-- Страница "О нас" -->
     <url>
-        <loc>https://www.vrnhoney.ru/about</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <loc>https://www.vrnhoney.ru/about</loc>                      <!-- URL страницы о компании -->
+        <lastmod>2024-12-19</lastmod>                                <!-- Дата последнего обновления -->
+        <changefreq>monthly</changefreq>                              <!-- Обновляется ежемесячно -->
+        <priority>0.7</priority>                                      <!-- Средний приоритет -->
         <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/about"/>
     </url>
     
+    <!-- Страница контактов -->
     <url>
-        <loc>https://www.vrnhoney.ru/contact</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <loc>https://www.vrnhoney.ru/contact</loc>                    <!-- URL страницы контактов -->
+        <lastmod>2024-12-19</lastmod>                                <!-- Дата последнего обновления -->
+        <changefreq>monthly</changefreq>                              <!-- Обновляется ежемесячно -->
+        <priority>0.7</priority>                                      <!-- Средний приоритет -->
         <xhtml:link rel="alternate" hreflang="ru" href="https://www.vrnhoney.ru/contact"/>
     </url>
     
-    <!-- Социальные сети -->
+    <!-- ========================================
+     * СОЦИАЛЬНЫЕ СЕТИ И ВНЕШНИЕ ССЫЛКИ
+     * ======================================== -->
+    
+    <!-- Группа ВКонтакте -->
     <url>
-        <loc>https://vk.com/vrnhoney_ru</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.6</priority>
+        <loc>https://vk.com/vrnhoney_ru</loc>                        <!-- URL группы в социальной сети -->
+        <lastmod>2024-12-19</lastmod>                                <!-- Дата последнего обновления -->
+        <changefreq>daily</changefreq>                                <!-- Обновляется ежедневно -->
+        <priority>0.6</priority>                                      <!-- Низкий приоритет для внешних ссылок -->
     </url>
 </urlset>
