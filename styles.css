@@ -47,7 +47,7 @@ body {
 /* Главный заголовок страницы (H1) */
 h1 {
     font-size: clamp(24px, 4vw, 32px); /* Адаптивный размер: минимум 24px, максимум 32px */
-    color: #2c3e50;                     /* Темно-синий цвет для хорошей читаемости */
+    color: #5a4633;                     /* Тёплый коричневый для лучшей читаемости */
     margin-bottom: 20px;                 /* Отступ снизу для разделения от контента */
     text-align: center;                  /* Центрирование заголовка */
     text-shadow:                         /* Белая тень для выделения на фоне */
@@ -57,20 +57,20 @@ h1 {
 }
 
 h2 {
-    font-size: clamp(20px, 3.5vw, 26px);
-    color: #2c3e50;
-    margin-bottom: 20px;
+    font-size: clamp(20px, 3.5vw, 28px);
+    color: #6d4c41;
+    margin-bottom: 15px;
     text-align: center;
     text-shadow: 
-        0px 0px 8px rgba(255, 255, 255, 1),
-        0px 0px 20px rgba(255, 255, 255, 0.8);
+        0px 0px 6px rgba(255, 255, 255, 1),
+        0px 0px 15px rgba(255, 255, 255, 0.8);
     font-weight: 600;
 }
 
 h3 {
-    font-size: clamp(18px, 3vw, 20px);
-    color: #2c3e50;
-    margin-bottom: 20px;
+    font-size: clamp(18px, 3vw, 24px);
+    color: #6d4c41;
+    margin-bottom: 10px;
     text-align: center;
     font-weight: 600;
 }
@@ -82,7 +82,7 @@ h3 {
 /* Основная навигационная панель */
 nav {
     display: flex;                      /* Flexbox для горизонтального расположения элементов */
-    background: linear-gradient(135deg, #2c3e50, #34495e); /* Градиентный фон */
+    background: linear-gradient(135deg, #8d6e63, #6d4c41); /* Медово-коричневый градиент */
     overflow: hidden;                   /* Скрываем содержимое, выходящее за границы */
     justify-content: center;            /* Центрируем элементы по горизонтали */
     align-items: center;                /* Центрируем элементы по вертикали */
@@ -113,10 +113,10 @@ nav a {
 }
 
 nav a:hover {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #f6b73c, #f39c12);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
 }
 
 /* Мобильное меню */
@@ -129,7 +129,7 @@ nav a:hover {
     font-size: 28px;
     user-select: none;
     z-index: 9999;
-    color: #2c3e50;
+    color: #5a4633;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     width: 45px;
@@ -144,7 +144,7 @@ nav a:hover {
     display: none;
     align-items: center;
     padding: 15px;
-    background: linear-gradient(135deg, #2c3e50, #34495e);
+    background: linear-gradient(135deg, #8d6e63, #6d4c41);
     border-radius: 15px 15px 0 0;
 }
 
@@ -166,7 +166,7 @@ nav a:hover {
 
 .menu-items {
     display: flex;
-    background: linear-gradient(135deg, #2c3e50, #34495e);
+    background: linear-gradient(135deg, #8d6e63, #6d4c41);
     animation: fadeIn 0.5s ease;
     justify-content: center;
     flex-wrap: wrap;
@@ -238,29 +238,30 @@ nav a:hover {
     text-align: center;
     font-size: 16px;
     font-weight: 600;
-    color: #2c3e50;
+    color: #5a4633;
 }
 
 /* Кнопки */
 button {
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    background: linear-gradient(135deg, #f6b73c, #f39c12);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 25px;
     cursor: pointer;
+    font-size: 16px;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
 }
 
 .social-button {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #f6b73c, #f39c12);
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
@@ -273,21 +274,20 @@ button:hover {
 }
 
 .social-button:hover {
-    background: linear-gradient(135deg, #2980b9, #1f5f8b);
+    background: linear-gradient(135deg, #d35400, #a84300);
     transform: translateY(-2px);
 }
 
 /* Ссылки */
 .contact-link {
-    color: #3498db;
+    color: #f39c12;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .contact-link:hover {
-    color: #2980b9;
-    text-decoration: underline;
+    color: #d35400;
 }
 
 /* Списки */
@@ -298,15 +298,11 @@ ul {
 
 li {
     margin: 10px 0;
-    color: #2c3e50;
+    color: #5a4633;
 }
 
 /* Параграфы */
-p {
-    margin: 15px 0;
-    color: #2c3e50;
-    line-height: 1.8;
-}
+/* удалены дублирующие параграфы в пользу блока выше */
 
 /* Футер */
 .footer {
@@ -319,14 +315,14 @@ p {
 }
 
 .footer a {
-    color: #3498db;
+    color: #f39c12;
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease;
 }
 
 .footer a:hover {
-    color: #2980b9;
+    color: #d35400;
 }
 
 .footer-icon {
@@ -426,7 +422,7 @@ p {
 /* Состояния навигации */
 nav.active {
     display: flex;
-    border: 2px solid #3498db;
+    border: 2px solid #f39c12;
     width: 80%;
     margin-left: 10%;
     height: auto;
