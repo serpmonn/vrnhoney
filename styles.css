@@ -322,15 +322,18 @@ li {
 /* Футер */
 .footer {
     position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(8px);
     color: #5a4633;
     text-align: center;
-    padding: 10px 12px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 8px 16px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 9999px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     z-index: 1000;
 }
 
