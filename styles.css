@@ -191,6 +191,10 @@ nav a:hover {
     padding: 20px;
 }
 
+.tab-content[hidden] {
+    display: none !important;
+}
+
 /* Галерея */
 .gallery {
     display: grid;
