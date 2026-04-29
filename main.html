@@ -1,24 +1,5 @@
 <!DOCTYPE html>
-<!-- 
- * VRNHoney - Оптимизированная главная страница
- * 
- * Этот файл содержит оптимизированную версию сайта продажи натурального мёда
- * в Воронеже. Построен с использованием AMP (Accelerated Mobile Pages)
- * для обеспечения максимальной производительности и SEO-оптимизации.
- * 
- * Основные улучшения:
- * - Разделение CSS и HTML
- * - Добавление Open Graph мета-тегов
- * - Улучшенная семантическая разметка
- * - Оптимизация для мобильных устройств
- * - AMP-валидация
- * 
- * Автор: Cursor Agent
- * Дата: 19 декабря 2024
- * Версия: 2.0.0
- -->
 <html amp lang="ru">
-
 <head>
     <!-- ========================================
      * МЕТА-ТЕГИ И БАЗОВАЯ ИНФОРМАЦИЯ
@@ -35,6 +16,7 @@
     <!-- Верификация домена для Pinterest -->
     <meta name="p:domain_verify" content="922f48dff0f0851f5a18bc66a200f1dc"/>
     
+    <meta name="yandex-verification" content="c4abfe8a3ee1b6cc" />
     <!-- ========================================
      * SEO МЕТА-ТЕГИ ДЛЯ ПОИСКОВЫХ СИСТЕМ
      * ======================================== -->
@@ -130,6 +112,9 @@
     <script async custom-element="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
     <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
     <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+
+    <!-- AMP Analytics компонент для Яндекс.Метрики -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     
     <!-- Yandex.RTB скрипт -->
     <script async src="https://yandex.ru/ads/system/context.js"></script>
@@ -144,10 +129,59 @@
     <amp-state id="currentTab">
         <script type="application/json">
         {
-            "tab": "tab1"  <!-- По умолчанию открыта первая вкладка -->
+            "tab": "tab1"
         }
         </script>
     </amp-state>
+
+    <button id="buy-btn"
+        type="button"
+        style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none;">
+    Купить
+    </button>
+
+    <!-- Yandex.Metrika for AMP -->
+    <amp-analytics type="metrika">
+    <script type="application/json">
+    {
+        "vars": {
+        "counterId": "108970969"
+        },
+        "triggers": {
+        "defaultPageview": {
+            "on": "visible",
+            "request": "pageview"
+        },
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+            "immediate": false,
+            "interval": 15,
+            "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        },
+        "buyButtonClick": {
+            "on": "click",
+            "selector": "#buy-btn",
+            "request": "reachGoal",
+            "vars": {
+            "goalId": "buy_button_click"
+            }
+        },
+        "phoneClick": {
+            "on": "click",
+            "selector": "a[href^='tel:']",
+            "request": "reachGoal",
+            "vars": {
+            "goalId": "phone_click"
+            }
+        }
+        }
+    }
+    </script>
+    </amp-analytics>
+    <!-- /Yandex.Metrika for AMP -->
     
     <!-- ========================================
      * НАВИГАЦИЯ И МЕНЮ
