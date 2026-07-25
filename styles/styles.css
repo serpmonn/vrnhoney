@@ -13,7 +13,7 @@
 /* Основной контейнер страницы */
 body {
     display: flex;                      /* Используем flexbox для вертикального расположения */
-    background-image: url('images/Background.jpeg'); /* Фоновое изображение пасеки */
+    background-image: url('../images/Background.jpeg'); /* Фоновое изображение пасеки */
     background-size: cover;             /* Изображение покрывает весь экран */
     background-position: center;        /* Изображение центрировано */
     background-attachment: fixed;       /* Фон зафиксирован при прокрутке */
@@ -120,7 +120,6 @@ nav a:hover {
     border-radius: 50%;
     width: 45px;
     height: 45px;
-    display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -194,21 +193,35 @@ nav a:hover {
 /* Галерея */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 12px 0 24px;
+    width: min(1000px, 94%);
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .gallery amp-img {
-    border-radius: 15px;
+    display: block;
+    width: 100%;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     cursor: pointer;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.gallery amp-img img {
+    object-fit: cover;
+}
+
+.gallery amp-img .i-amphtml-fill-content {
+    object-fit: cover !important;
 }
 
 .gallery amp-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 /* Товары */
@@ -374,8 +387,9 @@ li {
     }
     
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: min(1000px, 96%);
     }
     
     .product {
@@ -414,8 +428,8 @@ li {
     }
     
     .gallery {
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
     }
     
     .product {
@@ -517,6 +531,21 @@ amp-img[layout="responsive"] {
     margin: 30px 0;
 }
 
+/* Пустой слот не оставляет дыру */
+.ad-container:has(amp-ad[data-ad-status="unfilled"]),
+.ad-container:has(amp-ad[data-ad-status="error"]),
+amp-ad[data-ad-status="unfilled"],
+amp-ad[data-ad-status="error"] {
+    display: none !important;
+    margin: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+}
+
+.ad-after-gallery {
+    margin: 16px auto 24px;
+}
+
 .ad-under-nav {
     margin-top: 70px; /* ниже фиксированной навигации */
 }
@@ -526,13 +555,23 @@ amp-img[layout="responsive"] {
 }
 
 /* Скрытие навигации на мобильных */
+@media (min-width: 601px) {
+    .menu-icon {
+        display: none !important;
+    }
+
+    nav {
+        display: flex;
+    }
+}
+
 @media (max-width: 600px) {
     nav {
         display: none;
     }
     
     .menu-icon {
-        display: flex;
+        display: flex !important;
     }
     
     .menu-items {

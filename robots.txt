@@ -2,4 +2,4 @@ User-agent: *
 Disallow:
 Allow: /
 
-Sitemap: https://vrnhoney.ru/sitemap/sitemap.xml
+Sitemap: https://vrnhoney.ru/sitemap.xml
