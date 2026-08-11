@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html amp lang="ru">
+<html lang="ru">
 <head>
     <!-- ========================================
      * МЕТА-ТЕГИ И БАЗОВАЯ ИНФОРМАЦИЯ
      * ======================================== -->
     
     <!-- Кодировка и совместимость -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     
     <!-- Настройки viewport для адаптивности -->
-    <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=0.5, initial-scale=1, maximum-scale=3, user-scalable=yes">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     
     <!-- Верификация домена для Pinterest -->
     <meta name="p:domain_verify" content="922f48dff0f0851f5a18bc66a200f1dc"/>
@@ -78,6 +76,10 @@
     
     <!-- Канонический URL -->
     <link rel="canonical" href="https://vrnhoney.ru/">
+    <link rel="alternate" hreflang="ru" href="https://vrnhoney.ru/">
+    <link rel="alternate" hreflang="en" href="https://vrnhoney.ru/en/">
+    <link rel="alternate" hreflang="x-default" href="https://vrnhoney.ru/">
+    <meta property="og:locale:alternate" content="en_US">
     
     <!-- Favicon и иконки -->
     <link rel="icon" href="images/favicon.svg?v=6" type="image/svg+xml">
@@ -139,36 +141,11 @@
     }
     </script>
     
-    <!-- ========================================
-     * AMP СКРИПТЫ И СТИЛИ
-     * ======================================== -->
-    
-    <!-- AMP скрипт -->
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    
-    <!-- AMP стили -->
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
-    <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-    
-    <!-- Внешний CSS файл -->
-    <link rel="stylesheet" href="styles/styles.css?v=4">
-    
-    <!-- AMP компоненты -->
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
-    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
-    <script async custom-element="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-    <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
-    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <!-- Styles + Yandex RTB loader -->
+    <link rel="stylesheet" href="styles/site.css?v=20260811j">
+    <script>window.yaContextCb = window.yaContextCb || [];</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
 
-    <!-- AMP Analytics компонент для Яндекс.Метрики -->
-    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    
-    <!-- Yandex.RTB скрипт -->
-    <script async src="https://yandex.ru/ads/system/context.js"></script>
 </head>
 
 <body>
@@ -177,99 +154,51 @@
      * ======================================== -->
     
     <!-- AMP State - состояние для управления вкладками -->
-    <amp-state id="currentTab">
-        <script type="application/json">
-        {
-            "tab": "tab1"
-        }
-        </script>
-    </amp-state>
-
-    <button id="buy-btn"
-        type="button"
-        style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none;">
-    Купить
-    </button>
-
-    <!-- Yandex.Metrika for AMP -->
-    <amp-analytics type="metrika">
-    <script type="application/json">
-    {
-        "vars": {
-        "counterId": "108970969"
-        },
-        "triggers": {
-        "defaultPageview": {
-            "on": "visible",
-            "request": "pageview"
-        },
-        "notBounce": {
-            "on": "timer",
-            "timerSpec": {
-            "immediate": false,
-            "interval": 15,
-            "maxTimerLength": 14
-            },
-            "request": "notBounce"
-        },
-        "buyButtonClick": {
-            "on": "click",
-            "selector": "#buy-btn",
-            "request": "reachGoal",
-            "vars": {
-            "goalId": "buy_button_click"
-            }
-        },
-        "phoneClick": {
-            "on": "click",
-            "selector": "a[href^='tel:']",
-            "request": "reachGoal",
-            "vars": {
-            "goalId": "phone_click"
-            }
-        }
-        }
-    }
+<!-- Yandex.Metrika -->
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(108970969, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
     </script>
-    </amp-analytics>
-    <!-- /Yandex.Metrika for AMP -->
-    
-    <!-- ========================================
+    <noscript><div><img src="https://mc.yandex.ru/watch/108970969" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- ========================================
      * НАВИГАЦИЯ И МЕНЮ
      * ======================================== -->
     
     <!-- Иконка мобильного меню (гамбургер) -->
-    <div class="menu-icon" role="button" tabindex="0" on="tap:AMP.setState({menuOpen: !menuOpen})">☰</div>
+    <div class="menu-icon" id="menuToggle" role="button" tabindex="0" aria-label="Меню">☰</div>
     
     <!-- Основная навигационная панель -->
-    <nav [class]="menuOpen ? 'active' : ''" role="navigation" tabindex="0" on="tap:AMP.setState({menuOpen: true})">
+    <nav id="mainNav" role="navigation">
         <div class="menu-items">
             <!-- Заголовок мобильного меню с логотипом -->
             <div class="menu-header">
-                <p><img src="images/VRNHoney.ico" alt="Логотип VRNHoney">VRNHoney</p>
+                <p><img src="images/VRNHoney-round.png" width="28" height="28" alt="Логотип VRNHoney"> VRNHoney</p>
             </div>
             
             <!-- Навигационные ссылки по вкладкам -->
-            <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab1'}})">Мёд в Воронеже</a>
-            <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab2'}})">Галерея</a>
-            <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab3'}})">Купить мёд</a>
+            <a href="#tab1" data-tab="tab1">Мёд в Воронеже</a>
+            <a href="#tab2" data-tab="tab2">Галерея</a>
+            <a href="#tab3" data-tab="tab3">Купить мёд</a>
+            
+            <a class="lang-switch" href="/en/" hreflang="en" lang="en">EN</a>
             
             <!-- Кнопка социальной сети -->
-            <button class="social-button" on="tap:AMP.navigateTo(url='https://vk.com/vrnhoney_ru')">Следите за нами</button>
+            <a class="social-button" href="https://vk.com/vrnhoney_ru" target="_blank" rel="noopener">Следите за нами</a>
         </div>
     </nav>
     
     <!-- Overlay для мобильного меню -->
-    <div on="tap:AMP.setState({menuOpen: false})" role="button" tabindex="0" class="overlay"></div>
+    <div id="menuOverlay" class="overlay" role="button" tabindex="0" aria-label="Закрыть меню"></div>
     
-    <!-- Реклама под навигацией -->
+    <!-- Yandex.RTB R-A-15746761-9 — Adaptive banner под навигацией (десктоп) -->
     <div class="ad-container ad-under-nav">
-        <amp-ad 
-            width="320" 
-            height="50"
-            type="mytarget"
-            data-ad-slot="1887927">
-        </amp-ad>
+        <div id="yandex_rtb_top" class="ad-slot" data-ad="top"></div>
     </div>
     
     <!-- ========================================
@@ -277,25 +206,27 @@
      * ======================================== -->
     
     <!-- Вкладка 1: Основная информация о мёде -->
-    <div class="tab-content default-open" [hidden]="currentTab.tab != 'tab1'">
+    <div class="tab-content is-active" id="tab1" data-tab-panel="tab1">
         <div class="transparent-container">
             <h1>VRNHoney — натуральный мёд в Воронеже</h1>
-            <p>
+
+            <div class="order-strip">
+              <p class="order-strip__lead">Своя пасека · доставка по Воронежу</p>
+              <div class="order-strip__phones">
+                <a class="order-strip__phone" href="tel:+79525574410">+7 (952) 557-44-10</a>
+                <span class="order-strip__sep" aria-hidden="true"></span>
+                <a class="order-strip__phone" href="tel:+79507798599">+7 (950) 779-85-99</a>
+              </div>
+              <a class="order-strip__link" href="#tab3" data-tab="tab3" id="buy-btn">Заказать мёд</a>
+            </div>
             <p>Мед из&nbsp;подсолнуха&nbsp;— это самый распространенный и&nbsp;доступный сорт полезного продукта. На&nbsp;рынке его оценивают не&nbsp;слишком высоко из-за сильной конкуренции между продавцами, однако полезных свойств меньше в&nbsp;продукте от&nbsp;этого не&nbsp;становится. Главное, что характеризует подсолнечный мед,&nbsp;— быстрая кристаллизация. Но&nbsp;это не&nbsp;считается серьезным недостатком продукта, ведь его полезные свойства от&nbsp;этого не&nbsp;теряются. Сорт не&nbsp;очень клейкий, если это не&nbsp;подделка, мед со&nbsp;временем приобретает светлые тона, загустевает. Ниже рассмотрены описание и&nbsp;полезные свойства продукта.</p>
             <div class="ad-container">
-                <amp-ad 
-                    width="300" 
-                    height="250"
-                    type="mytarget"
-                    data-ad-slot="1755631">
-                </amp-ad>
+                <div id="yandex_rtb_in_1" class="ad-slot ad-slot--rect" data-ad="inContent"></div>
             </div>
             <h2>Цвет</h2>
             <p>Мед, собранный пчелами на&nbsp;подсолнухе и&nbsp;сразу выкачанный пчеловодом, светлый. Когда он&nbsp;отстаивается, запускается процесс кристаллизации, цвет темнеет, становится горчичного оттенка. На&nbsp;застывшем меде всегда образуется белый тонкий глюкозный слой.</p>
-            <p></p>
             <p>Подсчитано, что в&nbsp;100 граммах меда 320 ккал&nbsp;— это немало. Поэтому съедать сразу большое количество подсолнечного меда не&nbsp;рекомендуется. Дневную норму необходимо рассчитывать, отталкиваясь от&nbsp;массы тела человека. В&nbsp;среднем допустимый дневной диапазон&nbsp;55-95 г.</p>
             <p>Натуральный мед подсолнечника содержит:</p>
-            <p></p>
             <ul><li>углеводы&nbsp;— 79%;</li><li>вода&nbsp;— 17%;</li><li>белки и&nbsp;витамины&nbsp;— 3%;</li><li>минеральные вещества&nbsp;— 1%.</li></ul>
             <h2>Минералы и&nbsp;витамины</h2>
             <p>Подсолнечный нектар сочетает в&nbsp;себе множество витаминных и&nbsp;минеральных компонентов&nbsp;— ученые насчитали их&nbsp;почти 300. При этом организм способен их&nbsp;с&nbsp;легкостью усваивать. Данные полезные составляющие продукта переработки пчел оказывают положительное действие на&nbsp;организм человека. В&nbsp;меде описываемого типа есть следующие биоактивные вещества:</p>
@@ -308,6 +239,9 @@
             <p>Подсолнечный мед&nbsp;— хорошее очищающее средство, способное выводить из&nbsp;организма токсины.</p>
             <p><strong>Важно!</strong>&nbsp;Регулярное употребление меда подсолнечника снижает уровень холестерина.</p>
             <p>Положительный эффект установлен и&nbsp;при лечении пищеварительной системы, благодаря меду клетки быстрее регенерируют. Таким образом, подсолнечный мед&nbsp;— действенное средство в&nbsp;терапии гастритов, язв и&nbsp;колитов. Этот продукт можно применять как мочегонное средство, также его используют в&nbsp;комплексной терапии от&nbsp;болезней почек.</p>
+            <div class="ad-container">
+                <div id="yandex_rtb_in_5" class="ad-slot ad-slot--rect" data-ad="inContent"></div>
+            </div>
             <h2>Противопоказания</h2>
             <p>Вместе с&nbsp;полезными качествами цветочный подсолнечный мед скрывает в&nbsp;себе несколько отрицательных. Например, пыльца может вызывать у&nbsp;людей аллергию. А&nbsp;значит, мед, собранный с&nbsp;подсолнечного поля, способен причинить вред организму аллергиков. В&nbsp;спорных случаях нужно нанести каплю меда на&nbsp;запястье, если появится аллергическая реакция в&nbsp;виде покраснений или зуда, употреблять нектар не&nbsp;стоит.</p>
             <p>Не&nbsp;рекомендуется есть мед и&nbsp;в&nbsp;период беременности и&nbsp;лактации. Сладкий продукт может вызывать диатез. Глюкоза и&nbsp;сахароза в&nbsp;составе опасны для некоторых людей, в&nbsp;основном это касается больных диабетом и&nbsp;тех, кто активно борется с&nbsp;ожирением.</p>
@@ -319,149 +253,137 @@
             <p>Принимая решение о&nbsp;сорте, который будет оставлен для пропитания пчелам в&nbsp;зиму, нужно помнить о&nbsp;том факте, что у&nbsp;подсолнечного меда в&nbsp;составе очень высокий уровень витаминов, минералов и&nbsp;питательных веществ. А&nbsp;все эти компоненты просто незаменимы для стабильности состояния пчел зимой.</p>
             <p>Опытные пасечники часто смешивают подсолнечный мед с&nbsp;сиропом из&nbsp;воды и&nbsp;сахара. Именно так возможно свести нежелательную кристаллизацию к&nbsp;минимуму. Поначалу пчелы будут потреблять легкие виды сахара. Но&nbsp;когда наступит весна, на&nbsp;поверхности сот насекомым невозможно будет найти следы искусственного прикорма. Это является гарантией качества продукта без сахара.</p>
             <h2>Выбор и&nbsp;хранение меда</h2>
-            <p>Подсолнечный мед может быть от&nbsp;горчичного до&nbsp;янтарного цвета</p>
+            <p>Подсолнечный мед может быть от&nbsp;горчичного до&nbsp;янтарного цвета.</p>
             <p>Покупая мед, нужно прежде всего обращать внимание на&nbsp;такие факторы:</p>
             <ul><li>Цена. Иногда мед продается намного дешевле, чем у&nbsp;конкурентов. И&nbsp;это повод насторожиться&nbsp;— не&nbsp;исключено, что в&nbsp;составе есть сахароза, песок, мел, крахмал или патока. В&nbsp;качестве подкормки для пчел зачастую используют сахарный сироп, в&nbsp;результате они перерабатывают его и&nbsp;выдают массу, похожую на&nbsp;натуральный мед.</li><li>Цвет. Подсолнечный мед может быть от&nbsp;горчичного до&nbsp;янтарного цвета. Неестественный светлый тон бывает у&nbsp;переработанного сахара, темные&nbsp;же оттенки могут говорить о&nbsp;расплавлении старого меда, пользы человеку он&nbsp;точно не&nbsp;принесет.</li><li>Вкус. Подлинный результат пчелиных трудов растворяется во&nbsp;рту без каких-либо кристаллов, после проглатывания в&nbsp;горле слегка щиплет.</li><li>Структура. В&nbsp;мед втыкают зубочистку, поднимают: если он&nbsp;настоящий, то&nbsp;потянется нитью. При ее&nbsp;прерывании опустится, превратившись в&nbsp;небольшое возвышение, которое быстро расходится по&nbsp;поверхности.</li></ul>
             <p>В&nbsp;осенне-зимний период мед всегда засахаривается быстрее, а&nbsp;в&nbsp;тепле стать твердым не&nbsp;может. Именно поэтому лечебные и&nbsp;питательные свойства сохраняются. Необходимо поддерживать всю зиму одну определенную температуру&nbsp;— это сохранит медовую продукцию.</p>
             <p>Мед из&nbsp;пыльцы подсолнечный имеет приятный вкус, аромат, оттенок, легко усваивается человеческим организмом. Зная все его полезные качества, а&nbsp;также как выбрать и&nbsp;сохранить продукт, можно не&nbsp;только полакомиться нектаром, но&nbsp;и&nbsp;укрепить организм.</p>
-            <p></p>
             <h2>Гречишный мед</h2>
-            <p></p>
             <p>Гречишный мед не является исключением из списка самых востребованных человеком продуктов. Гречишный мед относится к высокосортным, а его состав уникален, чем и обусловлены его полезные свойства.</p>
-            <p>Вкус, цвет и консистенция</p>
+            <h3>Вкус, цвет и консистенция</h3>
             <p>В состав продукта входит нектар, добываемый пчелами из гречихи. Львиная доля сборов гречишного меда в России приходится на такие регионы:</p>
             <ul><li>Башкирия;</li><li>Предуралье;</li><li>Поволжье;</li><li>Алтай;</li></ul>
             <p>В зависимости от региона, где он производится, продукт может и классифицироваться.</p>
             <p>Гречишный мед обладает рядом признаков, по которым его можно отличить от других сортов продукта:</p>
             <ul><li>Он обладает насыщенным темным окрасом, который может варьироваться от насыщенного желтого до темно-коричневого. Продукт может иметь фиолетовый либо красноватый оттенок;</li><li>Гречишный мед обладает вкусом и запахом, характеризующимися терпкостью, насыщенностью, густотой. Он слегка пряный, может немного горчить При этом аромат продукта является цветочным. Из-за терпкого вкуса в горле после его употребления даже в небольшом количестве обычно появляется першение;</li><li>Этот продукт имеет способность к быстрой кристаллизации – засахаривается. Вследствие этого структура его становится неоднородной, а форма кристаллов может быть как крупнозернистой, так и мелкозернистой. Кристаллизация продукта происходит примерно к концу октября либо началу ноября. Сбор же его осуществляется приблизительно в середине июля. Цветение же гречихи приходится на период середина июля – середина августа;</li><li>Независимо от того, в жидком состоянии гречишный мед или в засахаренном, при его переливании из ложки стекать быстро он не должен. Быстрое его стекание свидетельствует о том, что продукт является недозревшим;</li><li>Исходя из оптимальной скорости стекания для этого сорта, можно сделать однозначный вывод о том, что он отличается высокой вязкостью.</li></ul>
-            </p>
         </div>
     </div>
     
     <!-- Вкладка 2: Галерея изображений пасеки и продуктов -->
-    <div class="tab-content" [hidden]="currentTab.tab != 'tab2'" hidden>
+    <div class="tab-content" id="tab2" data-tab-panel="tab2" hidden>
         <h2>Галерея</h2>
 
         <div class="gallery">
-            <amp-img layout="responsive" width="4" height="3" src="images/1.jpg" alt="Пчёлы едят мёд" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/2.jpg" alt="Пчела собирает нектар" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/3.jpg" alt="Подготовка к выгрузке ульев" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/4.jpg" alt="Улья" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/5.jpg" alt="Улья" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/6.jpg" alt="Улья на природе" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/7.jpg" alt="Улья на платформе" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/8.jpg" alt="Улья на платформе" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/9.jpg" alt="Платформа с ульями" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/10.jpg" alt="Прицеп" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/11.jpg" alt="Прицеп с ульями" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/12.jpg" alt="Пасечник" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/13.jpg" alt="Поилка" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/14.jpg" alt="Улья и фургончик для отдыха" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/15.jpg" alt="Фургончик, прицеп, улья" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/16.jpg" alt="Природа и пасека" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/17.jpg" alt="Пасека рядом с лесом" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/18.jpg" alt="Фургончик с машиной" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/19.jpg" alt="Второй пасечник" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/20.jpg" alt="Заросли" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/21.jpg" alt="Платформа" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/22.jpg" alt="Поле" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/23.jpg" alt="Поилка для пчёл" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/24.jpg" alt="Платформа с ульями" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/25.jpg" alt="Подсолнухи" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/26.jpg" alt="Платформа в лесу" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/27.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/28.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/29.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/30.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/31.jpg" alt="Платформа в лесу" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/32.jpg" alt="Палатка и машина" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/33.jpg" alt="Палатка" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/34.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/35.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/36.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/37.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/38.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/39.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/40.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/41.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/42.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/43.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/44.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/45.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/46.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/47.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/48.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/49.jpg" alt="Кухня" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/50.jpg" alt="Спальное место в фургоне" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/51.jpg" alt="Плита" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/52.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/53.jpg" alt="Стол на природе" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/54.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/55.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/56.jpg" alt="Поле с цветами" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/58.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/61.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/62.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/63.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/64.jpg" alt="Клевер" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/65.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/66.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/67.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/68.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/70.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/71.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/72.jpg" alt="Ловушка для пчёл" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/73.jpg" alt="Ловушка" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/74.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/75.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/76.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/77.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/78.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/79.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/80.jpg" alt="Паковка" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/81.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/82.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/84.jpg" alt="Пчёлы на ульях" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/85.jpg" alt="Фургон" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/86.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/87.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/88.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/90.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/91.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/92.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/94.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/95.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/96.jpg" alt="" lightbox="gallery"></amp-img>
-            <amp-img layout="responsive" width="4" height="3" src="images/97.jpg" alt="" lightbox="gallery"></amp-img>
+            <picture><source type="image/webp" srcset="images/g/1.webp"><img class="gallery-img" src="images/g/1.jpg" alt="Пчёлы едят мёд" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/2.webp"><img class="gallery-img" src="images/g/2.jpg" alt="Пчела собирает нектар" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/3.webp"><img class="gallery-img" src="images/g/3.jpg" alt="Подготовка к выгрузке ульев" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/4.webp"><img class="gallery-img" src="images/g/4.jpg" alt="Улья" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/5.webp"><img class="gallery-img" src="images/g/5.jpg" alt="Улья" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/6.webp"><img class="gallery-img" src="images/g/6.jpg" alt="Улья на природе" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/7.webp"><img class="gallery-img" src="images/g/7.jpg" alt="Улья на платформе" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/8.webp"><img class="gallery-img" src="images/g/8.jpg" alt="Улья на платформе" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/9.webp"><img class="gallery-img" src="images/g/9.jpg" alt="Платформа с ульями" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/10.webp"><img class="gallery-img" src="images/g/10.jpg" alt="Прицеп" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/11.webp"><img class="gallery-img" src="images/g/11.jpg" alt="Прицеп с ульями" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/12.webp"><img class="gallery-img" src="images/g/12.jpg" alt="Пасечник" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/13.webp"><img class="gallery-img" src="images/g/13.jpg" alt="Поилка" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/14.webp"><img class="gallery-img" src="images/g/14.jpg" alt="Улья и фургончик для отдыха" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/15.webp"><img class="gallery-img" src="images/g/15.jpg" alt="Фургончик, прицеп, улья" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/16.webp"><img class="gallery-img" src="images/g/16.jpg" alt="Природа и пасека" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/17.webp"><img class="gallery-img" src="images/g/17.jpg" alt="Пасека рядом с лесом" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/18.webp"><img class="gallery-img" src="images/g/18.jpg" alt="Фургончик с машиной" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/19.webp"><img class="gallery-img" src="images/g/19.jpg" alt="Второй пасечник" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/20.webp"><img class="gallery-img" src="images/g/20.jpg" alt="Заросли" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/21.webp"><img class="gallery-img" src="images/g/21.jpg" alt="Платформа" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/22.webp"><img class="gallery-img" src="images/g/22.jpg" alt="Поле" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/23.webp"><img class="gallery-img" src="images/g/23.jpg" alt="Поилка для пчёл" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/24.webp"><img class="gallery-img" src="images/g/24.jpg" alt="Платформа с ульями" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/25.webp"><img class="gallery-img" src="images/g/25.jpg" alt="Подсолнухи" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/26.webp"><img class="gallery-img" src="images/g/26.jpg" alt="Платформа в лесу" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/27.webp"><img class="gallery-img" src="images/g/27.jpg" alt="Пасека и мёд VRNHoney — фото 27" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/28.webp"><img class="gallery-img" src="images/g/28.jpg" alt="Пасека и мёд VRNHoney — фото 28" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/29.webp"><img class="gallery-img" src="images/g/29.jpg" alt="Пасека и мёд VRNHoney — фото 29" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/30.webp"><img class="gallery-img" src="images/g/30.jpg" alt="Пасека и мёд VRNHoney — фото 30" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/31.webp"><img class="gallery-img" src="images/g/31.jpg" alt="Платформа в лесу" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/32.webp"><img class="gallery-img" src="images/g/32.jpg" alt="Палатка и машина" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/33.webp"><img class="gallery-img" src="images/g/33.jpg" alt="Палатка" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/34.webp"><img class="gallery-img" src="images/g/34.jpg" alt="Пасека и мёд VRNHoney — фото 34" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/35.webp"><img class="gallery-img" src="images/g/35.jpg" alt="Пасека и мёд VRNHoney — фото 35" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/36.webp"><img class="gallery-img" src="images/g/36.jpg" alt="Пасека и мёд VRNHoney — фото 36" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/37.webp"><img class="gallery-img" src="images/g/37.jpg" alt="Пасека и мёд VRNHoney — фото 37" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/38.webp"><img class="gallery-img" src="images/g/38.jpg" alt="Пасека и мёд VRNHoney — фото 38" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/39.webp"><img class="gallery-img" src="images/g/39.jpg" alt="Пасека и мёд VRNHoney — фото 39" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/40.webp"><img class="gallery-img" src="images/g/40.jpg" alt="Пасека и мёд VRNHoney — фото 40" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/41.webp"><img class="gallery-img" src="images/g/41.jpg" alt="Пасека и мёд VRNHoney — фото 41" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/42.webp"><img class="gallery-img" src="images/g/42.jpg" alt="Пасека и мёд VRNHoney — фото 42" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/43.webp"><img class="gallery-img" src="images/g/43.jpg" alt="Пасека и мёд VRNHoney — фото 43" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/44.webp"><img class="gallery-img" src="images/g/44.jpg" alt="Пасека и мёд VRNHoney — фото 44" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/45.webp"><img class="gallery-img" src="images/g/45.jpg" alt="Пасека и мёд VRNHoney — фото 45" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/46.webp"><img class="gallery-img" src="images/g/46.jpg" alt="Пасека и мёд VRNHoney — фото 46" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/47.webp"><img class="gallery-img" src="images/g/47.jpg" alt="Пасека и мёд VRNHoney — фото 47" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/48.webp"><img class="gallery-img" src="images/g/48.jpg" alt="Пасека и мёд VRNHoney — фото 48" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/49.webp"><img class="gallery-img" src="images/g/49.jpg" alt="Кухня" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/50.webp"><img class="gallery-img" src="images/g/50.jpg" alt="Спальное место в фургоне" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/51.webp"><img class="gallery-img" src="images/g/51.jpg" alt="Плита" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/52.webp"><img class="gallery-img" src="images/g/52.jpg" alt="Пасека и мёд VRNHoney — фото 52" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/53.webp"><img class="gallery-img" src="images/g/53.jpg" alt="Стол на природе" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/54.webp"><img class="gallery-img" src="images/g/54.jpg" alt="Пасека и мёд VRNHoney — фото 54" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/55.webp"><img class="gallery-img" src="images/g/55.jpg" alt="Пасека и мёд VRNHoney — фото 55" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/56.webp"><img class="gallery-img" src="images/g/56.jpg" alt="Поле с цветами" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/58.webp"><img class="gallery-img" src="images/g/58.jpg" alt="Пасека и мёд VRNHoney — фото 58" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/61.webp"><img class="gallery-img" src="images/g/61.jpg" alt="Пасека и мёд VRNHoney — фото 61" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/62.webp"><img class="gallery-img" src="images/g/62.jpg" alt="Пасека и мёд VRNHoney — фото 62" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/63.webp"><img class="gallery-img" src="images/g/63.jpg" alt="Пасека и мёд VRNHoney — фото 63" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/64.webp"><img class="gallery-img" src="images/g/64.jpg" alt="Клевер" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/65.webp"><img class="gallery-img" src="images/g/65.jpg" alt="Пасека и мёд VRNHoney — фото 65" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/66.webp"><img class="gallery-img" src="images/g/66.jpg" alt="Пасека и мёд VRNHoney — фото 66" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/67.webp"><img class="gallery-img" src="images/g/67.jpg" alt="Пасека и мёд VRNHoney — фото 67" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/68.webp"><img class="gallery-img" src="images/g/68.jpg" alt="Пасека и мёд VRNHoney — фото 68" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/70.webp"><img class="gallery-img" src="images/g/70.jpg" alt="Пасека и мёд VRNHoney — фото 70" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/71.webp"><img class="gallery-img" src="images/g/71.jpg" alt="Пасека и мёд VRNHoney — фото 71" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/72.webp"><img class="gallery-img" src="images/g/72.jpg" alt="Ловушка для пчёл" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/73.webp"><img class="gallery-img" src="images/g/73.jpg" alt="Ловушка" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/74.webp"><img class="gallery-img" src="images/g/74.jpg" alt="Пасека и мёд VRNHoney — фото 74" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/75.webp"><img class="gallery-img" src="images/g/75.jpg" alt="Пасека и мёд VRNHoney — фото 75" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/76.webp"><img class="gallery-img" src="images/g/76.jpg" alt="Пасека и мёд VRNHoney — фото 76" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/77.webp"><img class="gallery-img" src="images/g/77.jpg" alt="Пасека и мёд VRNHoney — фото 77" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/78.webp"><img class="gallery-img" src="images/g/78.jpg" alt="Пасека и мёд VRNHoney — фото 78" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/79.webp"><img class="gallery-img" src="images/g/79.jpg" alt="Пасека и мёд VRNHoney — фото 79" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/80.webp"><img class="gallery-img" src="images/g/80.jpg" alt="Паковка" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/81.webp"><img class="gallery-img" src="images/g/81.jpg" alt="Пасека и мёд VRNHoney — фото 81" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/82.webp"><img class="gallery-img" src="images/g/82.jpg" alt="Пасека и мёд VRNHoney — фото 82" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/84.webp"><img class="gallery-img" src="images/g/84.jpg" alt="Пчёлы на ульях" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/85.webp"><img class="gallery-img" src="images/g/85.jpg" alt="Фургон" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/86.webp"><img class="gallery-img" src="images/g/86.jpg" alt="Пасека и мёд VRNHoney — фото 86" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/87.webp"><img class="gallery-img" src="images/g/87.jpg" alt="Пасека и мёд VRNHoney — фото 87" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/88.webp"><img class="gallery-img" src="images/g/88.jpg" alt="Пасека и мёд VRNHoney — фото 88" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/90.webp"><img class="gallery-img" src="images/g/90.jpg" alt="Пасека и мёд VRNHoney — фото 90" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/91.webp"><img class="gallery-img" src="images/g/91.jpg" alt="Пасека и мёд VRNHoney — фото 91" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/92.webp"><img class="gallery-img" src="images/g/92.jpg" alt="Пасека и мёд VRNHoney — фото 92" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/94.webp"><img class="gallery-img" src="images/g/94.jpg" alt="Пасека и мёд VRNHoney — фото 94" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/95.webp"><img class="gallery-img" src="images/g/95.jpg" alt="Пасека и мёд VRNHoney — фото 95" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/96.webp"><img class="gallery-img" src="images/g/96.jpg" alt="Пасека и мёд VRNHoney — фото 96" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="images/g/97.webp"><img class="gallery-img" src="images/g/97.jpg" alt="Пасека и мёд VRNHoney — фото 97" width="800" height="600" sizes="(max-width:768px) 45vw, 30vw" loading="lazy" decoding="async"></picture>
         </div>
-
-        <div class="ad-container ad-after-gallery">
-            <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844439"></amp-ad>
-        </div>
-    </div>
+</div>
     
     <!-- Вкладка 3: Каталог товаров и контактная информация -->
-    <div class="tab-content" [hidden]="currentTab.tab != 'tab3'" hidden>
+    <div class="tab-content" id="tab3" data-tab-panel="tab3" hidden>
         <h2>Наши товары</h2>
         
         <!-- Контактная информация для заказа -->
         <div class="transparent-container">
             <h3>
                 <!-- Телефонные номера для связи -->
-                <p><a href="tel:+79525574410" class="contact-link" on="tap:AMP.navigateTo(url='tel:+79525574410')">+7 (952)-557-44-10 (Юрий) - Узнать о товарах и ценах</a></p>
-                <p><a href="tel:+79507798599" class="contact-link" on="tap:AMP.navigateTo(url='tel:+79507798599')">+7 (950)-779-85-99 (Галина) - Узнать о товарах и ценах</a></p>
+                <p><a href="tel:+79525574410" class="contact-link">+7 (952)-557-44-10 (Юрий) - Узнать о товарах и ценах</a></p>
+                <p><a href="tel:+79507798599" class="contact-link">+7 (950)-779-85-99 (Галина) - Узнать о товарах и ценах</a></p>
             </h3>
         </div>
 
         <!-- Реклама между контактами и ассортиментом -->
         <div class="ad-container">
-            <amp-ad 
-                width="300" 
-                height="250"
-                type="mytarget"
-                data-ad-slot="1887949">
-            </amp-ad>
-        </div>
+                <div id="yandex_rtb_in_3" class="ad-slot ad-slot--rect" data-ad="inContent"></div>
+            </div>
         
         <!-- Информация о продуктах -->
         <div class="transparent-container">
@@ -491,8 +413,8 @@
         
         <!-- Рекламный блок -->
         <div class="ad-container">
-            <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844447"></amp-ad>
-        </div>
+                <div id="yandex_rtb_in_4" class="ad-slot ad-slot--rect" data-ad="inContent"></div>
+            </div>
     </div>
     
     <!-- ========================================
@@ -501,11 +423,27 @@
     
     <!-- Подвал страницы (минималистичный, прозрачный) -->
     <footer class="footer">
-        Разработчик: <a href="https://www.serpmonn.ru" target="_blank" rel="noopener"><span style="color: red;">Serp</span><span style="color: black;">monn</span></a>
-        · Партнёры: 
-        <a href="https://www.adventure36.ru" target="_blank" rel="noopener"><span style="color: green;">Adventure36</span></a>
-        · 
-        <a href="https://www.onehouseboat.ru" target="_blank" rel="noopener"><span style="color: #40E0D0;">OneHouseBoat</span></a>
+        <span class="footer-row footer-row--dev">
+            <span class="footer-label">Разработчик:</span>
+            <a href="https://www.serpmonn.ru" target="_blank" rel="noopener"><span style="color: red;">Serp</span><span style="color: black;">monn</span></a>
+        </span>
+        <span class="footer-dot" aria-hidden="true">·</span>
+        <span class="footer-row footer-row--partners">
+            <span class="footer-label">Партнёры:</span>
+            <a href="https://www.adventure36.ru" target="_blank" rel="noopener"><span style="color: green;">Adventure36</span></a>
+            <span class="footer-dot" aria-hidden="true">·</span>
+            <a href="https://www.onehouseboat.ru" target="_blank" rel="noopener"><span style="color: #40E0D0;">OneHouseBoat</span></a>
+        </span>
     </footer>
+
+    <div id="lightbox" class="lightbox" hidden>
+        <button type="button" class="lightbox-close" aria-label="Закрыть">×</button>
+        <button type="button" class="lightbox-prev" aria-label="Назад">‹</button>
+        <img src="" alt="">
+        <button type="button" class="lightbox-next" aria-label="Вперёд">›</button>
+    </div>
+
+    <script src="scripts/site.js?v=20260811j" defer></script>
+
 </body>
 </html>
