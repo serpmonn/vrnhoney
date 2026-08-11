@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html amp lang="ru">
+<head>
+    <!-- ========================================
+     * МЕТА-ТЕГИ И БАЗОВАЯ ИНФОРМАЦИЯ
+     * ======================================== -->
+    
+    <!-- Кодировка и совместимость -->
+<meta charset="UTF-8">
+    
+    <!-- Настройки viewport для адаптивности -->
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    
+    <!-- Верификация домена для Pinterest -->
+    <meta name="p:domain_verify" content="922f48dff0f0851f5a18bc66a200f1dc"/>
+    
+    <meta name="yandex-verification" content="c4abfe8a3ee1b6cc" />
+    <!-- ========================================
+     * SEO МЕТА-ТЕГИ ДЛЯ ПОИСКОВЫХ СИСТЕМ
+     * ======================================== -->
+    
+    <!-- Основное описание страницы для поисковых систем -->
+    <meta name="description" content="VRNHoney — натуральный мёд из Воронежа: гречишный, цветочный, липовый. Своя пасека, доставка по городу. Тел. +7 (952) 557-44-10.">
+    
+    <!-- Автор сайта -->
+    <meta name="author" content="VRNHoney">
+    
+    <!-- Инструкции для поисковых роботов -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <!-- ========================================
+     * OPEN GRAPH МЕТА-ТЕГИ ДЛЯ СОЦИАЛЬНЫХ СЕТЕЙ
+     * ======================================== -->
+    
+    <!-- Заголовок для отображения в социальных сетях -->
+    <meta property="og:title" content="VRNHoney — натуральный мёд в Воронеже">
+    
+    <!-- Описание для социальных сетей -->
+    <meta property="og:description" content="Гречишный, цветочный и липовый мёд со своей пасеки. Доставка по Воронежу.">
+    
+    <!-- Тип контента (веб-сайт) -->
+    <meta property="og:type" content="website">
+    
+    <!-- URL страницы -->
+    <meta property="og:url" content="https://vrnhoney.ru/">
+    
+    <!-- Изображение для социальных сетей -->
+    <meta property="og:image" content="https://vrnhoney.ru/images/0.5g.jpg">
+    <meta property="og:image:alt" content="Банка мёда VRNHoney">
+    
+    <!-- Название сайта -->
+    <meta property="og:site_name" content="VRNHoney">
+    
+    <!-- Локаль (русский язык) -->
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- ========================================
+     * TWITTER CARD МЕТА-ТЕГИ
+     * ======================================== -->
+    
+    <!-- Тип Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Заголовок для Twitter -->
+    <meta name="twitter:title" content="VRNHoney — натуральный мёд в Воронеже">
+    
+    <!-- Описание для Twitter -->
+    <meta name="twitter:description" content="Гречишный, цветочный и липовый мёд со своей пасеки. Доставка по Воронежу.">
+    
+    <!-- Изображение для Twitter -->
+    <meta name="twitter:image" content="https://vrnhoney.ru/images/0.5g.jpg">
+    
+    <!-- ========================================
+     * ДОПОЛНИТЕЛЬНЫЕ МЕТА-ТЕГИ
+     * ======================================== -->
+    
+    <!-- Канонический URL -->
+    <link rel="canonical" href="https://vrnhoney.ru/">
+    
+    <!-- Favicon и иконки -->
+    <link rel="icon" href="images/favicon.svg?v=6" type="image/svg+xml">
+    <link rel="icon" href="images/favicon-32.png?v=6" type="image/png" sizes="32x32">
+    <link rel="icon" href="images/favicon-48.png?v=6" type="image/png" sizes="48x48">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=6" sizes="180x180">
+    <link rel="shortcut icon" href="/favicon.ico?v=6">
+    
+    <!-- Заголовок страницы -->
+    <title>VRNHoney — купить натуральный мёд в Воронеже</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Store", "LocalBusiness"],
+      "name": "VRNHoney",
+      "description": "Натуральный мёд со своей пасеки в Воронеже: гречишный, цветочный, липовый. Доставка по городу.",
+      "url": "https://vrnhoney.ru/",
+      "telephone": ["+7-952-557-44-10", "+7-950-779-85-99"],
+      "image": "https://vrnhoney.ru/images/0.5g.jpg",
+      "logo": "https://vrnhoney.ru/images/VRNHoney-round.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Воронеж",
+        "addressRegion": "Воронежская область",
+        "addressCountry": "RU"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Воронеж"
+      },
+      "priceRange": "₽",
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Гречишный мёд",
+            "description": "Тёмный ароматный мёд с характерным вкусом гречихи"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Цветочный мёд",
+            "description": "Светлый мёд из разнотравья"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Липовый мёд",
+            "description": "Натуральный липовый мёд"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- ========================================
+     * AMP СКРИПТЫ И СТИЛИ
+     * ======================================== -->
+    
+    <!-- AMP скрипт -->
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    
+    <!-- AMP стили -->
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+    <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <style amp-custom>
+
+/* Сброс стандартных стилей браузера для обеспечения единообразия */
+* {
+    margin: 0;          /* Убираем внешние отступы */
+    padding: 0;         /* Убираем внутренние отступы */
+    box-sizing: border-box; /* Размер элемента включает границы и отступы */
+}
+
+/* ========================================
+ * ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ
+ * ======================================== */
+
+/* Основной контейнер страницы */
+body {
+    display: flex;                      /* Используем flexbox для вертикального расположения */
+    background-image: url('images/Background.jpeg'); /* Фоновое изображение пасеки */
+    background-size: cover;             /* Изображение покрывает весь экран */
+    background-position: center;        /* Изображение центрировано */
+    background-attachment: fixed;       /* Фон зафиксирован при прокрутке */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Современные шрифты */
+    margin: 0;                          /* Убираем внешние отступы */
+    padding: 0;                         /* Убираем внутренние отступы */
+    padding-bottom: 56px;               /* Отступ под фиксированный прозрачный футер */
+    flex-direction: column;             /* Элементы располагаются вертикально */
+    min-height: 100vh;                  /* Минимальная высота равна высоте экрана */
+    line-height: 1.6;                   /* Удобная высота строки для чтения */
+}
+
+/* ========================================
+ * ЗАГОЛОВКИ И ТИПОГРАФИКА
+ * ======================================== */
+
+/* Главный заголовок страницы (H1) */
+h1 {
+    font-size: clamp(24px, 4vw, 32px); /* Адаптивный размер: минимум 24px, максимум 32px */
+    color: #5a4633;                     /* Тёплый коричневый для лучшей читаемости */
+    margin-bottom: 20px;                 /* Отступ снизу для разделения от контента */
+    text-align: center;                  /* Центрирование заголовка */
+    text-shadow:                         /* Белая тень для выделения на фоне */
+        0px 0px 8px rgba(255, 255, 255, 1),      /* Резкая тень */
+        0px 0px 20px rgba(255, 255, 255, 0.8);  /* Размытая тень */
+    font-weight: 700;                    /* Жирный шрифт для акцентирования */
+}
+
+h2 {
+    font-size: clamp(20px, 3.5vw, 28px);
+    color: #6d4c41;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 
+        0px 0px 6px rgba(255, 255, 255, 1),
+        0px 0px 15px rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: clamp(18px, 3vw, 24px);
+    color: #6d4c41;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ========================================
+ * НАВИГАЦИЯ И МЕНЮ
+ * ======================================== */
+
+/* Основная навигационная панель */
+nav {
+    display: flex;                      /* Flexbox для горизонтального расположения элементов */
+    background: linear-gradient(135deg, #8d6e63, #6d4c41); /* Медово-коричневый градиент */
+    overflow: hidden;                   /* Скрываем содержимое, выходящее за границы */
+    justify-content: center;            /* Центрируем элементы по горизонтали */
+    align-items: center;                /* Центрируем элементы по вертикали */
+    height: 50px;                       /* Фиксированная высота навигации */
+    position: fixed;                    /* Фиксированное позиционирование (остается при прокрутке) */
+    top: 0;                             /* Размещаем в верхней части экрана */
+    left: 0;                            /* Левый край */
+    right: 0;                           /* Правый край */
+    margin: 0 auto;                     /* Центрируем по горизонтали */
+    width: 90%;                         /* Ширина 90% от экрана */
+    max-width: 800px;                   /* Максимальная ширина для больших экранов */
+    border-radius: 25px;                /* Скругленные углы для современного вида */
+    z-index: 1000;                      /* Высокий z-index для отображения поверх других элементов */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень для объемности */
+    transition: all 0.3s ease;          /* Плавные переходы для всех свойств */
+}
+
+nav a {
+    display: flex;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 16px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    margin: 0 5px;
+}
+
+nav a:hover {
+    background: linear-gradient(135deg, #f6b73c, #f39c12);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+}
+
+/* Мобильное меню */
+.menu-icon {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    font-size: 28px;
+    user-select: none;
+    z-index: 9999;
+    color: #5a4633;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-header {
+    display: none;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #8d6e63, #6d4c41);
+    border-radius: 15px 15px 0 0;
+}
+
+.menu-header amp-img {
+    display: none;
+    width: 35px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.menu-header p {
+    display: none;
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.menu-items {
+    display: flex;
+    background: linear-gradient(135deg, #8d6e63, #6d4c41);
+    animation: fadeIn 0.5s ease;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Контейнеры */
+.transparent-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1200px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Вкладки */
+.tab-content {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+/* На случай если AMP-биндинг не успел примениться, скрываем всё,
+   кроме явно видимого блока без атрибута hidden */
+.tab-content {
+    display: none;
+}
+
+.tab-content:not([hidden]) {
+    display: block;
+}
+
+.tab-content[hidden] {
+    display: none;
+}
+
+/* Галерея */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 12px 0 24px;
+    width: min(1000px, 94%);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.gallery amp-img {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.gallery amp-img img {
+    object-fit: cover;
+}
+
+.gallery amp-img:hover {
+    transform: scale(1.02);
+}
+
+/* Товары */
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product amp-img {
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product p {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #5a4633;
+}
+
+/* Кнопки */
+button {
+    background: linear-gradient(135deg, #f6b73c, #f39c12);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+}
+
+.social-button {
+    background: linear-gradient(135deg, #f6b73c, #f39c12);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    margin: 10px;
+}
+
+.social-button:hover {
+    background: linear-gradient(135deg, #d35400, #a84300);
+    transform: translateY(-2px);
+}
+
+/* Ссылки */
+.contact-link {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #d35400;
+}
+
+/* Списки */
+ul {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+li {
+    margin: 10px 0;
+    color: #5a4633;
+}
+
+/* Параграфы */
+/* удалены дублирующие параграфы в пользу блока выше */
+
+/* Футер */
+.footer {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    color: #5a4633;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 9999px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    z-index: 1000;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.footer a {
+    color: #5a4633;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #f39c12;
+    text-decoration: underline;
+}
+
+.footer-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    nav {
+        width: 95%;
+        height: 45px;
+    }
+    
+    nav a {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .transparent-container {
+        padding: 20px;
+        margin: 15px auto;
+        width: 95%;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: min(1000px, 96%);
+    }
+    
+    .product {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        width: 98%;
+        height: 40px;
+    }
+    
+    nav a {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .transparent-container {
+        padding: 15px;
+        margin: 10px auto;
+        width: 98%;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .product {
+        margin: 5px;
+        padding: 10px;
+    }
+    
+    .menu-icon {
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .footer {
+        bottom: 8px;
+        padding: 6px 10px;
+        gap: 6px;
+        font-size: 12px;
+        max-width: calc(100% - 12px);
+    }
+
+    .footer a { margin: 0 6px; }
+}
+
+@media (max-width: 360px) {
+    .footer {
+        padding: 4px 8px;
+        gap: 4px;
+        font-size: 10px;
+        max-width: calc(100% - 8px);
+    }
+
+    .footer a { margin: 0 4px; }
+}
+
+/* Состояния навигации */
+nav.active {
+    display: flex;
+    border: 2px solid #f39c12;
+    width: 80%;
+    margin-left: 10%;
+    height: auto;
+    flex-direction: column;
+    padding: 20px;
+}
+
+nav.active .menu-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+nav.active .menu-header {
+    display: flex;
+    width: 100%;
+}
+
+nav.active .menu-header amp-img {
+    display: block;
+}
+
+nav.active .menu-header p {
+    display: block;
+}
+
+/* Оверлей */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+nav.active + .overlay {
+    display: block;
+}
+
+/* Улучшения для AMP */
+amp-img {
+    transition: opacity 0.3s ease;
+}
+
+amp-img[layout="responsive"] {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Рекламные блоки */
+.ad-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* Пустой слот не оставляет дыру */
+.ad-container:has(amp-ad[data-ad-status="unfilled"]),
+.ad-container:has(amp-ad[data-ad-status="error"]),
+amp-ad[data-ad-status="unfilled"],
+amp-ad[data-ad-status="error"] {
+    display: none;
+    margin: 0;
+    height: 0;
+    min-height: 0;
+}
+
+.ad-after-gallery {
+    margin: 16px auto 24px;
+}
+
+.ad-under-nav {
+    margin-top: 70px; /* ниже фиксированной навигации */
+}
+
+/* In-page баннер — десктоп; на мобилке позже Top Ad */
+@media (max-width: 768px) {
+    .ad-under-nav { display: none; }
+}
+
+/* Скрытие навигации на мобильных */
+@media (min-width: 601px) {
+    .menu-icon {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        display: none;
+    }
+    
+    .menu-icon {
+        display: flex;
+    }
+    
+    .menu-items {
+        display: none;
+    }
+    
+    .menu-header {
+        display: flex;
+    }
+    
+    .menu-header amp-img {
+        display: block;
+    }
+    
+    .menu-header p {
+        display: block;
+    }
+}
+</style>
+
+<!-- AMP компоненты -->
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+
+    <!-- AMP Analytics компонент для Яндекс.Метрики -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+</head>
+
+<body>
+    <!-- ========================================
+     * ОСНОВНОЙ КОНТЕНТ СТРАНИЦЫ
+     * ======================================== -->
+    
+    <!-- AMP State - состояние для управления вкладками -->
+    <amp-state id="currentTab">
+        <script type="application/json">
+        {
+            "tab": "tab1"
+        }
+        </script>
+    </amp-state>
+
+    <button id="buy-btn"
+        type="button"
+        style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none;">
+    Купить
+    </button>
+
+    <!-- Yandex.Metrika for AMP -->
+    <amp-analytics type="metrika">
+    <script type="application/json">
+    {
+        "vars": {
+        "counterId": "108970969"
+        },
+        "triggers": {
+        "defaultPageview": {
+            "on": "visible",
+            "request": "pageview"
+        },
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+            "immediate": false,
+            "interval": 15,
+            "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        },
+        "buyButtonClick": {
+            "on": "click",
+            "selector": "#buy-btn",
+            "request": "reachGoal",
+            "vars": {
+            "goalId": "buy_button_click"
+            }
+        },
+        "phoneClick": {
+            "on": "click",
+            "selector": "a[href^='tel:']",
+            "request": "reachGoal",
+            "vars": {
+            "goalId": "phone_click"
+            }
+        }
+        }
+    }
+    </script>
+    </amp-analytics>
+    <!-- /Yandex.Metrika for AMP -->
+    
+    <!-- ========================================
+     * НАВИГАЦИЯ И МЕНЮ
+     * ======================================== -->
+    
+    <!-- Иконка мобильного меню (гамбургер) -->
+    <div class="menu-icon" role="button" tabindex="0" on="tap:AMP.setState({menuOpen: !menuOpen})">☰</div>
+    
+    <!-- Основная навигационная панель -->
+    <nav [class]="menuOpen ? 'active' : ''" role="navigation" tabindex="0" on="tap:AMP.setState({menuOpen: true})">
+        <div class="menu-items">
+            <!-- Заголовок мобильного меню с логотипом -->
+            <div class="menu-header">
+                <p><amp-img src="images/VRNHoney-round.png" width="28" height="28" layout="fixed" alt="Логотип VRNHoney"></amp-img> VRNHoney</p>
+            </div>
+            
+            <!-- Навигационные ссылки по вкладкам -->
+            <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab1'}})">Мёд в Воронеже</a>
+            <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab2'}})">Галерея</a>
+            <a href="#" on="tap:AMP.setState({currentTab: {tab: 'tab3'}})">Купить мёд</a>
+            
+            <!-- Кнопка социальной сети -->
+            <button class="social-button" on="tap:AMP.navigateTo(url='https://vk.com/vrnhoney_ru')">Следите за нами</button>
+        </div>
+    </nav>
+    
+    <!-- Overlay для мобильного меню -->
+    <div on="tap:AMP.setState({menuOpen: false})" role="button" tabindex="0" class="overlay"></div>
+    
+    <!-- Yandex.RTB R-A-15746761-9 — адаптивный баннер под навигацией (десктоп) -->
+    <div class="ad-container ad-under-nav">
+        <amp-ad
+            width="auto"
+            height="90"
+            layout="fixed-height"
+            type="yandex"
+            data-block-id="R-A-15746761-9"
+            data-html-access-allowed="true">
+        </amp-ad>
+    </div>
+    
+    <!-- ========================================
+     * ВКЛАДКИ СОДЕРЖИМОГО
+     * ======================================== -->
+    
+    <!-- Вкладка 1: Основная информация о мёде -->
+    <div class="tab-content default-open" [hidden]="currentTab.tab != 'tab1'">
+        <div class="transparent-container">
+            <h1>VRNHoney — натуральный мёд в Воронеже</h1>
+            <p>
+            <p>Мед из&nbsp;подсолнуха&nbsp;— это самый распространенный и&nbsp;доступный сорт полезного продукта. На&nbsp;рынке его оценивают не&nbsp;слишком высоко из-за сильной конкуренции между продавцами, однако полезных свойств меньше в&nbsp;продукте от&nbsp;этого не&nbsp;становится. Главное, что характеризует подсолнечный мед,&nbsp;— быстрая кристаллизация. Но&nbsp;это не&nbsp;считается серьезным недостатком продукта, ведь его полезные свойства от&nbsp;этого не&nbsp;теряются. Сорт не&nbsp;очень клейкий, если это не&nbsp;подделка, мед со&nbsp;временем приобретает светлые тона, загустевает. Ниже рассмотрены описание и&nbsp;полезные свойства продукта.</p>
+            <div class="ad-container">
+                <amp-ad 
+                    width="300" 
+                    height="250"
+                    type="mytarget"
+                    data-ad-slot="1755631">
+                </amp-ad>
+            </div>
+            <h2>Цвет</h2>
+            <p>Мед, собранный пчелами на&nbsp;подсолнухе и&nbsp;сразу выкачанный пчеловодом, светлый. Когда он&nbsp;отстаивается, запускается процесс кристаллизации, цвет темнеет, становится горчичного оттенка. На&nbsp;застывшем меде всегда образуется белый тонкий глюкозный слой.</p>
+            <p></p>
+            <p>Подсчитано, что в&nbsp;100 граммах меда 320 ккал&nbsp;— это немало. Поэтому съедать сразу большое количество подсолнечного меда не&nbsp;рекомендуется. Дневную норму необходимо рассчитывать, отталкиваясь от&nbsp;массы тела человека. В&nbsp;среднем допустимый дневной диапазон&nbsp;55-95 г.</p>
+            <p>Натуральный мед подсолнечника содержит:</p>
+            <p></p>
+            <ul><li>углеводы&nbsp;— 79%;</li><li>вода&nbsp;— 17%;</li><li>белки и&nbsp;витамины&nbsp;— 3%;</li><li>минеральные вещества&nbsp;— 1%.</li></ul>
+            <h2>Минералы и&nbsp;витамины</h2>
+            <p>Подсолнечный нектар сочетает в&nbsp;себе множество витаминных и&nbsp;минеральных компонентов&nbsp;— ученые насчитали их&nbsp;почти 300. При этом организм способен их&nbsp;с&nbsp;легкостью усваивать. Данные полезные составляющие продукта переработки пчел оказывают положительное действие на&nbsp;организм человека. В&nbsp;меде описываемого типа есть следующие биоактивные вещества:</p>
+            <ul><li>витаминный комплекс С, Н, К, бета-каротин;</li><li>белки, аминокислоты;</li><li>минералы.</li></ul>
+            <p>В&nbsp;составе меда также есть небольшая доза холина, бетаина, солантовой кислоты. Имеются в&nbsp;нем и&nbsp;органические кислоты. В&nbsp;подсолнечном меде также присутствуют 27&nbsp;обязательных для нормальной жизнедеятельности организма аминокислот.</p>
+            <h2>Польза</h2>
+            <p>В&nbsp;чем&nbsp;же заключается польза применения меда? Постоянное его употребление способно укрепить иммунную систему, улучшить общее самочувствие. В&nbsp;списке полезных свойств следующее:</p>
+            <ul><li>Восстановление работы печени и&nbsp;пищеварительной системы.</li><li>Укрепление иммунитета, противодействие простудам и&nbsp;гриппу.</li><li>Профилактическое употребление в&nbsp;медицинских целях не&nbsp;дает развиваться артритам и&nbsp;артрозам.</li><li>Эффективное средство для лечения мочеполовых болезней.</li><li>Кардиолог может рекомендовать мед для профилактики и&nbsp;лечения заболеваний сердца.</li></ul>
+            <p>Подсолнечный мед, о&nbsp;лечебных свойствах которого знают не&nbsp;все, помогает в&nbsp;комплексной терапии многих заболеваний. Значительное количество глюкозы в&nbsp;составе такого продукта, как мед из&nbsp;цветков подсолнуха, дает возможность ставить его в&nbsp;ряд средств для лечения сердечно-сосудистых болезней.</p>
+            <p>Подсолнечный мед&nbsp;— хорошее очищающее средство, способное выводить из&nbsp;организма токсины.</p>
+            <p><strong>Важно!</strong>&nbsp;Регулярное употребление меда подсолнечника снижает уровень холестерина.</p>
+            <p>Положительный эффект установлен и&nbsp;при лечении пищеварительной системы, благодаря меду клетки быстрее регенерируют. Таким образом, подсолнечный мед&nbsp;— действенное средство в&nbsp;терапии гастритов, язв и&nbsp;колитов. Этот продукт можно применять как мочегонное средство, также его используют в&nbsp;комплексной терапии от&nbsp;болезней почек.</p>
+            <h2>Противопоказания</h2>
+            <p>Вместе с&nbsp;полезными качествами цветочный подсолнечный мед скрывает в&nbsp;себе несколько отрицательных. Например, пыльца может вызывать у&nbsp;людей аллергию. А&nbsp;значит, мед, собранный с&nbsp;подсолнечного поля, способен причинить вред организму аллергиков. В&nbsp;спорных случаях нужно нанести каплю меда на&nbsp;запястье, если появится аллергическая реакция в&nbsp;виде покраснений или зуда, употреблять нектар не&nbsp;стоит.</p>
+            <p>Не&nbsp;рекомендуется есть мед и&nbsp;в&nbsp;период беременности и&nbsp;лактации. Сладкий продукт может вызывать диатез. Глюкоза и&nbsp;сахароза в&nbsp;составе опасны для некоторых людей, в&nbsp;основном это касается больных диабетом и&nbsp;тех, кто активно борется с&nbsp;ожирением.</p>
+            <h2>Подсолнечный мед для зимовки пчел</h2>
+            <p>Перенести суровые зимы пчелиным семействам поможет омшаник, о&nbsp;котором должен позаботиться пасечник. Это полуподвальное помещение, куда ставят ульи на&nbsp;зимовку.</p>
+            <p>Подавляющее большинство пчеловодов не&nbsp;приемлют зимовку пчел на&nbsp;натуральном подсолнечном меде из-за того, что он&nbsp;быстро засахаривается, у&nbsp;пчел могут появиться болезни пищеварительной системы. Трудолюбивым насекомым не&nbsp;нужен такой мед, его меняют на&nbsp;сладкий сироп из&nbsp;сахара&nbsp;— он&nbsp;быстро усваивается маленькими организмами в&nbsp;зимние холода.</p>
+            <p>И&nbsp;все&nbsp;же есть пчеловоды, которые склонны оставить трудягам на&nbsp;зиму немного подсолнечного меда. Благополучным исход зимовки будет только в&nbsp;том случае, если морозы не&nbsp;слишком крепкие, а&nbsp;воздух достаточно влажный. В&nbsp;таких условиях кристаллизация будет протекать медленно, а&nbsp;значит, конечная ее&nbsp;стадия наступит поздно. Таким образом, проблемы с&nbsp;пищеварительной системой не&nbsp;настигнут насекомых.</p>
+            <p><strong>Совет!</strong>&nbsp;Профессионалы советуют кормить пчел другим сортом меда, который засахаривается медленнее и&nbsp;будет более питательным в&nbsp;зимний период.</p>
+            <p>Принимая решение о&nbsp;сорте, который будет оставлен для пропитания пчелам в&nbsp;зиму, нужно помнить о&nbsp;том факте, что у&nbsp;подсолнечного меда в&nbsp;составе очень высокий уровень витаминов, минералов и&nbsp;питательных веществ. А&nbsp;все эти компоненты просто незаменимы для стабильности состояния пчел зимой.</p>
+            <p>Опытные пасечники часто смешивают подсолнечный мед с&nbsp;сиропом из&nbsp;воды и&nbsp;сахара. Именно так возможно свести нежелательную кристаллизацию к&nbsp;минимуму. Поначалу пчелы будут потреблять легкие виды сахара. Но&nbsp;когда наступит весна, на&nbsp;поверхности сот насекомым невозможно будет найти следы искусственного прикорма. Это является гарантией качества продукта без сахара.</p>
+            <h2>Выбор и&nbsp;хранение меда</h2>
+            <p>Подсолнечный мед может быть от&nbsp;горчичного до&nbsp;янтарного цвета</p>
+            <p>Покупая мед, нужно прежде всего обращать внимание на&nbsp;такие факторы:</p>
+            <ul><li>Цена. Иногда мед продается намного дешевле, чем у&nbsp;конкурентов. И&nbsp;это повод насторожиться&nbsp;— не&nbsp;исключено, что в&nbsp;составе есть сахароза, песок, мел, крахмал или патока. В&nbsp;качестве подкормки для пчел зачастую используют сахарный сироп, в&nbsp;результате они перерабатывают его и&nbsp;выдают массу, похожую на&nbsp;натуральный мед.</li><li>Цвет. Подсолнечный мед может быть от&nbsp;горчичного до&nbsp;янтарного цвета. Неестественный светлый тон бывает у&nbsp;переработанного сахара, темные&nbsp;же оттенки могут говорить о&nbsp;расплавлении старого меда, пользы человеку он&nbsp;точно не&nbsp;принесет.</li><li>Вкус. Подлинный результат пчелиных трудов растворяется во&nbsp;рту без каких-либо кристаллов, после проглатывания в&nbsp;горле слегка щиплет.</li><li>Структура. В&nbsp;мед втыкают зубочистку, поднимают: если он&nbsp;настоящий, то&nbsp;потянется нитью. При ее&nbsp;прерывании опустится, превратившись в&nbsp;небольшое возвышение, которое быстро расходится по&nbsp;поверхности.</li></ul>
+            <p>В&nbsp;осенне-зимний период мед всегда засахаривается быстрее, а&nbsp;в&nbsp;тепле стать твердым не&nbsp;может. Именно поэтому лечебные и&nbsp;питательные свойства сохраняются. Необходимо поддерживать всю зиму одну определенную температуру&nbsp;— это сохранит медовую продукцию.</p>
+            <p>Мед из&nbsp;пыльцы подсолнечный имеет приятный вкус, аромат, оттенок, легко усваивается человеческим организмом. Зная все его полезные качества, а&nbsp;также как выбрать и&nbsp;сохранить продукт, можно не&nbsp;только полакомиться нектаром, но&nbsp;и&nbsp;укрепить организм.</p>
+            <p></p>
+            <h2>Гречишный мед</h2>
+            <p></p>
+            <p>Гречишный мед не является исключением из списка самых востребованных человеком продуктов. Гречишный мед относится к высокосортным, а его состав уникален, чем и обусловлены его полезные свойства.</p>
+            <p>Вкус, цвет и консистенция</p>
+            <p>В состав продукта входит нектар, добываемый пчелами из гречихи. Львиная доля сборов гречишного меда в России приходится на такие регионы:</p>
+            <ul><li>Башкирия;</li><li>Предуралье;</li><li>Поволжье;</li><li>Алтай;</li></ul>
+            <p>В зависимости от региона, где он производится, продукт может и классифицироваться.</p>
+            <p>Гречишный мед обладает рядом признаков, по которым его можно отличить от других сортов продукта:</p>
+            <ul><li>Он обладает насыщенным темным окрасом, который может варьироваться от насыщенного желтого до темно-коричневого. Продукт может иметь фиолетовый либо красноватый оттенок;</li><li>Гречишный мед обладает вкусом и запахом, характеризующимися терпкостью, насыщенностью, густотой. Он слегка пряный, может немного горчить При этом аромат продукта является цветочным. Из-за терпкого вкуса в горле после его употребления даже в небольшом количестве обычно появляется першение;</li><li>Этот продукт имеет способность к быстрой кристаллизации – засахаривается. Вследствие этого структура его становится неоднородной, а форма кристаллов может быть как крупнозернистой, так и мелкозернистой. Кристаллизация продукта происходит примерно к концу октября либо началу ноября. Сбор же его осуществляется приблизительно в середине июля. Цветение же гречихи приходится на период середина июля – середина августа;</li><li>Независимо от того, в жидком состоянии гречишный мед или в засахаренном, при его переливании из ложки стекать быстро он не должен. Быстрое его стекание свидетельствует о том, что продукт является недозревшим;</li><li>Исходя из оптимальной скорости стекания для этого сорта, можно сделать однозначный вывод о том, что он отличается высокой вязкостью.</li></ul>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Вкладка 2: Галерея изображений пасеки и продуктов -->
+    <div class="tab-content" [hidden]="currentTab.tab != 'tab2'" hidden>
+        <h2>Галерея</h2>
+
+        <div class="gallery">
+            <amp-img layout="responsive" width="4" height="3" src="images/1.jpg" alt="Пчёлы едят мёд" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/2.jpg" alt="Пчела собирает нектар" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/3.jpg" alt="Подготовка к выгрузке ульев" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/4.jpg" alt="Улья" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/5.jpg" alt="Улья" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/6.jpg" alt="Улья на природе" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/7.jpg" alt="Улья на платформе" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/8.jpg" alt="Улья на платформе" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/9.jpg" alt="Платформа с ульями" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/10.jpg" alt="Прицеп" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/11.jpg" alt="Прицеп с ульями" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/12.jpg" alt="Пасечник" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/13.jpg" alt="Поилка" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/14.jpg" alt="Улья и фургончик для отдыха" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/15.jpg" alt="Фургончик, прицеп, улья" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/16.jpg" alt="Природа и пасека" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/17.jpg" alt="Пасека рядом с лесом" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/18.jpg" alt="Фургончик с машиной" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/19.jpg" alt="Второй пасечник" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/20.jpg" alt="Заросли" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/21.jpg" alt="Платформа" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/22.jpg" alt="Поле" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/23.jpg" alt="Поилка для пчёл" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/24.jpg" alt="Платформа с ульями" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/25.jpg" alt="Подсолнухи" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/26.jpg" alt="Платформа в лесу" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/27.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/28.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/29.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/30.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/31.jpg" alt="Платформа в лесу" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/32.jpg" alt="Палатка и машина" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/33.jpg" alt="Палатка" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/34.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/35.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/36.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/37.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/38.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/39.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/40.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/41.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/42.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/43.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/44.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/45.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/46.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/47.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/48.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/49.jpg" alt="Кухня" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/50.jpg" alt="Спальное место в фургоне" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/51.jpg" alt="Плита" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/52.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/53.jpg" alt="Стол на природе" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/54.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/55.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/56.jpg" alt="Поле с цветами" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/58.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/61.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/62.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/63.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/64.jpg" alt="Клевер" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/65.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/66.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/67.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/68.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/70.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/71.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/72.jpg" alt="Ловушка для пчёл" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/73.jpg" alt="Ловушка" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/74.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/75.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/76.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/77.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/78.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/79.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/80.jpg" alt="Паковка" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/81.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/82.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/84.jpg" alt="Пчёлы на ульях" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/85.jpg" alt="Фургон" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/86.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/87.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/88.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/90.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/91.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/92.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/94.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/95.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/96.jpg" alt="" lightbox="gallery"></amp-img>
+            <amp-img layout="responsive" width="4" height="3" src="images/97.jpg" alt="" lightbox="gallery"></amp-img>
+        </div>
+
+        <div class="ad-container ad-after-gallery">
+            <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844439"></amp-ad>
+        </div>
+    </div>
+    
+    <!-- Вкладка 3: Каталог товаров и контактная информация -->
+    <div class="tab-content" [hidden]="currentTab.tab != 'tab3'" hidden>
+        <h2>Наши товары</h2>
+        
+        <!-- Контактная информация для заказа -->
+        <div class="transparent-container">
+            <h3>
+                <!-- Телефонные номера для связи -->
+                <p><a href="tel:+79525574410" class="contact-link" on="tap:AMP.navigateTo(url='tel:+79525574410')">+7 (952)-557-44-10 (Юрий) - Узнать о товарах и ценах</a></p>
+                <p><a href="tel:+79507798599" class="contact-link" on="tap:AMP.navigateTo(url='tel:+79507798599')">+7 (950)-779-85-99 (Галина) - Узнать о товарах и ценах</a></p>
+            </h3>
+        </div>
+
+        <!-- Реклама между контактами и ассортиментом -->
+        <div class="ad-container">
+            <amp-ad 
+                width="300" 
+                height="250"
+                type="mytarget"
+                data-ad-slot="1887949">
+            </amp-ad>
+        </div>
+        
+        <!-- Информация о продуктах -->
+        <div class="transparent-container">
+            <h2>Ассортимент мёда</h2>
+            
+            <div class="product">
+                <h3>Гречишный мёд</h3>
+                <p>Темный, ароматный мёд с характерным вкусом гречихи. Содержит большое количество железа и других полезных минералов.</p>
+                <p><strong>Цена:</strong> Уточняйте по телефону</p>
+                <p><strong>Вес:</strong> От 1 кг</p>
+            </div>
+            
+            <div class="product">
+                <h3>Цветочный мёд</h3>
+                <p>Светлый, нежный мёд из разнотравья. Обладает мягким вкусом и богатым составом полезных веществ.</p>
+                <p><strong>Цена:</strong> Уточняйте по телефону</p>
+                <p><strong>Вес:</strong> От 1 кг</p>
+            </div>
+            
+            <div class="product">
+                <h3>Липовый мёд</h3>
+                <p>Ароматный мёд с липы, обладающий выраженными лечебными свойствами. Отлично помогает при простуде.</p>
+                <p><strong>Цена:</strong> Уточняйте по телефону</p>
+                <p><strong>Вес:</strong> От 1 кг</p>
+            </div>
+        </div>
+        
+        <!-- Рекламный блок -->
+        <div class="ad-container">
+            <amp-ad width="300" height="250" type="mytarget" data-ad-slot="1844447"></amp-ad>
+        </div>
+    </div>
+    
+    <!-- ========================================
+     * ФУТЕР И ИНФОРМАЦИЯ О РАЗРАБОТЧИКАХ
+     * ======================================== -->
+    
+    <!-- Подвал страницы (минималистичный, прозрачный) -->
+    <footer class="footer">
+        Разработчик: <a href="https://www.serpmonn.ru" target="_blank" rel="noopener"><span style="color: red;">Serp</span><span style="color: black;">monn</span></a>
+        · Партнёры: 
+        <a href="https://www.adventure36.ru" target="_blank" rel="noopener"><span style="color: green;">Adventure36</span></a>
+        · 
+        <a href="https://www.onehouseboat.ru" target="_blank" rel="noopener"><span style="color: #40E0D0;">OneHouseBoat</span></a>
+    </footer>
+</body>
+</html>

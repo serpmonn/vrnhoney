@@ -133,7 +133,7 @@ nav a:hover {
     border-radius: 15px 15px 0 0;
 }
 
-.menu-header img {
+.menu-header amp-img {
     display: none;
     width: 35px;
     height: auto;
@@ -176,10 +176,6 @@ nav a:hover {
     padding: 20px;
 }
 
-.tab-content[hidden] {
-    display: none !important;
-}
-
 /* На случай если AMP-биндинг не успел примениться, скрываем всё,
    кроме явно видимого блока без атрибута hidden */
 .tab-content {
@@ -188,6 +184,10 @@ nav a:hover {
 
 .tab-content:not([hidden]) {
     display: block;
+}
+
+.tab-content[hidden] {
+    display: none;
 }
 
 /* Галерея */
@@ -214,10 +214,6 @@ nav a:hover {
 
 .gallery amp-img img {
     object-fit: cover;
-}
-
-.gallery amp-img .i-amphtml-fill-content {
-    object-fit: cover !important;
 }
 
 .gallery amp-img:hover {
@@ -491,7 +487,7 @@ nav.active .menu-header {
     width: 100%;
 }
 
-nav.active .menu-header img {
+nav.active .menu-header amp-img {
     display: block;
 }
 
@@ -536,10 +532,10 @@ amp-img[layout="responsive"] {
 .ad-container:has(amp-ad[data-ad-status="error"]),
 amp-ad[data-ad-status="unfilled"],
 amp-ad[data-ad-status="error"] {
-    display: none !important;
-    margin: 0 !important;
-    height: 0 !important;
-    min-height: 0 !important;
+    display: none;
+    margin: 0;
+    height: 0;
+    min-height: 0;
 }
 
 .ad-after-gallery {
@@ -550,14 +546,15 @@ amp-ad[data-ad-status="error"] {
     margin-top: 70px; /* ниже фиксированной навигации */
 }
 
-@media (min-width: 769px) {
+/* In-page баннер — десктоп; на мобилке позже Top Ad */
+@media (max-width: 768px) {
     .ad-under-nav { display: none; }
 }
 
 /* Скрытие навигации на мобильных */
 @media (min-width: 601px) {
     .menu-icon {
-        display: none !important;
+        display: none;
     }
 
     nav {
@@ -571,7 +568,7 @@ amp-ad[data-ad-status="error"] {
     }
     
     .menu-icon {
-        display: flex !important;
+        display: flex;
     }
     
     .menu-items {
@@ -582,7 +579,7 @@ amp-ad[data-ad-status="error"] {
         display: flex;
     }
     
-    .menu-header img {
+    .menu-header amp-img {
         display: block;
     }
     
