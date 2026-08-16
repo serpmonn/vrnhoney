@@ -80,16 +80,52 @@
   /* ---- Lightbox ---- */
   function initLightbox() {
     var root = document.getElementById('lightbox');
-    if (!root) return;
+    if (!root || root.dataset.lightboxReady === '1') return;
+    root.dataset.lightboxReady = '1';
+
     var img = root.querySelector('img');
-    var images = Array.prototype.slice.call(document.querySelectorAll('.gallery-img'));
+    var video = root.querySelector('video');
+    if (!video) {
+      video = document.createElement('video');
+      video.setAttribute('controls', '');
+      video.setAttribute('playsinline', '');
+      video.hidden = true;
+      root.insertBefore(video, root.querySelector('.lightbox-next'));
+    }
     var index = 0;
 
+    function mediaList() {
+      var gallery = document.querySelector('.gallery');
+      if (!gallery) return [];
+      var list = Array.prototype.slice.call(gallery.querySelectorAll('.gallery-item'));
+      if (!list.length) {
+        list = Array.prototype.slice.call(gallery.querySelectorAll('.gallery-img'));
+      }
+      return list;
+    }
+
     function openAt(i) {
-      if (!images.length) return;
-      index = (i + images.length) % images.length;
-      img.src = images[index].src;
-      img.alt = images[index].alt || '';
+      var list = mediaList();
+      if (!list.length) return;
+      index = (i + list.length) % list.length;
+      var el = list[index];
+      var kind = el.getAttribute('data-kind') || (el.tagName === 'VIDEO' ? 'video' : 'image');
+      var src = el.getAttribute('data-src') || el.currentSrc || el.src || '';
+      var alt = el.getAttribute('data-alt') || el.getAttribute('alt') || '';
+      if (kind === 'video') {
+        img.hidden = true;
+        img.removeAttribute('src');
+        video.hidden = false;
+        video.src = src;
+        video.play().catch(function () {});
+      } else {
+        video.pause();
+        video.removeAttribute('src');
+        video.hidden = true;
+        img.hidden = false;
+        img.src = src;
+        img.alt = alt;
+      }
       root.hidden = false;
       root.classList.add('is-open');
     }
@@ -98,10 +134,26 @@
       root.classList.remove('is-open');
       root.hidden = true;
       img.src = '';
+      img.hidden = false;
+      video.pause();
+      video.removeAttribute('src');
+      video.hidden = true;
     }
 
-    images.forEach(function (el, i) {
-      el.addEventListener('click', function () { openAt(i); });
+    document.addEventListener('click', function (e) {
+      var gallery = document.querySelector('.gallery');
+      if (!gallery || !gallery.contains(e.target)) return;
+      var item = e.target.closest('.gallery-item');
+      if (!item) {
+        var legacy = e.target.closest('.gallery-img');
+        if (!legacy) return;
+        item = legacy;
+      }
+      var list = mediaList();
+      var i = list.indexOf(item);
+      if (i < 0) return;
+      e.preventDefault();
+      openAt(i);
     });
 
     root.querySelector('.lightbox-close').addEventListener('click', close);
@@ -116,6 +168,12 @@
       if (e.key === 'ArrowLeft') openAt(index - 1);
       if (e.key === 'ArrowRight') openAt(index + 1);
     });
+  }
+
+  function refreshGalleryUi() {
+    var gallery = document.querySelector('.gallery');
+    if (gallery) delete gallery.dataset.adsInserted;
+    insertGalleryAds();
   }
 
   /* ---- Ads ---- */
@@ -290,7 +348,12 @@
     if (!gallery || gallery.dataset.adsInserted === '1') return;
     gallery.dataset.adsInserted = '1';
 
-    var imgs = Array.prototype.slice.call(gallery.querySelectorAll('.gallery-img'));
+    var imgs = Array.prototype.slice.call(gallery.querySelectorAll('.gallery-item, .gallery-img'));
+    // Prefer wrapping items; fall back to bare imgs
+    imgs = imgs.filter(function (el, idx, arr) {
+      if (el.classList.contains('gallery-img') && el.closest('.gallery-item')) return false;
+      return true;
+    });
     var step = 9;
     var n = 0;
     for (var i = step; i <= imgs.length; i += step) {
@@ -356,4 +419,5 @@
     initAds();
     initGoals();
   });
+  window.addEventListener('vrn-gallery-ready', refreshGalleryUi);
 })();

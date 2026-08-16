@@ -711,6 +711,47 @@ body.menu-open .menu-header p {
     aspect-ratio: auto;
 }
 
+.lightbox > video {
+    max-width: min(96vw, 1100px);
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    background: #000;
+}
+
+.gallery-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    cursor: pointer;
+}
+.gallery-item .gallery-img,
+.gallery-item .gallery-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.gallery-video-badge {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: rgba(0,0,0,.55);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    pointer-events: none;
+}
+
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
