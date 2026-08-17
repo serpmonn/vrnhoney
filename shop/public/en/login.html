@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sign in — VRNHoney</title>
+  <link rel="icon" href="/images/favicon.svg?v=6" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/site.css?v=20260811j">
+  <link rel="stylesheet" href="/css/shop-site.css?v=24">
+</head>
+<body class="shop-page">
+<div class="menu-icon" id="menuToggle" role="button" tabindex="0" aria-label="Menu">☰</div>
+  <nav id="mainNav" role="navigation">
+    <div class="menu-items">
+      <div class="menu-header">
+        <p><img src="/images/VRNHoney-round.png" width="28" height="28" alt="VRNHoney logo"> VRNHoney</p>
+      </div>
+      <a href="/en/#tab1">Honey in Voronezh</a>
+      <a href="/en/#tab2">Gallery</a>
+      <a href="/en/#tab3">Buy</a>
+      <a class="lang-switch" href="/" hreflang="ru" lang="ru">RU</a>
+      <a class="social-button" href="https://vk.com/vrnhoney_ru" target="_blank" rel="noopener">Community</a>
+      <a class="shop-nav-cart" href="/en/cart.html" aria-label="Cart" title="Cart"><svg class="shop-cart-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.2 14.4l.1.6c.1.6.6 1 1.2 1H19v-2H9.4l-.3-1.2L7.2 14.4zM7 4H4V2h3l.7 3H20c.6 0 1 .5.9 1.1l-1.2 6c-.1.6-.6 1-1.2 1H8.1L7 4zm1.4 3 .6 2.5h8.7l.8-2.5H8.4z"/></svg><span class="shop-badge" data-cart-count>0</span></a>
+      <a class="shop-nav-account" href="/en/account.html" data-shop-account hidden>Account</a>
+      <a class="shop-nav-login" href="/en/login.html" data-shop-login>Sign in</a>
+    </div>
+  </nav>
+  <div id="menuOverlay" class="overlay" role="button" tabindex="0" aria-label="Close menu"></div>
+<div class="tab-content is-active">
+    <div class="transparent-container">
+      <div class="shop-auth">
+        <h1 id="auth-title">Sign in</h1>
+        <div class="shop-auth__tabs" role="tablist">
+          <button type="button" class="shop-auth__tab is-active" data-mode="login" aria-selected="true">Sign in</button>
+          <button type="button" class="shop-auth__tab" data-mode="register" aria-selected="false">Register</button>
+        </div>
+        <div id="flash"></div>
+        <form id="auth" class="shop-auth__form">
+          <div class="shop-auth__extra" data-reg-only hidden>
+            <label>Name<input name="name" autocomplete="name"></label>
+            <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+          </div>
+          <label data-email-row>Email<input type="email" name="email" required autocomplete="username"></label>
+          <label data-pass-row>Password
+            <span class="password-field">
+              <input type="password" name="password" required minlength="6" autocomplete="current-password">
+              <button type="button" class="password-field__toggle" aria-label="Show password" aria-pressed="false" title="Show password">
+                <span class="password-field__label-show">Show</span>
+                <span class="password-field__label-hide">Hide</span>
+              </button>
+            </span>
+          </label>
+          <p class="shop-auth__forgot" data-login-only><button type="button" class="shop-auth__link" data-mode="forgot">Forgot password?</button></p>
+          <p class="shop-auth__back" data-forgot-only hidden><button type="button" class="shop-auth__link" data-mode="login">Back to sign in</button></p>
+          <p><button class="shop-btn shop-auth__submit" type="submit">Sign in</button></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="/scripts/site.js?v=20260811j" defer></script>
+  <script type="module">
+    import { api, refreshNav, shopPath, bindPasswordToggles } from '/js/shop.js?v=8';
+    bindPasswordToggles();
+    const user0 = await refreshNav();
+    const params = new URLSearchParams(location.search);
+    const resetToken = params.get('reset') || '';
+    if (!resetToken) {
+      if (user0?.is_admin) location.href = '/admin/';
+      if (user0 && !user0.is_admin) location.href = shopPath('cart.html');
+    }
+    const flash = document.getElementById('flash');
+    const form = document.getElementById('auth');
+    const title = document.getElementById('auth-title');
+    const submitBtn = form.querySelector('.shop-auth__submit');
+    const extra = form.querySelector('[data-reg-only]');
+    const passRow = form.querySelector('[data-pass-row]');
+    const emailRow = form.querySelector('[data-email-row]');
+    const passInput = form.querySelector('[name="password"]');
+    const tabs = document.querySelector('.shop-auth__tabs');
+    let mode = resetToken ? 'reset' : 'login';
+    function setMode(next) {
+      mode = next;
+      const isReg = mode === 'register';
+      const isForgot = mode === 'forgot';
+      const isReset = mode === 'reset';
+      title.textContent = isReset ? 'New password' : isForgot ? 'Reset password' : isReg ? 'Register' : 'Sign in';
+      submitBtn.textContent = isReset ? 'Save password' : isForgot ? 'Send reset link' : isReg ? 'Create account' : 'Sign in';
+      extra.hidden = !isReg;
+      if (tabs) tabs.hidden = isForgot || isReset;
+      if (emailRow) emailRow.hidden = isReset;
+      if (passRow) passRow.hidden = isForgot;
+      passInput.required = !isForgot;
+      passInput.autocomplete = isReg || isReset ? 'new-password' : 'current-password';
+      form.querySelectorAll('[data-login-only]').forEach((el) => { el.hidden = mode !== 'login'; });
+      form.querySelectorAll('[data-forgot-only]').forEach((el) => { el.hidden = !isForgot; });
+      document.querySelectorAll('.shop-auth__tab').forEach((btn) => {
+        const on = btn.dataset.mode === mode;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      if (!isReset) flash.innerHTML = '';
+    }
+    document.querySelectorAll('[data-mode]').forEach((btn) => {
+      btn.addEventListener('click', () => setMode(btn.dataset.mode));
+    });
+    setMode(mode);
+    if (resetToken) {
+      flash.innerHTML = '<div class="shop-flash ok">Choose a new password (at least 6 characters).</div>';
+    }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      try {
+        if (mode === 'forgot') {
+          const data = await api('/auth/forgot', { method: 'POST', body: { email: fd.get('email') } });
+          flash.innerHTML = `<div class="shop-flash ok">${data.message || 'Check your email'}</div>`;
+          return;
+        }
+        if (mode === 'reset') {
+          const data = await api('/auth/reset', {
+            method: 'POST',
+            body: { token: resetToken, password: fd.get('password') },
+          });
+          flash.innerHTML = `<div class="shop-flash ok">${data.message || 'Password updated'}</div>`;
+          history.replaceState({}, '', shopPath('login.html'));
+          setMode('login');
+          return;
+        }
+        const body = mode === 'register'
+          ? { name: fd.get('name'), phone: fd.get('phone'), email: fd.get('email'), password: fd.get('password') }
+          : { email: fd.get('email'), password: fd.get('password') };
+        const data = await api(mode === 'register' ? '/auth/register' : '/auth/login', { method: 'POST', body });
+        if (data.user?.is_admin) { location.href = '/admin/'; return; }
+        location.href = shopPath('cart.html');
+      } catch (err) {
+        flash.innerHTML = `<div class="shop-flash err">${err.message}</div>`;
+      }
+    });
+  </script>
+<footer class="footer">
+  <span class="footer-row"><a href="/en/offer.html">Offer</a></span>
+  <span class="footer-dot" aria-hidden="true">·</span>
+  <span class="footer-row footer-row--dev">
+    <span class="footer-label">Developer:</span>
+    <a href="https://www.serpmonn.ru" target="_blank" rel="noopener"><span style="color: red;">Serp</span><span style="color: black;">monn</span></a>
+  </span>
+  <span class="footer-dot" aria-hidden="true">·</span>
+  <span class="footer-row footer-row--partners">
+    <span class="footer-label">Partners:</span>
+    <a href="https://www.adventure36.ru" target="_blank" rel="noopener"><span style="color: green;">Adventure36</span></a>
+    <span class="footer-dot" aria-hidden="true">·</span>
+    <a href="https://www.onehouseboat.ru" target="_blank" rel="noopener"><span style="color: #40E0D0;">OneHouseBoat</span></a>
+  </span>
+</footer>
+</body>
+</html>

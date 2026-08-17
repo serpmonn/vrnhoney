@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Админка — VRNHoney Shop</title>
+  <link rel="icon" href="/images/favicon.svg?v=6" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/site.css?v=20260814g">
+  <link rel="stylesheet" href="/css/shop-site.css?v=24">
+  <link rel="stylesheet" href="/css/shop.css?v=13">
+</head>
+<body class="shop-page">
+<div class="menu-icon" id="menuToggle" role="button" tabindex="0" aria-label="Меню">☰</div>
+  <nav id="mainNav" role="navigation">
+    <div class="menu-items">
+      <div class="menu-header">
+        <p><img src="/images/VRNHoney-round.png" width="28" height="28" alt="Логотип VRNHoney"> VRNHoney</p>
+      </div>
+      <a href="/#tab1">Мёд в Воронеже</a>
+      <a href="/#tab2">Галерея</a>
+      <a href="/#tab3">Купить</a>
+      <a class="lang-switch" href="/en/" hreflang="en" lang="en">EN</a>
+      <a class="social-button" href="https://vk.com/vrnhoney_ru" target="_blank" rel="noopener">Сообщество</a>
+            <a class="shop-nav-cart" href="/cart.html" aria-label="Корзина" title="Корзина"><svg class="shop-cart-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.2 14.4l.1.6c.1.6.6 1 1.2 1H19v-2H9.4l-.3-1.2L7.2 14.4zM7 4H4V2h3l.7 3H20c.6 0 1 .5.9 1.1l-1.2 6c-.1.6-.6 1-1.2 1H8.1L7 4zm1.4 3 .6 2.5h8.7l.8-2.5H8.4z"/></svg><span class="shop-badge" data-cart-count>0</span></a>
+            <a class="shop-nav-account" href="/account.html" data-shop-account hidden>Кабинет</a>
+            <a class="shop-nav-login" href="/login.html" data-shop-login>Войти</a>
+    </div>
+  </nav>
+  <div id="menuOverlay" class="overlay" role="button" tabindex="0" aria-label="Закрыть меню"></div>
+
+<div class="tab-content is-active">
+  <div class="transparent-container">
+    <h1 style="text-align:center">Админка</h1>
+    <div id="flash"></div>
+    <div id="root"><p class="muted" style="text-align:center">Загрузка…</p></div>
+  </div></div>
+  <script src="/scripts/site.js?v=20260811j" defer></script>
+  <script type="module">
+    import { api, money, refreshNav, bindPasswordToggles } from '/js/shop.js?v=8';
+    const flash = document.getElementById('flash');
+    const root = document.getElementById('root');
+
+    function ok(m){ flash.innerHTML = `<div class="flash ok">${esc(m)}</div>`; }
+    function fail(m){ flash.innerHTML = `<div class="flash err">${esc(m)}</div>`; }
+    function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+    async function showLogin() {
+      await refreshNav();
+      root.innerHTML = `
+        <div class="panel admin-login">
+          <h2>Вход</h2>
+          <p class="muted">Доступ только для управления товарами и заказами.</p>
+          <form id="admin-login">
+            <label>Email<input type="email" name="email" required autocomplete="username"></label>
+            <label>Пароль
+              <span class="password-field">
+                <input type="password" name="password" required autocomplete="current-password">
+                <button type="button" class="password-field__toggle" aria-label="Показать пароль" aria-pressed="false" title="Показать пароль">
+                  <span class="password-field__label-show">Показать</span>
+                  <span class="password-field__label-hide">Скрыть</span>
+                </button>
+              </span>
+            </label>
+            <p><button class="btn" type="submit">Войти</button></p>
+          </form>
+        </div>`;
+      bindPasswordToggles(root);
+      document.getElementById('admin-login').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        try {
+          const { user } = await api('/auth/login', {
+            method: 'POST',
+            body: { email: fd.get('email'), password: fd.get('password') },
+          });
+          if (!user?.is_admin) {
+            await api('/auth/logout', { method: 'POST', body: {} });
+            fail('Нет прав администратора');
+            return;
+          }
+          location.reload();
+        } catch (err) {
+          fail(err.message);
+        }
+      });
+    }
+
+    const user = await refreshNav();
+    if (!user?.is_admin) {
+      await showLogin();
+      throw new Error('no admin');
+    }
+
+    let adminLang = localStorage.getItem('vrn_admin_lang') === 'en' ? 'en' : 'ru';
+
+    function applyAdminLang() {
+      root.classList.toggle('is-admin-en', adminLang === 'en');
+      root.querySelectorAll('[data-admin-lang]').forEach((btn) => {
+        btn.classList.toggle('is-active', btn.dataset.adminLang === adminLang);
+      });
+      const createTitle = root.querySelector('#create [name=title]');
+      const createTitleEn = root.querySelector('#create [name=title_en]');
+      if (createTitle && createTitleEn) {
+        createTitle.required = adminLang === 'ru';
+        createTitleEn.required = adminLang === 'en';
+      }
+    }
+
+    async function reload() {
+      const [{ products }, { orders }, { items: galleryItems }] = await Promise.all([
+        api('/products'),
+        api('/admin/orders'),
+        api('/gallery'),
+      ]);
+      root.innerHTML = `
+        <div class="panel">
+          <div class="admin-lang-bar">
+            <span class="muted">Язык полей товара:</span>
+            <button type="button" class="btn secondary btn-sm" data-admin-lang="ru">RU</button>
+            <button type="button" class="btn secondary btn-sm" data-admin-lang="en">EN</button>
+          </div>
+          <h2>Новый товар</h2>
+          <form id="create">
+            <div class="row">
+              <div class="admin-lang-ru"><label>Название</label><input name="title"></div>
+              <div class="admin-lang-en"><label>Title</label><input name="title_en" placeholder="Flower honey, 1 L"></div>
+              <div><label>Цена, ₽</label><input name="price_rub" type="number" min="1" required></div>
+            </div>
+            <div class="row">
+              <div><label>Остаток</label><input name="stock" type="number" min="0" value="10"></div>
+              <div><label>Фото</label><input name="image" type="file" accept="image/*"></div>
+            </div>
+            <div class="admin-lang-ru"><label>Описание</label><textarea name="description"></textarea></div>
+            <div class="admin-lang-en"><label>Description</label><textarea name="description_en"></textarea></div>
+            <p style="margin-top:1rem"><button class="btn" type="submit">Добавить</button></p>
+          </form>
+        </div>
+        <div class="panel">
+          <h2>Товары</h2>
+          <table class="table admin-products">
+            <thead><tr><th></th><th>Название / описание</th><th>Цена</th><th>Ост.</th><th>Вкл</th><th></th><th></th></tr></thead>
+            <tbody>
+              ${products.map(p => `<tr data-pid="${p.id}">
+                <td class="admin-products__img">
+                  <label class="admin-products__photo" title="Загрузить фото">
+                    <input type="file" accept="image/*" data-img hidden>
+                    ${p.image_url
+                      ? `<img src="${p.image_url}" alt="" data-preview>`
+                      : `<span class="admin-products__photo-empty" data-preview aria-hidden="true">+</span>`}
+                  </label>
+                </td>
+                <td>
+                  <div class="admin-lang-ru">
+                    <input value="${esc(p.title)}" data-f="title" class="admin-products__title" placeholder="Название" title="Название">
+                    <textarea data-f="description" class="admin-products__desc" placeholder="Описание" rows="2" style="margin-top:.35rem;width:100%">${esc(p.description || '')}</textarea>
+                  </div>
+                  <div class="admin-lang-en">
+                    <input value="${esc(p.title_en || '')}" data-f="title_en" class="admin-products__title" placeholder="Title EN" title="Title EN">
+                    <textarea data-f="description_en" class="admin-products__desc" placeholder="Description EN" rows="2" style="margin-top:.35rem;width:100%">${esc(p.description_en || '')}</textarea>
+                  </div>
+                </td>
+                <td><input type="number" value="${p.price_rub}" data-f="price_rub" class="admin-products__num"></td>
+                <td><input type="number" value="${p.stock}" data-f="stock" class="admin-products__num admin-products__stock"></td>
+                <td><input type="checkbox" data-f="active" ${p.active ? 'checked' : ''}></td>
+                <td class="admin-products__save-cell"><button class="btn secondary btn-sm" data-save type="button">OK</button></td>
+                <td class="admin-products__del-cell"><button class="admin-products__del" data-del type="button" title="Удалить" aria-label="Удалить">×</button></td>
+              </tr>`).join('') || '<tr><td colspan="7" class="muted">Пусто</td></tr>'}
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h2>Заказы</h2>
+          ${orders.length ? `<div class="admin-orders-wrap"><table class="table admin-orders">
+            <thead><tr><th>№</th><th>Клиент</th><th>Сумма</th><th>Оплата</th><th>СДЭК</th><th>Статус</th><th></th></tr></thead>
+            <tbody>
+              ${orders.map(o => `<tr data-oid="${o.id}">
+                <td data-label="Заказ">${o.id}<div class="muted">${esc(o.created_at)}</div>
+                  <div class="muted">${o.items.map(i=>esc(i.title)+'×'+i.qty).join(', ')}</div>
+                </td>
+                <td data-label="Клиент">${esc([o.customer_last_name, o.customer_name, o.customer_patronymic].filter(Boolean).join(' '))}<br>${esc(o.customer_phone)}<br>${esc(o.customer_address || o.cdek_pvz_address || '')}${o.comment ? '<br><span class="muted">' + esc(o.comment) + '</span>' : ''}</td>
+                <td data-label="Сумма">${money(o.total_rub)}<div class="muted">мёд</div>
+                  ${o.shipping_rub ? `<div class="muted">дост. ${money(o.shipping_rub)}</div>` : ''}
+                </td>
+                <td data-label="Оплата">${({ unpaid: 'Не оплачен', pending: 'Ожидает', paid: 'Оплачен', canceled: 'Отменён' })[o.payment_status] || esc(o.payment_status || 'unpaid')}</td>
+                <td data-label="СДЭК">
+                  ${o.cdek_number
+                    ? `<div><a href="https://www.cdek.ru/ru/tracking?order_id=${encodeURIComponent(o.cdek_number)}" target="_blank" rel="noopener">Трек ${esc(o.cdek_number)}</a></div>`
+                    : '<div class="muted">нет накладной</div>'}
+                  <div class="muted">${o.cdek_delivery_type === 'door' ? 'до двери' : 'ПВЗ'}${o.cdek_pvz_code ? ' ' + esc(o.cdek_pvz_code) : ''}</div>
+                  ${o.cdek_status ? `<div class="muted">${esc(o.cdek_status)}</div>` : ''}
+                  ${o.cdek_intake_uuid
+                    ? `<div class="muted">Курьер: ${esc(o.cdek_intake_date)} ${esc(o.cdek_intake_time_from)}–${esc(o.cdek_intake_time_to)}${o.cdek_intake_number ? ' №' + esc(o.cdek_intake_number) : ''}</div>`
+                    : (o.cdek_intake_status ? `<div class="muted">Курьер: ${esc(o.cdek_intake_status)}</div>` : '')}
+                  <div class="admin-cdek-links">
+                    ${o.cdek_uuid
+                      ? `<span class="admin-cdek-print">
+                           <button type="button" class="btn secondary btn-sm" data-cdek-print="barcode" data-oid="${o.id}">Наклейка</button>
+                           <button type="button" class="btn secondary btn-sm" data-cdek-download="barcode" data-oid="${o.id}">Скачать</button>
+                         </span>
+                         <span class="admin-cdek-print">
+                           <button type="button" class="btn secondary btn-sm" data-cdek-print="waybill" data-oid="${o.id}">Квитанция</button>
+                           <button type="button" class="btn secondary btn-sm" data-cdek-download="waybill" data-oid="${o.id}">Скачать</button>
+                         </span>`
+                      : ''}
+                    ${o.cdek_uuid && o.payment_status === 'paid' && !o.cdek_intake_uuid
+                      ? `<button type="button" class="btn btn-sm admin-cdek-lk" data-cdek-intake="${o.id}">Вызвать курьера</button>`
+                      : ''}
+                    ${o.cdek_intake_uuid
+                      ? `<button type="button" class="btn secondary btn-sm" data-cdek-intake-cancel="${o.id}">Отменить забор</button>`
+                      : ''}
+                    ${o.cdek_number
+                      ? `<a class="btn secondary btn-sm" href="https://www.cdek.ru/ru/tracking?order_id=${encodeURIComponent(o.cdek_number)}" target="_blank" rel="noopener">Отследить</a>`
+                      : ''}
+                    <a class="btn btn-sm admin-cdek-lk" href="https://lk.cdek.ru/" target="_blank" rel="noopener" title="${o.cdek_number ? 'Заказ VRN-' + o.id + ' / трек ' + esc(o.cdek_number) : 'Заказ VRN-' + o.id}">ЛК СДЭК</a>
+                    ${o.payment_status === 'paid'
+                      ? `<button type="button" class="btn secondary btn-sm" data-cdek="${o.id}">${o.cdek_number ? 'Пересоздать' : 'Создать СДЭК'}</button>`
+                      : ''}
+                  </div>
+                </td>
+                <td data-label="Статус">
+                  <select data-status>
+                    ${[
+                      ['new', 'Новый'],
+                      ['confirmed', 'Подтверждён'],
+                      ['shipped', 'Отправлен'],
+                      ['done', 'Выполнен'],
+                      ['cancelled', 'Отменён'],
+                    ].map(([v, label]) => `<option value="${v}" ${o.status===v?'selected':''}>${label}</option>`).join('')}
+                  </select>
+                </td>
+                <td class="admin-orders__actions"><button class="btn secondary" data-osave>OK</button></td>
+              </tr>`).join('')}
+            </tbody>
+          </table></div>` : '<p class="muted">Заказов нет</p>'}
+        </div>
+        <div class="panel">
+          <h2>Галерея</h2>
+          <p class="muted">Фото или видео появятся во вкладке «Галерея» на сайте. Видео до 80&nbsp;МБ (MP4/WebM).</p>
+          <form id="gallery-upload" class="admin-gallery-upload">
+            <div class="row">
+              <div><label>Файл</label><input name="file" type="file" accept="image/*,video/mp4,video/webm,video/quicktime" required></div>
+              <div class="admin-lang-ru"><label>Подпись RU</label><input name="alt" placeholder="Например: пасека весной"></div>
+              <div class="admin-lang-en"><label>Caption EN</label><input name="alt_en" placeholder="Apiary in spring"></div>
+            </div>
+            <p style="margin-top:1rem"><button class="btn" type="submit">Загрузить в галерею</button></p>
+          </form>
+          <div class="admin-gallery-grid">
+            ${galleryItems.length ? galleryItems.map((g) => `
+              <article class="admin-gallery-card" data-gid="${g.id}">
+                <div class="admin-gallery-card__media">
+                  ${g.kind === 'video'
+                    ? `<video src="${esc(g.url)}" muted playsinline preload="metadata"></video><span class="admin-gallery-card__badge">видео</span>`
+                    : `<img src="${esc(g.url)}" alt="">`}
+                </div>
+                <label class="muted">Подпись RU<input data-g-alt value="${esc(g.alt_ru || '')}"></label>
+                <label class="muted">Подпись EN<input data-g-alt-en value="${esc(g.alt_en || '')}"></label>
+                <div class="admin-gallery-card__row">
+                  <label class="muted">Порядок <input type="number" data-g-sort value="${g.sort_order}" style="width:4.5rem"></label>
+                  <label class="muted"><input type="checkbox" data-g-active ${g.active ? 'checked' : ''}> Вкл</label>
+                </div>
+                <div class="admin-gallery-card__actions">
+                  <button type="button" class="btn secondary btn-sm" data-g-save>OK</button>
+                  <button type="button" class="admin-products__del" data-g-del title="Удалить" aria-label="Удалить">×</button>
+                </div>
+              </article>`).join('') : '<p class="muted">В галерее пока пусто</p>'}
+          </div>
+        </div>`;
+
+      applyAdminLang();
+
+      root.querySelectorAll('[data-admin-lang]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          adminLang = btn.dataset.adminLang === 'en' ? 'en' : 'ru';
+          localStorage.setItem('vrn_admin_lang', adminLang);
+          applyAdminLang();
+        });
+      });
+
+      document.getElementById('create').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        let title = String(fd.get('title') || '').trim();
+        const titleEn = String(fd.get('title_en') || '').trim();
+        if (!title && titleEn) {
+          title = titleEn;
+          fd.set('title', title);
+        }
+        if (!title) {
+          fail(adminLang === 'en' ? 'Укажите Title (EN)' : 'Укажите название');
+          return;
+        }
+        try {
+          await api('/admin/products', { method: 'POST', body: fd });
+          ok('Товар добавлен');
+          await reload();
+        } catch (err) { fail(err.message); }
+      });
+
+      document.getElementById('gallery-upload')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        try {
+          await api('/admin/gallery', { method: 'POST', body: fd });
+          ok('Добавлено в галерею');
+          await reload();
+        } catch (err) { fail(err.message); }
+      });
+
+      root.querySelectorAll('[data-gid]').forEach((card) => {
+        card.querySelector('[data-g-save]')?.addEventListener('click', async () => {
+          try {
+            await api('/admin/gallery/' + card.dataset.gid, {
+              method: 'PATCH',
+              body: {
+                alt: card.querySelector('[data-g-alt]')?.value || '',
+                alt_en: card.querySelector('[data-g-alt-en]')?.value || '',
+                sort_order: Number(card.querySelector('[data-g-sort]')?.value || 0),
+                active: !!card.querySelector('[data-g-active]')?.checked,
+              },
+            });
+            ok('Галерея сохранена');
+            await reload();
+          } catch (err) { fail(err.message); }
+        });
+        card.querySelector('[data-g-del]')?.addEventListener('click', async () => {
+          if (!confirm('Удалить из галереи?')) return;
+          try {
+            await api('/admin/gallery/' + card.dataset.gid, { method: 'DELETE', body: {} });
+            ok('Удалено из галереи');
+            await reload();
+          } catch (err) { fail(err.message); }
+        });
+      });
+
+      root.querySelectorAll('tr[data-pid]').forEach(tr => {
+        const fileInput = tr.querySelector('[data-img]');
+        fileInput?.addEventListener('change', () => {
+          const f = fileInput.files?.[0];
+          const slot = tr.querySelector('[data-preview]');
+          if (!f || !slot) return;
+          const url = URL.createObjectURL(f);
+          if (slot.tagName === 'IMG') {
+            slot.src = url;
+          } else {
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = '';
+            img.dataset.preview = '';
+            slot.replaceWith(img);
+          }
+        });
+        tr.querySelector('[data-save]')?.addEventListener('click', async () => {
+          const fd = new FormData();
+          fd.set('title', tr.querySelector('[data-f=title]').value);
+          fd.set('title_en', tr.querySelector('[data-f=title_en]')?.value || '');
+          fd.set('description', tr.querySelector('[data-f=description]')?.value || '');
+          fd.set('description_en', tr.querySelector('[data-f=description_en]')?.value || '');
+          fd.set('price_rub', tr.querySelector('[data-f=price_rub]').value);
+          fd.set('stock', tr.querySelector('[data-f=stock]').value);
+          fd.set('active', tr.querySelector('[data-f=active]').checked ? '1' : '0');
+          const file = fileInput?.files?.[0];
+          if (file) fd.set('image', file);
+          try {
+            await api('/admin/products/' + tr.dataset.pid, { method: 'PUT', body: fd });
+            ok('Сохранено');
+            await reload();
+          } catch (err) { fail(err.message); }
+        });
+        tr.querySelector('[data-del]')?.addEventListener('click', async () => {
+          if (!confirm('Удалить товар?')) return;
+          try {
+            await api('/admin/products/' + tr.dataset.pid, { method: 'DELETE', body: {} });
+            await reload();
+          } catch (err) { fail(err.message); }
+        });
+      });
+
+      root.querySelectorAll('tr[data-oid]').forEach(tr => {
+        tr.querySelector('[data-osave]')?.addEventListener('click', async () => {
+          const nextStatus = tr.querySelector('[data-status]').value;
+          const hasCdek = !!(
+            tr.querySelector('[data-cdek-print], [data-cdek-download]') ||
+            tr.querySelector('a[href*="cdek.ru/ru/tracking"]')
+          );
+          if (nextStatus === 'cancelled' && hasCdek) {
+            if (!confirm(
+              'Отменить заказ #' + tr.dataset.oid + '?\n\n' +
+              'Накладная СДЭК тоже будет отменена в личном кабинете СДЭК.'
+            )) return;
+          }
+          try {
+            await api('/admin/orders/' + tr.dataset.oid, {
+              method: 'PATCH',
+              body: { status: nextStatus },
+            });
+            ok(nextStatus === 'cancelled' && hasCdek
+              ? 'Заказ отменён, накладная СДЭК тоже отменена'
+              : 'Заказ обновлён');
+            await reload();
+          } catch (err) { fail(err.message); }
+        });
+        tr.querySelector('[data-cdek]')?.addEventListener('click', async (ev) => {
+          const btn = ev.currentTarget;
+          const id = btn.dataset.cdek;
+          const force = !!btn.textContent.includes('Пересоздать');
+          if (force && !confirm('Создать новую накладную СДЭК для заказа #' + id + '?')) return;
+          btn.disabled = true;
+          try {
+            await api('/admin/orders/' + id + '/cdek', {
+              method: 'POST',
+              body: { force },
+            });
+            ok('СДЭК обновлён');
+            await reload();
+          } catch (err) {
+            fail(err.message);
+            btn.disabled = false;
+          }
+        });
+        tr.querySelectorAll('[data-cdek-print]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.dataset.oid;
+            const kind = btn.dataset.cdekPrint;
+            window.open('/api/admin/orders/' + id + '/cdek/print/' + kind, '_blank', 'noopener');
+          });
+        });
+        async function downloadCdekPdf(id, kind) {
+          const filename = (kind === 'barcode' ? 'naklejka' : 'kvitanciya') + '-VRN-' + id + '.pdf';
+          const res = await fetch('/api/admin/orders/' + id + '/cdek/print/' + kind + '?download=1', {
+            credentials: 'same-origin',
+          });
+          const type = res.headers.get('content-type') || '';
+          if (!res.ok || !type.includes('pdf')) {
+            const data = await res.json().catch(() => ({}));
+            throw new Error(data.error || 'Не удалось скачать PDF');
+          }
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        }
+        tr.querySelectorAll('[data-cdek-download]').forEach((btn) => {
+          btn.addEventListener('click', async () => {
+            btn.disabled = true;
+            try {
+              await downloadCdekPdf(btn.dataset.oid, btn.dataset.cdekDownload);
+              ok('Файл скачан');
+            } catch (err) {
+              fail(err.message);
+            } finally {
+              btn.disabled = false;
+            }
+          });
+        });
+        async function askIntakeSchedule() {
+          const now = new Date();
+          const today =
+            now.getFullYear() +
+            '-' +
+            String(now.getMonth() + 1).padStart(2, '0') +
+            '-' +
+            String(now.getDate()).padStart(2, '0');
+          const intake_date = prompt('Дата забора курьером (ГГГГ-ММ-ДД)', today);
+          if (!intake_date) return null;
+          const intake_time_from = prompt('Время с (ЧЧ:ММ)', '12:00') || '12:00';
+          const intake_time_to = prompt('Время до (ЧЧ:ММ)', '18:00') || '18:00';
+          return { intake_date, intake_time_from, intake_time_to };
+        }
+
+        tr.querySelector('[data-cdek-intake]')?.addEventListener('click', async (ev) => {
+          const btn = ev.currentTarget;
+          const id = btn.dataset.cdekIntake;
+          const schedule = await askIntakeSchedule();
+          if (!schedule) return;
+          if (!confirm(
+            `РЕАЛЬНЫЙ вызов курьера СДЭК?\n${schedule.intake_date}, ${schedule.intake_time_from}–${schedule.intake_time_to}\n` +
+            `Адрес забора: Семилуки, ул. Башкирцева, 4\n\nКурьер приедет по этой заявке.`
+          )) return;
+          btn.disabled = true;
+          try {
+            await api('/admin/orders/' + id + '/cdek/intake', {
+              method: 'POST',
+              body: schedule,
+            });
+            ok('Курьер вызван');
+            await reload();
+          } catch (err) {
+            fail(err.message);
+            btn.disabled = false;
+          }
+        });
+        tr.querySelector('[data-cdek-intake-cancel]')?.addEventListener('click', async (ev) => {
+          const btn = ev.currentTarget;
+          const id = btn.dataset.cdekIntakeCancel;
+          if (!confirm('Отменить заявку на забор курьером?')) return;
+          btn.disabled = true;
+          try {
+            await api('/admin/orders/' + id + '/cdek/intake', { method: 'DELETE', body: {} });
+            ok('Заявка на забор отменена');
+            await reload();
+          } catch (err) {
+            fail(err.message);
+            btn.disabled = false;
+          }
+        });
+      });
+    }
+
+    await reload();
+  </script>
+</body>
+</html>

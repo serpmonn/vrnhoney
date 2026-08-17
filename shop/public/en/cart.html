@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Cart — VRNHoney</title>
+  <link rel="icon" href="/images/favicon.svg?v=6" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/site.css?v=20260811j">
+  <link rel="stylesheet" href="/css/shop-site.css?v=23">
+</head>
+<body class="shop-page">
+<div class="menu-icon" id="menuToggle" role="button" tabindex="0" aria-label="Menu">☰</div>
+  <nav id="mainNav" role="navigation">
+    <div class="menu-items">
+      <div class="menu-header">
+        <p><img src="/images/VRNHoney-round.png" width="28" height="28" alt="VRNHoney logo"> VRNHoney</p>
+      </div>
+      <a href="/en/#tab1">Honey in Voronezh</a>
+      <a href="/en/#tab2">Gallery</a>
+      <a href="/en/#tab3">Buy</a>
+      <a class="lang-switch" href="/" hreflang="ru" lang="ru">RU</a>
+      <a class="social-button" href="https://vk.com/vrnhoney_ru" target="_blank" rel="noopener">Community</a>
+      <a class="shop-nav-cart" href="/en/cart.html" aria-label="Cart" title="Cart"><svg class="shop-cart-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.2 14.4l.1.6c.1.6.6 1 1.2 1H19v-2H9.4l-.3-1.2L7.2 14.4zM7 4H4V2h3l.7 3H20c.6 0 1 .5.9 1.1l-1.2 6c-.1.6-.6 1-1.2 1H8.1L7 4zm1.4 3 .6 2.5h8.7l.8-2.5H8.4z"/></svg><span class="shop-badge" data-cart-count>0</span></a>
+      <a class="shop-nav-account" href="/en/account.html" data-shop-account hidden>Account</a>
+      <a class="shop-nav-login" href="/en/login.html" data-shop-login>Sign in</a>
+    </div>
+  </nav>
+  <div id="menuOverlay" class="overlay" role="button" tabindex="0" aria-label="Close menu"></div>
+<div class="tab-content is-active">
+    <div class="transparent-container">
+      <h1>Cart and checkout</h1>
+      <div id="flash"></div>
+      <div id="root"></div>
+    </div>
+  </div>
+<footer class="footer">
+  <span class="footer-row"><a href="/en/offer.html">Offer</a></span>
+  <span class="footer-dot" aria-hidden="true">·</span>
+  <span class="footer-row footer-row--dev">
+    <span class="footer-label">Developer:</span>
+    <a href="https://www.serpmonn.ru" target="_blank" rel="noopener"><span style="color: red;">Serp</span><span style="color: black;">monn</span></a>
+  </span>
+</footer>
+  <script src="/scripts/site.js?v=20260811j" defer></script>
+  <script type="module">
+    import { api, money, refreshNav, getCart, setCart } from '/js/shop.js?v=8';
+    const user = await refreshNav();
+    const flash = document.getElementById('flash');
+    const root = document.getElementById('root');
+    const { products } = await api('/products');
+    const byId = Object.fromEntries(products.map(p => [p.id, p]));
+    let paymentsEnabled = false;
+    try {
+      const settings = await api('/settings/public');
+      paymentsEnabled = !!settings.payments_enabled;
+    } catch { /* ignore */ }
+    let cityTimer = null;
+    let deliveryState = {
+      mode: 'pvz',
+      cityCode: null,
+      cityLabel: '',
+      pvzCode: '',
+      pvzAddress: '',
+      doorAddress: '',
+      postal: '',
+      shippingRub: null,
+      period: '',
+      tariffName: '',
+    };
+    function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+    async function recalcShipping() {
+      const box = document.getElementById('shipInfo');
+      if (!deliveryState.cityCode) return;
+      const items = getCart();
+      if (!items.length) return;
+      try {
+        if (box) box.textContent = 'Calculating shipping…';
+        const calc = await api('/cdek/calc', {
+          method: 'POST',
+          body: { city_code: deliveryState.cityCode, items, mode: deliveryState.mode },
+        });
+        deliveryState.shippingRub = calc.shipping_rub;
+        deliveryState.tariffName = calc.tariff_name || '';
+        const days = calc.period_min != null && calc.period_max != null
+          ? (calc.period_min === calc.period_max ? `${calc.period_min} days` : `${calc.period_min}–${calc.period_max} days`)
+          : '';
+        deliveryState.period = days;
+        const where = deliveryState.mode === 'door' ? 'to door' : 'to pickup point';
+        if (box) {
+          box.innerHTML = `<strong>CDEK shipping ${where}: ${money(calc.shipping_rub)}</strong>` +
+            ` <span class="muted">(pay on delivery${days ? ', ' + esc(days) : ''})</span>` +
+            `<br><span class="muted">Online you pay for the product only.</span>`;
+        }
+      } catch (e) {
+        deliveryState.shippingRub = null;
+        if (box) box.innerHTML = `<span class="err">${esc(e.message)}</span>`;
+      }
+    }
+
+    async function loadPvzForCity() {
+      const pvzSelect = document.getElementById('pvzSelect');
+      if (!pvzSelect || !deliveryState.cityCode) return;
+      pvzSelect.disabled = true;
+      pvzSelect.innerHTML = '<option value="">Loading pickup points…</option>';
+      try {
+        const { pvz } = await api('/cdek/pvz?city_code=' + deliveryState.cityCode);
+        if (!pvz.length) { pvzSelect.innerHTML = '<option value="">No pickup points</option>'; return; }
+        pvzSelect.innerHTML = '<option value="">Choose a pickup point</option>' + pvz.map(p =>
+          `<option value="${esc(p.code)}" data-address="${esc(p.address_full || p.address)}" data-postal="${esc(p.postal_code || '')}">${esc(p.address || p.name)} (${esc(p.code)})</option>`
+        ).join('');
+        pvzSelect.disabled = false;
+        if (deliveryState.pvzCode) pvzSelect.value = deliveryState.pvzCode;
+      } catch (e) {
+        pvzSelect.innerHTML = `<option value="">${esc(e.message)}</option>`;
+      }
+    }
+
+    function applyDeliveryModeUi() {
+      const pvzBlock = document.getElementById('pvzBlock');
+      const doorBlock = document.getElementById('doorBlock');
+      const isDoor = deliveryState.mode === 'door';
+      if (pvzBlock) pvzBlock.hidden = isDoor;
+      if (doorBlock) doorBlock.hidden = !isDoor;
+      const pvzSelect = document.getElementById('pvzSelect');
+      if (pvzSelect) pvzSelect.required = !isDoor;
+      const doorInput = document.getElementById('doorAddress');
+      if (doorInput) doorInput.required = isDoor;
+    }
+
+    function render() {
+      const cart = getCart().map(i => ({...i, product: byId[i.product_id]})).filter(i => i.product);
+      if (!cart.length) {
+        root.innerHTML = '<p>Cart is empty. <a href="/en/#tab3">Browse products</a></p>';
+        return;
+      }
+      let itemsTotal = 0;
+      const rows = cart.map(i => {
+        const line = i.product.price_rub * i.qty;
+        itemsTotal += line;
+        return `<tr>
+          <td>${esc(i.product.title)}</td>
+          <td>${money(i.product.price_rub)}</td>
+          <td><input type="number" min="1" max="${i.product.stock}" value="${i.qty}" data-qty="${i.product_id}" style="width:4.5rem"></td>
+          <td>${money(line)}</td>
+          <td><button type="button" class="shop-btn secondary" data-rm="${i.product_id}">Remove</button></td>
+        </tr>`;
+      }).join('');
+      root.innerHTML = `
+        <table class="shop-table">
+          <thead><tr><th>Item</th><th>Price</th><th>Qty</th><th>Sum</th><th></th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <p><strong>Honey total: ${money(itemsTotal)}</strong></p>
+        ${user && !user.is_admin ? `
+        <form id="order" style="margin-top:1rem" novalidate>
+          <p class="shop-hint">Required fields marked *. Shipping is paid to CDEK on receipt; online you pay for the product only.</p>
+          <p><label>Last name <span class="req">*</span><br><input name="customer_last_name" required autocomplete="family-name" style="width:100%;max-width:28rem;padding:.5rem"></label></p>
+          <p><label>First name <span class="req">*</span><br><input name="customer_name" required autocomplete="given-name" value="${esc(user.name||'')}" style="width:100%;max-width:28rem;padding:.5rem"></label></p>
+          <p><label>Patronymic <span class="req">*</span><br><input name="customer_patronymic" required autocomplete="additional-name" style="width:100%;max-width:28rem;padding:.5rem"></label></p>
+          <p><label>Phone <span class="req">*</span><br><input name="customer_phone" required autocomplete="tel" value="${esc(user.phone||'')}" style="width:100%;max-width:28rem;padding:.5rem"></label></p>
+          <fieldset class="cdek-mode">
+            <legend>Delivery method <span class="req">*</span></legend>
+            <label class="cdek-mode__opt"><input type="radio" name="cdek_delivery_type" value="pvz" ${deliveryState.mode !== 'door' ? 'checked' : ''}> CDEK pickup point</label>
+            <label class="cdek-mode__opt"><input type="radio" name="cdek_delivery_type" value="door" ${deliveryState.mode === 'door' ? 'checked' : ''}> To the door (CDEK courier)</label>
+          </fieldset>
+          <p><label>City <span class="req">*</span><br>
+            <input id="cityQuery" type="search" placeholder="Start typing a city" autocomplete="off" style="width:100%;max-width:28rem;padding:.5rem">
+          </label></p>
+          <div id="cityList" class="cdek-suggest" hidden></div>
+          <div id="pvzBlock">
+            <p><label>CDEK pickup point <span class="req">*</span><br>
+              <select id="pvzSelect" required disabled style="width:100%;max-width:28rem;padding:.5rem">
+                <option value="">Select a city first</option>
+              </select>
+            </label></p>
+          </div>
+          <div id="doorBlock" hidden>
+            <p><label>Delivery address <span class="req">*</span><br>
+              <input id="doorAddress" name="customer_address" placeholder="Street, building, apartment" autocomplete="street-address" style="width:100%;max-width:28rem;padding:.5rem" value="${esc(deliveryState.doorAddress || '')}">
+            </label></p>
+            <p><label>Postal code <span class="opt">(optional)</span><br>
+              <input id="doorPostal" name="customer_postal_code" inputmode="numeric" maxlength="6" placeholder="394000" autocomplete="postal-code" style="width:100%;max-width:12rem;padding:.5rem" value="${esc(deliveryState.postal || '')}">
+            </label></p>
+          </div>
+          <p id="shipInfo" class="shop-hint">Choose delivery method and city to see shipping cost.</p>
+          <p><label>Comment <span class="opt">(optional)</span><br><textarea name="comment" style="width:100%;max-width:28rem;min-height:60px;padding:.5rem"></textarea></label></p>
+          ${paymentsEnabled
+            ? `<p><button class="shop-btn" type="submit">Pay for product online</button></p>`
+            : `<div class="shop-flash err">Online payment is temporarily unavailable</div>
+               <p><button class="shop-btn" type="submit" disabled>Payment unavailable</button></p>`}
+        </form>` : user?.is_admin
+          ? `<div class="shop-flash err">Admins cannot place orders — sign in as a buyer.</div>`
+          : `<p><a class="shop-btn" href="/en/login.html">Sign in to checkout</a></p>`}
+      `;
+      root.querySelectorAll('[data-qty]').forEach(inp => {
+        inp.addEventListener('change', () => {
+          const id = Number(inp.dataset.qty);
+          const qty = Math.max(1, Number(inp.value) || 1);
+          setCart(getCart().map(i => i.product_id === id ? {...i, qty} : i));
+          render();
+        });
+      });
+      root.querySelectorAll('[data-rm]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          setCart(getCart().filter(i => i.product_id !== Number(btn.dataset.rm)));
+          render();
+        });
+      });
+
+      const cityInput = document.getElementById('cityQuery');
+      const cityList = document.getElementById('cityList');
+      const pvzSelect = document.getElementById('pvzSelect');
+      const doorInput = document.getElementById('doorAddress');
+      const doorPostal = document.getElementById('doorPostal');
+      applyDeliveryModeUi();
+      if (cityInput && deliveryState.cityLabel) cityInput.value = deliveryState.cityLabel;
+      if (deliveryState.cityCode && deliveryState.mode === 'pvz') {
+        loadPvzForCity().then(() => { if (deliveryState.shippingRub != null) recalcShipping(); });
+      } else if (deliveryState.cityCode && deliveryState.mode === 'door') {
+        recalcShipping();
+      }
+
+      root.querySelectorAll('input[name=cdek_delivery_type]').forEach((radio) => {
+        radio.addEventListener('change', async () => {
+          deliveryState.mode = radio.value === 'door' ? 'door' : 'pvz';
+          deliveryState.shippingRub = null;
+          applyDeliveryModeUi();
+          if (deliveryState.mode === 'pvz' && deliveryState.cityCode) await loadPvzForCity();
+          if (deliveryState.cityCode) await recalcShipping();
+          else {
+            const box = document.getElementById('shipInfo');
+            if (box) box.textContent = 'Choose delivery method and city to see shipping cost.';
+          }
+        });
+      });
+      doorInput?.addEventListener('input', () => { deliveryState.doorAddress = doorInput.value.trim(); });
+      doorPostal?.addEventListener('input', () => { deliveryState.postal = doorPostal.value.replace(/\D/g, '').slice(0, 6); });
+
+      if (cityInput) {
+        cityInput.addEventListener('input', () => {
+          clearTimeout(cityTimer);
+          const q = cityInput.value.trim();
+          if (q.length < 2) { cityList.hidden = true; cityList.innerHTML = ''; return; }
+          cityTimer = setTimeout(async () => {
+            try {
+              const { cities } = await api('/cdek/cities?q=' + encodeURIComponent(q));
+              if (!cities.length) {
+                cityList.innerHTML = '<div class="cdek-suggest__item muted">Nothing found</div>';
+                cityList.hidden = false;
+                return;
+              }
+              cityList.innerHTML = cities.map(c =>
+                `<button type="button" class="cdek-suggest__item" data-code="${c.code}" data-label="${esc(c.city)}${c.region ? ', ' + esc(c.region) : ''}">${esc(c.city)}${c.region ? ' <span class="muted">' + esc(c.region) + '</span>' : ''}</button>`
+              ).join('');
+              cityList.hidden = false;
+              cityList.querySelectorAll('[data-code]').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                  deliveryState.cityCode = Number(btn.dataset.code);
+                  deliveryState.cityLabel = btn.dataset.label;
+                  deliveryState.pvzCode = ''; deliveryState.pvzAddress = '';
+                  if (deliveryState.mode === 'pvz') deliveryState.postal = '';
+                  deliveryState.shippingRub = null;
+                  cityInput.value = deliveryState.cityLabel;
+                  cityList.hidden = true;
+                  if (deliveryState.mode === 'pvz') await loadPvzForCity();
+                  await recalcShipping();
+                });
+              });
+            } catch (e) {
+              cityList.innerHTML = `<div class="cdek-suggest__item err">${esc(e.message)}</div>`;
+              cityList.hidden = false;
+            }
+          }, 280);
+        });
+      }
+      if (pvzSelect) {
+        pvzSelect.addEventListener('change', async () => {
+          const opt = pvzSelect.selectedOptions[0];
+          deliveryState.pvzCode = pvzSelect.value;
+          deliveryState.pvzAddress = opt?.dataset?.address || '';
+          deliveryState.postal = opt?.dataset?.postal || '';
+          await recalcShipping();
+        });
+      }
+      document.getElementById('order')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!paymentsEnabled) {
+          flash.innerHTML = `<div class="shop-flash err">Online payment is temporarily unavailable</div>`;
+          return;
+        }
+        const fd = new FormData(e.target);
+        const last = String(fd.get('customer_last_name') || '').trim();
+        const name = String(fd.get('customer_name') || '').trim();
+        const patronymic = String(fd.get('customer_patronymic') || '').trim();
+        const phone = String(fd.get('customer_phone') || '').trim();
+        if (!last || !name || !patronymic || !phone) {
+          flash.innerHTML = `<div class="shop-flash err">Fill in last name, first name, patronymic and phone</div>`;
+          return;
+        }
+        if (!deliveryState.cityCode) {
+          flash.innerHTML = `<div class="shop-flash err">Select a delivery city</div>`;
+          return;
+        }
+        const mode = deliveryState.mode === 'door' ? 'door' : 'pvz';
+        if (mode === 'pvz' && (!deliveryState.pvzCode || !deliveryState.pvzAddress)) {
+          flash.innerHTML = `<div class="shop-flash err">Select a CDEK pickup point</div>`;
+          return;
+        }
+        const doorAddress = String(fd.get('customer_address') || deliveryState.doorAddress || '').trim();
+        if (mode === 'door' && !doorAddress) {
+          flash.innerHTML = `<div class="shop-flash err">Enter a door delivery address</div>`;
+          return;
+        }
+        try {
+          const data = await api('/orders', {
+            method: 'POST',
+            body: {
+              customer_last_name: last,
+              customer_name: name,
+              customer_patronymic: patronymic,
+              customer_phone: phone,
+              customer_postal_code: mode === 'door'
+                ? String(fd.get('customer_postal_code') || deliveryState.postal || '').replace(/\D/g, '').slice(0, 6)
+                : (deliveryState.postal || ''),
+              customer_address: mode === 'door' ? doorAddress : '',
+              cdek_delivery_type: mode,
+              cdek_city_code: deliveryState.cityCode,
+              cdek_pvz_code: mode === 'pvz' ? deliveryState.pvzCode : '',
+              cdek_pvz_address: mode === 'pvz' ? deliveryState.pvzAddress : '',
+              cdek_postal_code: deliveryState.postal || '',
+              comment: fd.get('comment'),
+              items: getCart(),
+            },
+          });
+          setCart([]);
+          if (data.confirmationUrl) {
+            flash.innerHTML = `<div class="shop-flash ok">Order #${data.order.id} created. Redirecting to payment…</div>`;
+            location.href = data.confirmationUrl;
+            return;
+          }
+          flash.innerHTML = `<div class="shop-flash ok">Order #${data.order.id} created${data.paymentError ? '. ' + esc(data.paymentError) : ''}. <a href="/en/account.html">Account</a></div>`;
+          render();
+        } catch (err) {
+          flash.innerHTML = `<div class="shop-flash err">${esc(err.message)}</div>`;
+        }
+      });
+    }
+    render();
+  </script>
+</body>
+</html>

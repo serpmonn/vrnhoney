@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Кабинет — VRNHoney</title>
+  <link rel="icon" href="images/favicon.svg?v=6" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/site.css?v=20260811j">
+  <link rel="stylesheet" href="/css/shop-site.css?v=23">
+</head>
+<body class="shop-page">
+<div class="menu-icon" id="menuToggle" role="button" tabindex="0" aria-label="Меню">☰</div>
+  <nav id="mainNav" role="navigation">
+    <div class="menu-items">
+      <div class="menu-header">
+        <p><img src="/images/VRNHoney-round.png" width="28" height="28" alt="Логотип VRNHoney"> VRNHoney</p>
+      </div>
+      <a href="/#tab1">Мёд в Воронеже</a>
+      <a href="/#tab2">Галерея</a>
+      <a href="/#tab3">Купить</a>
+      <a class="lang-switch" href="/en/" hreflang="en" lang="en">EN</a>
+      <a class="social-button" href="https://vk.com/vrnhoney_ru" target="_blank" rel="noopener">Сообщество</a>
+            <a class="shop-nav-cart" href="/cart.html" aria-label="Корзина" title="Корзина"><svg class="shop-cart-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.2 14.4l.1.6c.1.6.6 1 1.2 1H19v-2H9.4l-.3-1.2L7.2 14.4zM7 4H4V2h3l.7 3H20c.6 0 1 .5.9 1.1l-1.2 6c-.1.6-.6 1-1.2 1H8.1L7 4zm1.4 3 .6 2.5h8.7l.8-2.5H8.4z"/></svg><span class="shop-badge" data-cart-count>0</span></a>
+            <a class="shop-nav-account" href="/account.html" data-shop-account hidden>Кабинет</a>
+            <a class="shop-nav-login" href="/login.html" data-shop-login>Войти</a>
+    </div>
+  </nav>
+  <div id="menuOverlay" class="overlay" role="button" tabindex="0" aria-label="Закрыть меню"></div>
+
+<div class="tab-content is-active">
+    <div class="transparent-container">
+      <h1>Личный кабинет</h1>
+      <div id="root"></div>
+    </div>
+  </div>
+  <script src="scripts/site.js?v=20260811j" defer></script>
+  <script type="module">
+    import { api, money, refreshNav, watchPaymentSuccess } from '/js/shop.js?v=9';
+    const user = await refreshNav();
+    const root = document.getElementById('root');
+    function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+    const statusRu = { new: 'Новый', confirmed: 'Подтверждён', shipped: 'Отправлен', done: 'Выполнен', cancelled: 'Отменён' };
+    const payRu = { unpaid: 'Не оплачен', pending: 'Ожидает оплаты', paid: 'Оплачен', canceled: 'Оплата отменена' };
+    const params = new URLSearchParams(location.search);
+    if (!user) location.href = '/login.html';
+    else {
+      const { orders } = await api('/orders/mine');
+      watchPaymentSuccess(orders);
+      const payNote = params.get('payment') === 'return'
+        ? '<div class="shop-flash ok">Если оплата прошла успешно, статус обновится в течение минуты. Обновите страницу при необходимости.</div>'
+        : '';
+      root.innerHTML = `
+        ${payNote}
+        <div class="product">
+          <p><strong>${esc(user.name || user.email)}</strong> · ${esc(user.email)}</p>
+        </div>
+        <div class="product">
+          <h3>Мои заказы</h3>
+          ${orders.length ? `<table class="shop-table">
+            <thead><tr><th>№</th><th>Статус</th><th>Оплата</th><th>Сумма</th><th>Доставка / СДЭК</th><th>Состав</th><th></th></tr></thead>
+            <tbody>${orders.map(o => `<tr>
+              <td>${o.id}<br><small>${esc([o.customer_last_name, o.customer_name, o.customer_patronymic].filter(Boolean).join(' '))}</small><br><small>${esc(o.customer_address || o.cdek_pvz_address || '')}</small></td>
+              <td>${esc(statusRu[o.status] || o.status)}</td>
+              <td>${esc(payRu[o.payment_status] || o.payment_status || 'unpaid')}</td>
+              <td>${money(o.total_rub)}<br><small class="muted">мёд</small></td>
+              <td>${o.shipping_rub ? money(o.shipping_rub) + ' <small class="muted">при получении</small>' : '—'}
+                ${o.cdek_number ? `<br><small>Трек: ${esc(o.cdek_number)}</small>` : ''}
+                ${o.cdek_delivery_type === 'door'
+                  ? `<br><small>до двери</small>`
+                  : (o.cdek_pvz_code ? `<br><small>ПВЗ ${esc(o.cdek_pvz_code)}</small>` : '')}
+                ${o.cdek_status && !o.cdek_number ? `<br><small class="muted">${esc(o.cdek_status)}</small>` : ''}
+              </td>
+              <td>${o.items.map(i => esc(i.title)+' ×'+i.qty).join('<br>')}</td>
+              <td>${o.payment_status !== 'paid' && o.status !== 'cancelled' ? `<button type="button" class="shop-btn" data-pay="${o.id}">Оплатить</button>` : ''}</td>
+            </tr>`).join('')}</tbody>
+          </table>` : '<p>Заказов пока нет.</p>'}
+        </div>`;
+      root.querySelectorAll('[data-pay]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          btn.disabled = true;
+          try {
+            const data = await api('/orders/' + btn.dataset.pay + '/pay', { method: 'POST', body: {} });
+            if (data.confirmationUrl) location.href = data.confirmationUrl;
+            else alert('Не удалось получить ссылку оплаты');
+          } catch (e) {
+            alert(e.message);
+            btn.disabled = false;
+          }
+        });
+      });
+    }
+  </script>
+<footer class="footer">
+  <span class="footer-row"><a href="/offer.html">Оферта</a></span>
+  <span class="footer-dot" aria-hidden="true">·</span>
+  <span class="footer-row footer-row--dev">
+    <span class="footer-label">Разработчик:</span>
+    <a href="https://www.serpmonn.ru" target="_blank" rel="noopener"><span style="color: red;">Serp</span><span style="color: black;">monn</span></a>
+  </span>
+</footer>
+</body>
+</html>
