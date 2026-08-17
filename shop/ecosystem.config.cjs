@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'vrnhoney-shop',
-    cwd: '/var/www/vrnhoney-shop',
+    cwd: '/var/www/vrnhoney.ru/shop',
     script: 'server/index.mjs',
     instances: 1,
     exec_mode: 'fork',
