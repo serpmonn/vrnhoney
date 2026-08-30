@@ -7,7 +7,7 @@
   <title>Корзина — VRNHoney</title>
   <link rel="icon" href="images/favicon.svg?v=6" type="image/svg+xml">
   <link rel="stylesheet" href="styles/site.css?v=20260811j">
-  <link rel="stylesheet" href="/css/shop-site.css?v=23">
+  <link rel="stylesheet" href="/css/shop-site.css?v=24">
 </head>
 <body class="shop-page">
 <div class="menu-icon" id="menuToggle" role="button" tabindex="0" aria-label="Меню">☰</div>
@@ -153,18 +153,18 @@
         itemsTotal += line;
         return `<tr>
           <td>${esc(i.product.title)}</td>
-          <td>${money(i.product.price_rub)}</td>
-          <td><input type="number" min="1" max="${i.product.stock}" value="${i.qty}" data-qty="${i.product_id}" style="width:4.5rem"></td>
-          <td>${money(line)}</td>
-          <td><button type="button" class="shop-btn secondary" data-rm="${i.product_id}" aria-label="Удалить">Удалить</button></td>
+          <td data-label="Цена">${money(i.product.price_rub)}</td>
+          <td data-label="Кол-во"><input type="number" min="1" max="${i.product.stock}" value="${i.qty}" data-qty="${i.product_id}"></td>
+          <td data-label="Сумма">${money(line)}</td>
+          <td><button type="button" class="shop-cart-rm" data-rm="${i.product_id}" aria-label="Удалить" title="Удалить">&times;</button></td>
         </tr>`;
       }).join('');
       root.innerHTML = `
-        <table class="shop-table">
+        <table class="shop-table shop-table--cart">
           <thead><tr><th>Товар</th><th>Цена</th><th>Кол-во</th><th>Сумма</th><th></th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
-        <p><strong>Итого за мёд: ${money(itemsTotal)}</strong></p>
+        <p><strong>Итого: ${money(itemsTotal)}</strong></p>
         ${user && !user.is_admin ? `
         <form id="order" style="margin-top:1rem" novalidate>
           <p class="shop-hint">Поля со звёздочкой обязательны. Доставку СДЭК оплачиваете при получении; онлайн — только товар.</p>
